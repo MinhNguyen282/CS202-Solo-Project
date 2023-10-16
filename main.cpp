@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
-#include <SFML/Graphics.hpp>
+#include "Game.hpp"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world";
+    Game game;
+    game.run();
     return 0;
 }
