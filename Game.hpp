@@ -1,6 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 #include <SFML/Graphics.hpp>
+#include "World.hpp"
 
 class Game
 {
@@ -13,6 +14,7 @@ class Game
         void render();
     private:
         sf::RenderWindow mWindow;
+        World mWorld;
 };
 
 #endif // GAME_HPP

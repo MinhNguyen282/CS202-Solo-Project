@@ -3,7 +3,8 @@
 sf::Time TimePerFrame = sf::seconds(1.f/60.f);
 
 Game::Game()
-: mWindow(sf::VideoMode(1200, 720), "World", sf::Style::Close)
+: mWindow(sf::VideoMode(1200, 720), "Little Witch", sf::Style::Close)
+, mWorld(mWindow)
 {
 
 }
@@ -37,11 +38,14 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
-
+    mWorld.update(deltaTime);
 }
 
 void Game::render()
 {
-    mWindow.clear();
+    mWindow.clear(sf::Color::White);
+    mWorld.draw();
+    
+    mWindow.setView(mWindow.getDefaultView());
     mWindow.display();
 }
