@@ -14,6 +14,8 @@ class Witch : public Entity
     public:
         explicit Witch(Type type, const TextureHolder& textures);
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+        void setTextureRect(sf::IntRect rect);
+        sf::FloatRect getLocalBounds() const;
     private:
         Type mType;
         sf::Sprite mSprite;

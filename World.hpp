@@ -6,6 +6,8 @@
 #include <array>
 
 #include "Witch.hpp"
+#include "SceneNode.hpp"
+#include "SpriteNode.hpp"
 #include "ResourcesIdentifier.hpp"
 #include "ResourcesHolder.hpp"
 

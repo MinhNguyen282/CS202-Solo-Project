@@ -23,3 +23,13 @@ void Witch::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(mSprite, states);
 }
+
+void Witch::setTextureRect(sf::IntRect rect)
+{
+	mSprite.setTextureRect(rect);
+}
+
+sf::FloatRect Witch::getLocalBounds() const
+{
+	return mSprite.getLocalBounds();
+}
