@@ -2,6 +2,7 @@
 #define GAME_HPP
 #include <SFML/Graphics.hpp>
 #include "World.hpp"
+#include "Player.hpp"
 
 class Game
 {
@@ -15,6 +16,8 @@ class Game
     private:
         sf::RenderWindow mWindow;
         World mWorld;
-};
+        bool mIsPaused = false;
+        Player mPlayer;
+};  
 
 #endif // GAME_HPP

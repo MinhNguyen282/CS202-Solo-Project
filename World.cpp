@@ -19,10 +19,38 @@ World::World(sf::RenderWindow& window)
 
 void World::update(sf::Time deltaTime)
 {
-    mWorldView.move(-mScrollSpeed * deltaTime.asSeconds(), 0.f);
+    //mWorldView.move(-mScrollSpeed * deltaTime.asSeconds(), 0.f);
 
-    mPlayerCharacter->setVelocity(0.f, 0.f);
+    while (mCommandQueue.isEmpty() == false)
+    {
+        mSceneGraph.onCommand(mCommandQueue.pop(), deltaTime);
+    }
+
+    sf::Vector2f velocity = mPlayerCharacter->getVelocity();
+    if (velocity.x != 0.f && velocity.y != 0.f)
+    {
+        mPlayerCharacter->setVelocity(velocity / std::sqrt(2.f));
+    }
+
+    //mPlayerCharacter->accelerate(-mScrollSpeed, 0.f);
+
     mSceneGraph.update(deltaTime);
+    mPlayerCharacter->setVelocity(0.f, 0.f);
+
+    sf::FloatRect viewBounds(mWorldView.getCenter() - mWorldView.getSize() / 2.f, mWorldView.getSize());
+    const float borderDistance = 10.f;
+
+    sf::Vector2f position = mPlayerCharacter->getPosition();
+    position.x = std::max(position.x, viewBounds.left + borderDistance);
+    position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance - mPlayerCharacter->getLocalBounds().width);
+    position.y = std::max(position.y, viewBounds.top + borderDistance);
+    position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance - mPlayerCharacter->getLocalBounds().height);
+    mPlayerCharacter->setPosition(position);
+}
+
+CommandQueue& World::getCommandQueue()
+{
+    return mCommandQueue;
 }
 
 void World::draw()
@@ -58,5 +86,12 @@ void World::buildScene()
     sf::FloatRect bounds = mPlayerCharacter->getLocalBounds();
     mPlayerCharacter->setPosition(mWorldView.getSize().x / 2 - bounds.width / 2, mWorldBounds.height - mWorldView.getSize().y / 2 - bounds.height / 2);
     mPlayerCharacter->setTextureRect(sf::IntRect(0, 0, 64, 96));
+    mPlayerCharacter->setAnimation(Witch::Idle);
+    mPlayerCharacter->pushAnimation(Witch::Idle, 6, 64, 96);
+    mPlayerCharacter->pushAnimation(Witch::TakedDamage, 3, 64, 96);
+    mPlayerCharacter->pushAnimation(Witch::Walk, 8, 64, 96);
+    mPlayerCharacter->pushAnimation(Witch::Charge, 5, 96, 96);
+    mPlayerCharacter->pushAnimation(Witch::Die, 12, 64, 80);
+    mPlayerCharacter->pushAnimation(Witch::Attack, 9, 217, 96);
     mSceneLayers[Ground]->attachChild(std::move(player));
 }

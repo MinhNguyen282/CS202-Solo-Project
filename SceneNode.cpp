@@ -45,6 +45,21 @@ sf::Transform SceneNode::getWorldTransform() const
     return transform;
 }
 
+//Gửi lệnh đến nút hiện tại và các nút con
+void SceneNode::onCommand(const Command& command, sf::Time deltaTime)
+{
+    if (command.category & getCategory())
+        command.action(*this, deltaTime);
+    for (Ptr& child : mChildren)
+        child->onCommand(command, deltaTime);
+}
+
+//Lấy danh mục của nút hiện tại
+unsigned int SceneNode::getCategory() const
+{
+    return Category::Scene;
+}
+
 //Update vị trí của nút hiện tại
 void SceneNode::updateCurrent(sf::Time deltaTime)
 {

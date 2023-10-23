@@ -20,7 +20,7 @@ void Game::run()
         {
             timeSinceLastUpdate -= TimePerFrame;
             processEvents();
-            update(TimePerFrame);
+            if (!mIsPaused) update(TimePerFrame);
         }
         render();
     }
@@ -28,12 +28,25 @@ void Game::run()
 
 void Game::processEvents()
 {
+    CommandQueue& commands = mWorld.getCommandQueue();
+
     sf::Event event;
     while (mWindow.pollEvent(event))
     {
+        mPlayer.handleEvent(event, commands);
+
+        if (event.type == sf::Event::GainedFocus)
+        {
+            mIsPaused = false;
+        }
+        else if (event.type == sf::Event::LostFocus)
+        {
+            mIsPaused = true;
+        }
         if (event.type == sf::Event::Closed)
             mWindow.close();
     }
+    mPlayer.handleRealtimeInput(commands);
 }
 
 void Game::update(sf::Time deltaTime)

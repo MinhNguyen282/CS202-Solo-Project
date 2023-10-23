@@ -4,6 +4,8 @@
 #include <SFML/System.hpp>  
 
 #include "ResourcesIdentifier.hpp"
+#include "Category.hpp"
+#include "Command.hpp"
 #include <vector>
 #include <memory>
 
@@ -21,6 +23,9 @@ class SceneNode : public sf::Transformable, public sf::Drawable, private sf::Non
 
         sf::Vector2f getWorldPosition() const;
         sf::Transform getWorldTransform() const;
+
+        void onCommand(const Command& command, sf::Time deltaTime);
+        virtual unsigned int getCategory() const;
     
     private:
         virtual void updateCurrent(sf::Time deltaTime);

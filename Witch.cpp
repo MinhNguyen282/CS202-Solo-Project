@@ -33,3 +33,52 @@ sf::FloatRect Witch::getLocalBounds() const
 {
 	return mSprite.getLocalBounds();
 }
+
+unsigned int Witch::getCategory() const
+{
+	return Category::Player;
+}
+
+void Witch::setAnimation(Animation animation)
+{
+	if (mCurrentAnimation == animation) return;
+	mCurrentAnimation = animation;
+	curX = 0;
+	numRow = 0;
+	for(size_t i=0; i<NumAnimation; i++){
+		if (i == animation) break;
+		curX += std::get<1>(mAnimationMap[(Animation)i]);
+	}
+}
+
+bool Witch::isAttack()
+{
+	return mCurrentAnimation == Attack;
+}
+
+void Witch::pushAnimation(Animation animation, int maxNumRow, int width, int height)
+{
+	mAnimationMap[animation] = std::make_tuple(maxNumRow, width, height);
+}
+
+void Witch::updateCurrent(sf::Time deltaTime)
+{
+	move(getVelocity() * deltaTime.asSeconds());
+	int maxNumRow = std::get<0>(mAnimationMap[mCurrentAnimation]);
+	int width = std::get<1>(mAnimationMap[mCurrentAnimation]);
+	int height = std::get<2>(mAnimationMap[mCurrentAnimation]);
+	
+	mAnimationTime += deltaTime;
+
+	if (mAnimationTime >= sf::seconds(0.1f))
+	{
+		mAnimationTime = sf::Time::Zero;
+		numRow++;
+		if (numRow == maxNumRow)
+		{
+			numRow = 0;
+			if (isAttack()) setAnimation(Witch::Idle), width = std::get<1>(mAnimationMap[mCurrentAnimation]), height = std::get<2>(mAnimationMap[mCurrentAnimation]);
+		}
+		mSprite.setTextureRect(sf::IntRect(curX, height * numRow, width, height));
+	}
+}

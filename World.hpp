@@ -4,10 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <array>
+#include <math.h>
 
 #include "Witch.hpp"
 #include "SceneNode.hpp"
 #include "SpriteNode.hpp"
+#include "CommandQueue.hpp"
 #include "ResourcesIdentifier.hpp"
 #include "ResourcesHolder.hpp"
 
@@ -22,6 +24,7 @@ class World : private sf::NonCopyable
         explicit World(sf::RenderWindow &window);
         void update(sf::Time deltaTime);
         void draw();
+        CommandQueue& getCommandQueue();
     private:
         void loadTextures();
         void buildScene();
@@ -45,7 +48,7 @@ class World : private sf::NonCopyable
         float mScrollSpeed;
 
         Witch* mPlayerCharacter;
-
+        CommandQueue mCommandQueue;
 };
 
 #endif // WORLD_HPP
