@@ -42,6 +42,7 @@ unsigned int Witch::getCategory() const
 void Witch::setAnimation(Animation animation)
 {
 	if (mCurrentAnimation == animation) return;
+	if (mCurrentAnimation == Attack && animation != Idle) return;
 	mCurrentAnimation = animation;
 	curX = 0;
 	numRow = 0;

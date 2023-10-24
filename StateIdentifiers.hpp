@@ -8,6 +8,7 @@ namespace States
         None,
         Title,
         Menu,
+        Loading,
         Game,
         Pause,
     };

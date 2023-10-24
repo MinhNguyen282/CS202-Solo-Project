@@ -8,7 +8,6 @@
 #include "ResourcesIdentifier.hpp"
 #include "Player.hpp"
 #include "StateStack.hpp"
-#include "GameState.hpp"
 
 class Application
 {
