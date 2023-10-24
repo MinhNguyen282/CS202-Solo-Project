@@ -6,6 +6,7 @@
 namespace sf
 {
 	class Texture;
+	class Font;
 }
 
 namespace Textures
@@ -14,6 +15,15 @@ namespace Textures
 	{
 		BlueWitch,
 		Desert,
+		Title,
+	};
+}
+
+namespace Fonts
+{
+	enum ID
+	{
+		Main,
 	};
 }
 
@@ -22,5 +32,6 @@ template <typename Resource, typename Identifier>
 class ResourceHolder;
 
 typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
+typedef ResourceHolder<sf::Font, Fonts::ID> FontHolder;
 
 #endif // BOOK_RESOURCEIDENTIFIERS_HPP

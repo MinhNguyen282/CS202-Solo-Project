@@ -23,15 +23,13 @@ Player::Player()
     mKeyBinding[sf::Keyboard::Right] = moveRight;
     mKeyBinding[sf::Keyboard::Up] = moveUp;
     mKeyBinding[sf::Keyboard::Down] = moveDown;
-    mKeyBinding[sf::Keyboard::Space] = charge;
-    mKeyBinding[sf::Keyboard::A] = attack;
+    mKeyBinding[sf::Keyboard::Space] = attack;
 
     mActionBinding[moveLeft].action = derivedAction<Witch>(WitchMover(-200.f, 0.f));
     mActionBinding[moveRight].action = derivedAction<Witch>(WitchMover(200.f, 0.f));
     mActionBinding[moveUp].action = derivedAction<Witch>(WitchMover(0.f, -200.f));
     mActionBinding[moveDown].action = derivedAction<Witch>(WitchMover(0.f, 200.f));
     mActionBinding[attack].action = derivedAction<Witch>([] (Witch& w, sf::Time) { w.setAnimation(Witch::Animation::Attack); });
-    mActionBinding[charge].action = derivedAction<Witch>([] (Witch& w, sf::Time) { w.setAnimation(Witch::Animation::Charge); });
 
     for(auto &pair : mActionBinding)
     {

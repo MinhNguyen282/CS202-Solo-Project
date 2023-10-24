@@ -1,11 +1,18 @@
 #include <bits/stdc++.h>
-#include "Game.hpp"
+#include "Application.hpp"
 
 using namespace std;
 
 int main()
 {
-    Game game;
-    game.run();
+    try
+    {
+        Application app;
+        app.run();
+    }
+    catch (std::exception& e)
+    {
+        std::cout << "\nEXCEPTION: " << e.what() << '\n';
+    }
     return 0;
 }
