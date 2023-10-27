@@ -7,6 +7,8 @@
 #include "PauseState.hpp"
 #include "GameState.hpp"
 #include "LoadingState.hpp"
+#include "SettingState.hpp"
+#include "CreditState.hpp"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -24,6 +26,14 @@ Application::Application()
 
     mFonts.load(Fonts::Main, "Media/buddychampion.ttf");
     mTextures.load(Textures::Title, "Media/Textures/TitleScreen.png");
+    mTextures.load(Textures::ButtonNormal, "Media/Textures/ButtonNormal.png");
+    mTextures.load(Textures::ButtonSelected, "Media/Textures/ButtonSelected.png");
+    mTextures.load(Textures::ButtonPressed, "Media/Textures/ButtonPressed.png");
+    mTextures.load(Textures::smallButtonNormal, "Media/Textures/smallButtonNormal.png");
+    mTextures.load(Textures::smallButtonSelected, "Media/Textures/smallButtonSelected.png");
+    mTextures.load(Textures::smallButtonPressed, "Media/Textures/smallButtonPressed.png");
+    mTextures.load(Textures::Panel, "Media/Textures/Panel.png");
+    mTextures.load(Textures::bigPanel, "Media/Textures/bigPanel.png");
 
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
     mStatisticsText.setPosition(5.f, 5.f);
@@ -102,6 +112,8 @@ void Application::registerStates()
 {
 	mStateStack.registerState<TitleState>(States::Title);
     mStateStack.registerState<MenuState>(States::Menu);
+    mStateStack.registerState<CreditState>(States::Credit);
+    mStateStack.registerState<SettingState>(States::Setting);
     mStateStack.registerState<GameState>(States::Game);
     mStateStack.registerState<LoadingState>(States::Loading);
     mStateStack.registerState<PauseState>(States::Pause);

@@ -16,6 +16,14 @@ namespace Textures
 		BlueWitch,
 		Desert,
 		Title,
+		Panel,
+		bigPanel,
+		ButtonNormal,
+		ButtonSelected,
+		ButtonPressed,
+		smallButtonNormal,
+		smallButtonSelected,
+		smallButtonPressed,
 	};
 }
 

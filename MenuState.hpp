@@ -2,6 +2,7 @@
 #define MENUSTATE_HPP
 
 #include "State.hpp"
+#include "Container.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -12,21 +13,11 @@ class MenuState : public State
         virtual void draw();
         virtual bool update(sf::Time deltaTime);
         virtual bool handleEvent(const sf::Event& event);
-
-        void updateOptionText();
-
-    private:
-        enum OptionNames
-        {
-            Play,
-            Exit,
-        };
     
     private:
         sf::Sprite mBackgroundSprite;
-
-        std::vector<sf::Text> mOptions;
-        std::size_t mOptionIndex;
+        sf::Sprite mPanel;
+        GUI::Container mGUIContainer;
 };
 
 #endif // MENUSTATE_HPP

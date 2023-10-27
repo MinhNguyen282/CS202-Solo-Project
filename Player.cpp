@@ -19,17 +19,20 @@ struct WitchMover
 
 Player::Player()
 {
-    mKeyBinding[sf::Keyboard::Left] = moveLeft;
-    mKeyBinding[sf::Keyboard::Right] = moveRight;
-    mKeyBinding[sf::Keyboard::Up] = moveUp;
-    mKeyBinding[sf::Keyboard::Down] = moveDown;
+    mKeyBinding[sf::Keyboard::A] = moveLeft;
+    mKeyBinding[sf::Keyboard::D] = moveRight;
+    mKeyBinding[sf::Keyboard::W] = moveUp;
+    mKeyBinding[sf::Keyboard::S] = moveDown;
     mKeyBinding[sf::Keyboard::Space] = attack;
+    mMouseBinding[sf::Mouse::Left] = attack;
+    mKeyBinding[sf::Keyboard::Q] = charge;
 
     mActionBinding[moveLeft].action = derivedAction<Witch>(WitchMover(-200.f, 0.f));
     mActionBinding[moveRight].action = derivedAction<Witch>(WitchMover(200.f, 0.f));
     mActionBinding[moveUp].action = derivedAction<Witch>(WitchMover(0.f, -200.f));
     mActionBinding[moveDown].action = derivedAction<Witch>(WitchMover(0.f, 200.f));
     mActionBinding[attack].action = derivedAction<Witch>([] (Witch& w, sf::Time) { w.setAnimation(Witch::Animation::Attack); });
+    mActionBinding[charge].action = derivedAction<Witch>([] (Witch& w, sf::Time) { w.setAnimation(Witch::Animation::Charge); });
 
     for(auto &pair : mActionBinding)
     {
@@ -74,6 +77,7 @@ bool Player::isRealtimeAction(Action action)
         case moveUp:
         case moveDown:
         case attack:
+        case charge:
             return true;
         default:
             return false;
@@ -89,6 +93,13 @@ void Player::handleRealtimeInput(CommandQueue& commands)
             commands.push(mActionBinding[pair.second]);
         }
     }
+    for(auto pair : mMouseBinding)
+    {
+        if (sf::Mouse::isButtonPressed(pair.first) && isRealtimeAction(pair.second))
+        {
+            commands.push(mActionBinding[pair.second]);
+        }
+    }
 }
 
 void Player::handleEvent(const sf::Event& event, CommandQueue& commands)
@@ -97,7 +108,8 @@ void Player::handleEvent(const sf::Event& event, CommandQueue& commands)
     {
         Command switchIdle;
         switchIdle.category = Category::Player;
-        switchIdle.action = derivedAction<Witch>([] (Witch& w, sf::Time) { if (!w.isAttack()) w.setAnimation(Witch::Animation::Idle); });
-        commands.push(switchIdle);
+        switchIdle.action = derivedAction<Witch>([] (Witch& w, sf::Time) {
+            if (w.isCharge()) w.setAnimation(Witch::Idle);
+        });
     }
 }

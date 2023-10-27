@@ -18,6 +18,7 @@ class Player
             moveDown,
             charge,
             attack,
+            actionCount,
         };
         void assignKey(Action action, sf::Keyboard::Key key);
         sf::Keyboard::Key getAssignedKey(Action action) const;
@@ -28,6 +29,7 @@ class Player
         void handleRealtimeInput(CommandQueue& commands);
     private:
         std::map<sf::Keyboard::Key, Action> mKeyBinding;
+        std::map<sf::Mouse::Button, Action> mMouseBinding;
         std::map<Action, Command> mActionBinding;
 };
 

@@ -1,5 +1,6 @@
 #include "Witch.hpp"
 #include "ResourcesHolder.hpp"
+#include <iostream>
 
 Textures::ID toTextureID(Witch::Type type)
 {
@@ -15,7 +16,16 @@ Witch::Witch(Type type, const TextureHolder& textures)
 : mType(type)
 , mSprite(textures.get(toTextureID(type)))
 {
-    mSprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+	mSprite.setTextureRect(sf::IntRect(0, 0, 64, 96));
+	pushAnimation(Witch::Idle, 6, 64, 96);
+    pushAnimation(Witch::TakedDamage, 3, 64, 96);
+    pushAnimation(Witch::Walk, 8, 64, 96);
+    pushAnimation(Witch::Charge, 5, 96, 96);
+    pushAnimation(Witch::Die, 12, 64, 80);
+    pushAnimation(Witch::Attack, 9, 217, 96);
+	mCurrentAnimation = Idle;
+	curX = 0;
+	numRow = 0;
     mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
 }
 
@@ -57,6 +67,16 @@ bool Witch::isAttack()
 	return mCurrentAnimation == Attack;
 }
 
+bool Witch::isRun()
+{
+	return mCurrentAnimation == Walk;
+}
+
+bool Witch::isCharge()
+{
+	return mCurrentAnimation == Charge;
+}
+
 void Witch::pushAnimation(Animation animation, int maxNumRow, int width, int height)
 {
 	mAnimationMap[animation] = std::make_tuple(maxNumRow, width, height);
@@ -64,7 +84,8 @@ void Witch::pushAnimation(Animation animation, int maxNumRow, int width, int hei
 
 void Witch::updateCurrent(sf::Time deltaTime)
 {
-	move(getVelocity() * deltaTime.asSeconds());
+	if (mCurrentAnimation != Attack) move(getVelocity() * deltaTime.asSeconds());
+	if (getVelocity().x == 0 && getVelocity().y==0 && mCurrentAnimation == Walk) setAnimation(Witch::Idle);
 	int maxNumRow = std::get<0>(mAnimationMap[mCurrentAnimation]);
 	int width = std::get<1>(mAnimationMap[mCurrentAnimation]);
 	int height = std::get<2>(mAnimationMap[mCurrentAnimation]);

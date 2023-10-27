@@ -31,6 +31,8 @@ class Witch : public Entity
         void pushAnimation(Animation animation, int numRow, int width, int height);
         void setAnimation(Animation animation);
         bool isAttack();
+        bool isRun();
+        bool isCharge();
 
     private:
         void updateCurrent(sf::Time deltaTime);

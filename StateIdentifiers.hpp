@@ -8,6 +8,8 @@ namespace States
         None,
         Title,
         Menu,
+        Credit,
+        Setting,
         Loading,
         Game,
         Pause,
