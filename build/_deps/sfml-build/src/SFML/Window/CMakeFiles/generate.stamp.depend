@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/mingw64/share/cmake-3.26/Modules/FindOpenGL.cmake
+C:/mingw64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake
+C:/mingw64/share/cmake-3.26/Modules/FindPackageMessage.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/src/SFML/Window/CMakeLists.txt

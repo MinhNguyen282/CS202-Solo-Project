@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/mingw64/share/cmake-3.26/Modules/CMakeParseArguments.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/CompilerWarnings.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/Macros.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/src/SFML/CMakeLists.txt

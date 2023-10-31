@@ -90,6 +90,8 @@
         "stacktrace": "cpp",
         "stdfloat": "cpp",
         "stop_token": "cpp",
-        "syncstream": "cpp"
-    }
+        "syncstream": "cpp",
+        "cassert": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

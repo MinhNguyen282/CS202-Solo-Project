@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CADEF1BF-1002-359A-936A-E73EEC05DDFE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/CS202/SoloProject/CS202-Solo-Project/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\mingw64\bin\cmake.exe -SE:/CS202/SoloProject/CS202-Solo-Project -BE:/CS202/SoloProject/CS202-Solo-Project/build --check-stamp-file E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\mingw64\share\cmake-3.26\Modules\CMakeCXXInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeCommonLanguageInclude.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeGenericSystem.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeInitializeConfigs.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeLanguageInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeRCInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInitialize.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent\CMakeLists.cmake.in;C:\mingw64\share\cmake-3.26\Modules\FindGit.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\WindowsPaths.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeCXXCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeRCCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/CS202/SoloProject/CS202-Solo-Project/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\mingw64\bin\cmake.exe -SE:/CS202/SoloProject/CS202-Solo-Project -BE:/CS202/SoloProject/CS202-Solo-Project/build --check-stamp-file E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\mingw64\share\cmake-3.26\Modules\CMakeCXXInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeCommonLanguageInclude.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeGenericSystem.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeInitializeConfigs.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeLanguageInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeRCInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInitialize.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent\CMakeLists.cmake.in;C:\mingw64\share\cmake-3.26\Modules\FindGit.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\WindowsPaths.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeCXXCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeRCCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/CS202/SoloProject/CS202-Solo-Project/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\mingw64\bin\cmake.exe -SE:/CS202/SoloProject/CS202-Solo-Project -BE:/CS202/SoloProject/CS202-Solo-Project/build --check-stamp-file E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\mingw64\share\cmake-3.26\Modules\CMakeCXXInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeCommonLanguageInclude.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeGenericSystem.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeInitializeConfigs.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeLanguageInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeRCInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInitialize.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent\CMakeLists.cmake.in;C:\mingw64\share\cmake-3.26\Modules\FindGit.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\WindowsPaths.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeCXXCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeRCCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/CS202/SoloProject/CS202-Solo-Project/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\mingw64\bin\cmake.exe -SE:/CS202/SoloProject/CS202-Solo-Project -BE:/CS202/SoloProject/CS202-Solo-Project/build --check-stamp-file E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\mingw64\share\cmake-3.26\Modules\CMakeCXXInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeCommonLanguageInclude.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeGenericSystem.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeInitializeConfigs.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeLanguageInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeRCInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInformation.cmake;C:\mingw64\share\cmake-3.26\Modules\CMakeSystemSpecificInitialize.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Compiler\MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent.cmake;C:\mingw64\share\cmake-3.26\Modules\FetchContent\CMakeLists.cmake.in;C:\mingw64\share\cmake-3.26\Modules\FindGit.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\mingw64\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC-CXX.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows-MSVC.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\Windows.cmake;C:\mingw64\share\cmake-3.26\Modules\Platform\WindowsPaths.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeCXXCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeRCCompiler.cmake;E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\3.26.4\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\ZERO_CHECK.vcxproj">
+      <Project>{F9E0E92B-3066-35B1-B527-BA0E4E23947D}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeSFMLProject.vcxproj">
+      <Project>{5DEA6100-A530-323D-A3DC-1A4B71ACC5BF}</Project>
+      <Name>CMakeSFMLProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-build\src\SFML\Audio\sfml-audio.vcxproj">
+      <Project>{C9F44B10-FD8D-3964-A8B2-5A4EF7B798EF}</Project>
+      <Name>sfml-audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-build\src\SFML\Graphics\sfml-graphics.vcxproj">
+      <Project>{30E38BC2-36A1-3FE0-8F9E-53CD93B428F7}</Project>
+      <Name>sfml-graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-build\src\SFML\Main\sfml-main.vcxproj">
+      <Project>{72DDBB80-F969-388C-9E62-8FDF327EC844}</Project>
+      <Name>sfml-main</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-build\src\SFML\Network\sfml-network.vcxproj">
+      <Project>{367C8527-4885-3C9D-AC31-2D20FD799F8D}</Project>
+      <Name>sfml-network</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-build\src\SFML\System\sfml-system.vcxproj">
+      <Project>{1CF3BFAC-9240-3769-8DCD-B063EC6E1A50}</Project>
+      <Name>sfml-system</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-build\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{857B63D8-C27B-33C9-A4DB-C3D5853DE78F}</Project>
+      <Name>sfml-window</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

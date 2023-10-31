@@ -1,0 +1,25 @@
+# CMake generation dependency list for this directory.
+C:/mingw64/share/cmake-3.26/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/mingw64/share/cmake-3.26/Modules/CMakeCInformation.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake
+C:/mingw64/share/cmake-3.26/Modules/CPack.cmake
+C:/mingw64/share/cmake-3.26/Modules/CPackComponent.cmake
+C:/mingw64/share/cmake-3.26/Modules/CheckIncludeFile.cmake
+C:/mingw64/share/cmake-3.26/Modules/CheckIncludeFileCXX.cmake
+C:/mingw64/share/cmake-3.26/Modules/CheckTypeSize.cmake
+C:/mingw64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/mingw64/share/cmake-3.26/Modules/Compiler/MSVC-C.cmake
+C:/mingw64/share/cmake-3.26/Modules/Compiler/MSVC.cmake
+C:/mingw64/share/cmake-3.26/Modules/GNUInstallDirs.cmake
+C:/mingw64/share/cmake-3.26/Modules/Platform/Windows-MSVC-C.cmake
+C:/mingw64/share/cmake-3.26/Modules/Platform/Windows-MSVC.cmake
+C:/mingw64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake
+C:/mingw64/share/cmake-3.26/Templates/CPackConfig.cmake.in
+E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/3.26.4/CMakeCCompiler.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/CMakeLists.txt
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/Config.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/SFMLConfig.cmake.in
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/SFMLConfigDependencies.cmake.in

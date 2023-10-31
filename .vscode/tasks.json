@@ -13,6 +13,8 @@
 				"C:\\SFML\\include",
 				"-I",
 				"C:\\dev\\vcpkg\\installed\\x64-windows\\include",
+				"-I",
+				"${workspaceFolder}\\include",
 				"-L",
 				"C:\\SFML\\lib",
 				"-L",

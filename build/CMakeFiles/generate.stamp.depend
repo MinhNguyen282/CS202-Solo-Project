@@ -1,0 +1,25 @@
+# CMake generation dependency list for this directory.
+C:/mingw64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeRCInformation.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake
+C:/mingw64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake
+C:/mingw64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/mingw64/share/cmake-3.26/Modules/Compiler/MSVC-CXX.cmake
+C:/mingw64/share/cmake-3.26/Modules/Compiler/MSVC.cmake
+C:/mingw64/share/cmake-3.26/Modules/FetchContent.cmake
+C:/mingw64/share/cmake-3.26/Modules/FetchContent/CMakeLists.cmake.in
+C:/mingw64/share/cmake-3.26/Modules/FindGit.cmake
+C:/mingw64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake
+C:/mingw64/share/cmake-3.26/Modules/FindPackageMessage.cmake
+C:/mingw64/share/cmake-3.26/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/mingw64/share/cmake-3.26/Modules/Platform/Windows-MSVC.cmake
+C:/mingw64/share/cmake-3.26/Modules/Platform/Windows.cmake
+C:/mingw64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/CMakeLists.txt
+E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/3.26.4/CMakeRCCompiler.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/3.26.4/CMakeSystem.cmake

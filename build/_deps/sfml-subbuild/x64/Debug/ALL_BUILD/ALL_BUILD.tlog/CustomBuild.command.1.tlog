@@ -1,0 +1,10 @@
+^E:\CS202\SOLOPROJECT\CS202-SOLO-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKELISTS.TXT
+setlocal
+C:\mingw64\bin\cmake.exe -SE:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild -BE:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild --check-stamp-file E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

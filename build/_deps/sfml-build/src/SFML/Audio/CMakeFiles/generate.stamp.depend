@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/mingw64/share/cmake-3.26/Modules/FindOpenAL.cmake
+C:/mingw64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake
+C:/mingw64/share/cmake-3.26/Modules/FindPackageMessage.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/Modules/FindFLAC.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/cmake/Modules/FindVORBIS.cmake
+E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/src/SFML/Audio/CMakeLists.txt

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\fd9c0c267a9a7abf071228e5d334191c\sfml-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\588f945ba6df0acdbac5a466ef5b9cb1\sfml-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\53c9dcfbb075aa6f0e73066015a55a3b\sfml-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\CS202\SoloProject\CS202-Solo-Project\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E12C8E74-6FC4-36EA-9C83-F62C45FC6E78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

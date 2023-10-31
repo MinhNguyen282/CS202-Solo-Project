@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/53c9dcfbb075aa6f0e73066015a55a3b/sfml-populate.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/588f945ba6df0acdbac5a466ef5b9cb1/sfml-populate-complete.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-build.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-configure.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-download.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-install.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-mkdir.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-patch.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-test.rule"
+		},
+		{
+			"file" : "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/CMakeFiles/fd9c0c267a9a7abf071228e5d334191c/sfml-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sfml-populate"
+		],
+		"name" : "sfml-populate"
+	}
+}
