@@ -16,7 +16,7 @@ class GameState : public State
     private:
         World mWorld;
         bool mIsPaused = false;
-        Player mPlayer;
+        Player& mPlayer;
 };  
 
 #endif // GAME_HPP

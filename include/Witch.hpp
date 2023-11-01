@@ -29,16 +29,18 @@ class Witch : public Entity
             NumAnimation,
         };
     public:
-        explicit Witch(Type type, const TextureHolder& textures, const FontHolder& fonts, sf::RenderWindow& window);
+        explicit Witch(Type type, const TextureHolder& textures, const FontHolder& fonts);
         void setTextureRect(sf::IntRect rect);
         virtual sf::FloatRect getBoundingRect() const;
         virtual unsigned int getCategory() const;
-        virtual void updateTexts();
         bool isAllied();
+        bool isMarkedForRemoval() const;
+
+        void getTarget(sf::Vector2f target);
 
         float getMaxSpeed() const;
 
-        void fire(const sf::Vector2f& target);
+        void fire();
         void launchAbility();
 
         void createBullets(SceneNode& node, const TextureHolder& textures) const;
@@ -53,13 +55,12 @@ class Witch : public Entity
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);
-        void updateMovementPattern(sf::Time deltaTime);
 
         void checkProjectileLaunch(sf::Time deltaTime, CommandQueue& commands);
+        void updateTexts();
     private:
         Type mType;
         sf::Sprite mSprite;
-        sf::RenderWindow& mWindow;
 
         //Animation
         std::map<Animation, std::tuple<int, int, int>> mAnimationMap;

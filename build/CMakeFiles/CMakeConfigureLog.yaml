@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.3.1+2badb37d1 for .NET Framework
-      Build started 10/31/2023 10:13:59 AM.
+      Build started 11/1/2023 6:33:45 PM.
       Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\3.26.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
@@ -50,7 +50,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.16
+      Time Elapsed 00:00:01.38
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -69,8 +69,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-nbu7nm"
-      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-nbu7nm"
+      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-ve6n91"
+      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-ve6n91"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -79,36 +79,36 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-nbu7nm
+        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-ve6n91
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_39a90.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
-        Build started 10/31/2023 10:14:01 AM.
-        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nbu7nm\\cmTC_39a90.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a5dc5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
+        Build started 11/1/2023 6:33:47 PM.
+        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ve6n91\\cmTC_a5dc5.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_39a90.dir\\Debug\\".
-          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nbu7nm\\Debug\\".
-          Creating directory "cmTC_39a90.dir\\Debug\\cmTC_39a90.tlog\\".
+          Creating directory "cmTC_a5dc5.dir\\Debug\\".
+          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ve6n91\\Debug\\".
+          Creating directory "cmTC_a5dc5.dir\\Debug\\cmTC_a5dc5.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_39a90.dir\\Debug\\cmTC_39a90.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_a5dc5.dir\\Debug\\cmTC_a5dc5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_39a90.dir\\Debug\\\\" /Fd"cmTC_39a90.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a5dc5.dir\\Debug\\\\" /Fd"cmTC_a5dc5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
           CMakeCXXCompilerABI.cpp
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_39a90.dir\\Debug\\\\" /Fd"cmTC_39a90.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a5dc5.dir\\Debug\\\\" /Fd"cmTC_a5dc5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nbu7nm\\Debug\\cmTC_39a90.exe" /INCREMENTAL /ILK:"cmTC_39a90.dir\\Debug\\cmTC_39a90.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-nbu7nm/Debug/cmTC_39a90.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-nbu7nm/Debug/cmTC_39a90.lib" /MACHINE:X64  /machine:x64 cmTC_39a90.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_39a90.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nbu7nm\\Debug\\cmTC_39a90.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ve6n91\\Debug\\cmTC_a5dc5.exe" /INCREMENTAL /ILK:"cmTC_a5dc5.dir\\Debug\\cmTC_a5dc5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-ve6n91/Debug/cmTC_a5dc5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-ve6n91/Debug/cmTC_a5dc5.lib" /MACHINE:X64  /machine:x64 cmTC_a5dc5.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_a5dc5.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ve6n91\\Debug\\cmTC_a5dc5.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_39a90.dir\\Debug\\cmTC_39a90.tlog\\unsuccessfulbuild".
-          Touching "cmTC_39a90.dir\\Debug\\cmTC_39a90.tlog\\cmTC_39a90.lastbuildstate".
-        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nbu7nm\\cmTC_39a90.vcxproj" (default targets).
+          Deleting file "cmTC_a5dc5.dir\\Debug\\cmTC_a5dc5.tlog\\unsuccessfulbuild".
+          Touching "cmTC_a5dc5.dir\\Debug\\cmTC_a5dc5.tlog\\cmTC_a5dc5.lastbuildstate".
+        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ve6n91\\cmTC_a5dc5.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.70
+        Time Elapsed 00:00:00.83
         
       exitCode: 0
   -
@@ -127,7 +127,7 @@ events:
       The output was:
       0
       MSBuild version 17.3.1+2badb37d1 for .NET Framework
-      Build started 10/31/2023 10:15:37 AM.
+      Build started 11/1/2023 6:34:37 PM.
       Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\3.26.4\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
@@ -153,7 +153,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.01
+      Time Elapsed 00:00:01.18
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -172,8 +172,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-a5wobb"
-      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-a5wobb"
+      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-jjrj0b"
+      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-jjrj0b"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -184,36 +184,36 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-a5wobb
+        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-jjrj0b
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a1689.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
-        Build started 10/31/2023 10:15:38 AM.
-        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a5wobb\\cmTC_a1689.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_37da3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
+        Build started 11/1/2023 6:34:39 PM.
+        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jjrj0b\\cmTC_37da3.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_a1689.dir\\Debug\\".
-          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a5wobb\\Debug\\".
-          Creating directory "cmTC_a1689.dir\\Debug\\cmTC_a1689.tlog\\".
+          Creating directory "cmTC_37da3.dir\\Debug\\".
+          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jjrj0b\\Debug\\".
+          Creating directory "cmTC_37da3.dir\\Debug\\cmTC_37da3.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_a1689.dir\\Debug\\cmTC_a1689.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_37da3.dir\\Debug\\cmTC_37da3.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a1689.dir\\Debug\\\\" /Fd"cmTC_a1689.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_37da3.dir\\Debug\\\\" /Fd"cmTC_37da3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
           CMakeCCompilerABI.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a1689.dir\\Debug\\\\" /Fd"cmTC_a1689.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_37da3.dir\\Debug\\\\" /Fd"cmTC_37da3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\mingw64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a5wobb\\Debug\\cmTC_a1689.exe" /INCREMENTAL /ILK:"cmTC_a1689.dir\\Debug\\cmTC_a1689.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-a5wobb/Debug/cmTC_a1689.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-a5wobb/Debug/cmTC_a1689.lib" /MACHINE:X64  /machine:x64 cmTC_a1689.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_a1689.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a5wobb\\Debug\\cmTC_a1689.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jjrj0b\\Debug\\cmTC_37da3.exe" /INCREMENTAL /ILK:"cmTC_37da3.dir\\Debug\\cmTC_37da3.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-jjrj0b/Debug/cmTC_37da3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-jjrj0b/Debug/cmTC_37da3.lib" /MACHINE:X64  /machine:x64 cmTC_37da3.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_37da3.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jjrj0b\\Debug\\cmTC_37da3.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_a1689.dir\\Debug\\cmTC_a1689.tlog\\unsuccessfulbuild".
-          Touching "cmTC_a1689.dir\\Debug\\cmTC_a1689.tlog\\cmTC_a1689.lastbuildstate".
-        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a5wobb\\cmTC_a1689.vcxproj" (default targets).
+          Deleting file "cmTC_37da3.dir\\Debug\\cmTC_37da3.tlog\\unsuccessfulbuild".
+          Touching "cmTC_37da3.dir\\Debug\\cmTC_37da3.tlog\\cmTC_37da3.lastbuildstate".
+        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jjrj0b\\cmTC_37da3.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.77
+        Time Elapsed 00:00:00.87
         
       exitCode: 0
   -
@@ -226,8 +226,8 @@ events:
     checks:
       - "Looking for sys/types.h"
     directories:
-      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-sbcs3w"
-      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-sbcs3w"
+      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-zh9gfb"
+      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-zh9gfb"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -238,36 +238,36 @@ events:
       variable: "HAVE_SYS_TYPES_H"
       cached: true
       stdout: |
-        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-sbcs3w
+        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-zh9gfb
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_70197.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
-        Build started 10/31/2023 10:15:39 AM.
-        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\cmTC_70197.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1feac.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
+        Build started 11/1/2023 6:34:40 PM.
+        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\cmTC_1feac.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_70197.dir\\Debug\\".
-          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\Debug\\".
-          Creating directory "cmTC_70197.dir\\Debug\\cmTC_70197.tlog\\".
+          Creating directory "cmTC_1feac.dir\\Debug\\".
+          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\Debug\\".
+          Creating directory "cmTC_1feac.dir\\Debug\\cmTC_1feac.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_70197.dir\\Debug\\cmTC_70197.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_1feac.dir\\Debug\\cmTC_1feac.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_70197.dir\\Debug\\\\" /Fd"cmTC_70197.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\CheckIncludeFile.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1feac.dir\\Debug\\\\" /Fd"cmTC_1feac.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\CheckIncludeFile.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
           CheckIncludeFile.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_70197.dir\\Debug\\\\" /Fd"cmTC_70197.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\CheckIncludeFile.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1feac.dir\\Debug\\\\" /Fd"cmTC_1feac.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\CheckIncludeFile.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\Debug\\cmTC_70197.exe" /INCREMENTAL /ILK:"cmTC_70197.dir\\Debug\\cmTC_70197.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-sbcs3w/Debug/cmTC_70197.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-sbcs3w/Debug/cmTC_70197.lib" /MACHINE:X64  /machine:x64 cmTC_70197.dir\\Debug\\CheckIncludeFile.obj
-          cmTC_70197.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\Debug\\cmTC_70197.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\Debug\\cmTC_1feac.exe" /INCREMENTAL /ILK:"cmTC_1feac.dir\\Debug\\cmTC_1feac.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-zh9gfb/Debug/cmTC_1feac.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-zh9gfb/Debug/cmTC_1feac.lib" /MACHINE:X64  /machine:x64 cmTC_1feac.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_1feac.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\Debug\\cmTC_1feac.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_70197.dir\\Debug\\cmTC_70197.tlog\\unsuccessfulbuild".
-          Touching "cmTC_70197.dir\\Debug\\cmTC_70197.tlog\\cmTC_70197.lastbuildstate".
-        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sbcs3w\\cmTC_70197.vcxproj" (default targets).
+          Deleting file "cmTC_1feac.dir\\Debug\\cmTC_1feac.tlog\\unsuccessfulbuild".
+          Touching "cmTC_1feac.dir\\Debug\\cmTC_1feac.tlog\\cmTC_1feac.lastbuildstate".
+        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zh9gfb\\cmTC_1feac.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.77
+        Time Elapsed 00:00:00.92
         
       exitCode: 0
   -
@@ -280,8 +280,8 @@ events:
     checks:
       - "Looking for stdint.h"
     directories:
-      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-05cjjm"
-      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-05cjjm"
+      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-47ugjf"
+      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-47ugjf"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -292,36 +292,36 @@ events:
       variable: "HAVE_STDINT_H"
       cached: true
       stdout: |
-        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-05cjjm
+        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-47ugjf
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_9af42.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
-        Build started 10/31/2023 10:15:40 AM.
-        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\cmTC_9af42.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_227d5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
+        Build started 11/1/2023 6:34:41 PM.
+        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\cmTC_227d5.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_9af42.dir\\Debug\\".
-          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\Debug\\".
-          Creating directory "cmTC_9af42.dir\\Debug\\cmTC_9af42.tlog\\".
+          Creating directory "cmTC_227d5.dir\\Debug\\".
+          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\Debug\\".
+          Creating directory "cmTC_227d5.dir\\Debug\\cmTC_227d5.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_9af42.dir\\Debug\\cmTC_9af42.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_227d5.dir\\Debug\\cmTC_227d5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9af42.dir\\Debug\\\\" /Fd"cmTC_9af42.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\CheckIncludeFile.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_227d5.dir\\Debug\\\\" /Fd"cmTC_227d5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\CheckIncludeFile.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
           CheckIncludeFile.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9af42.dir\\Debug\\\\" /Fd"cmTC_9af42.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\CheckIncludeFile.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_227d5.dir\\Debug\\\\" /Fd"cmTC_227d5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\CheckIncludeFile.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\Debug\\cmTC_9af42.exe" /INCREMENTAL /ILK:"cmTC_9af42.dir\\Debug\\cmTC_9af42.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-05cjjm/Debug/cmTC_9af42.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-05cjjm/Debug/cmTC_9af42.lib" /MACHINE:X64  /machine:x64 cmTC_9af42.dir\\Debug\\CheckIncludeFile.obj
-          cmTC_9af42.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\Debug\\cmTC_9af42.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\Debug\\cmTC_227d5.exe" /INCREMENTAL /ILK:"cmTC_227d5.dir\\Debug\\cmTC_227d5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-47ugjf/Debug/cmTC_227d5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-47ugjf/Debug/cmTC_227d5.lib" /MACHINE:X64  /machine:x64 cmTC_227d5.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_227d5.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\Debug\\cmTC_227d5.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_9af42.dir\\Debug\\cmTC_9af42.tlog\\unsuccessfulbuild".
-          Touching "cmTC_9af42.dir\\Debug\\cmTC_9af42.tlog\\cmTC_9af42.lastbuildstate".
-        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05cjjm\\cmTC_9af42.vcxproj" (default targets).
+          Deleting file "cmTC_227d5.dir\\Debug\\cmTC_227d5.tlog\\unsuccessfulbuild".
+          Touching "cmTC_227d5.dir\\Debug\\cmTC_227d5.tlog\\cmTC_227d5.lastbuildstate".
+        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-47ugjf\\cmTC_227d5.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.76
+        Time Elapsed 00:00:00.83
         
       exitCode: 0
   -
@@ -334,8 +334,8 @@ events:
     checks:
       - "Looking for stddef.h"
     directories:
-      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-k13dq4"
-      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-k13dq4"
+      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-fnvynj"
+      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-fnvynj"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -346,36 +346,36 @@ events:
       variable: "HAVE_STDDEF_H"
       cached: true
       stdout: |
-        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-k13dq4
+        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-fnvynj
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_b003d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
-        Build started 10/31/2023 10:15:41 AM.
-        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\cmTC_b003d.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_71387.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
+        Build started 11/1/2023 6:34:42 PM.
+        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\cmTC_71387.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_b003d.dir\\Debug\\".
-          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\Debug\\".
-          Creating directory "cmTC_b003d.dir\\Debug\\cmTC_b003d.tlog\\".
+          Creating directory "cmTC_71387.dir\\Debug\\".
+          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\Debug\\".
+          Creating directory "cmTC_71387.dir\\Debug\\cmTC_71387.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_b003d.dir\\Debug\\cmTC_b003d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_71387.dir\\Debug\\cmTC_71387.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b003d.dir\\Debug\\\\" /Fd"cmTC_b003d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\CheckIncludeFile.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_71387.dir\\Debug\\\\" /Fd"cmTC_71387.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\CheckIncludeFile.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
           CheckIncludeFile.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b003d.dir\\Debug\\\\" /Fd"cmTC_b003d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\CheckIncludeFile.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_71387.dir\\Debug\\\\" /Fd"cmTC_71387.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\CheckIncludeFile.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\Debug\\cmTC_b003d.exe" /INCREMENTAL /ILK:"cmTC_b003d.dir\\Debug\\cmTC_b003d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-k13dq4/Debug/cmTC_b003d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-k13dq4/Debug/cmTC_b003d.lib" /MACHINE:X64  /machine:x64 cmTC_b003d.dir\\Debug\\CheckIncludeFile.obj
-          cmTC_b003d.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\Debug\\cmTC_b003d.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\Debug\\cmTC_71387.exe" /INCREMENTAL /ILK:"cmTC_71387.dir\\Debug\\cmTC_71387.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-fnvynj/Debug/cmTC_71387.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-fnvynj/Debug/cmTC_71387.lib" /MACHINE:X64  /machine:x64 cmTC_71387.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_71387.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\Debug\\cmTC_71387.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_b003d.dir\\Debug\\cmTC_b003d.tlog\\unsuccessfulbuild".
-          Touching "cmTC_b003d.dir\\Debug\\cmTC_b003d.tlog\\cmTC_b003d.lastbuildstate".
-        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k13dq4\\cmTC_b003d.vcxproj" (default targets).
+          Deleting file "cmTC_71387.dir\\Debug\\cmTC_71387.tlog\\unsuccessfulbuild".
+          Touching "cmTC_71387.dir\\Debug\\cmTC_71387.tlog\\cmTC_71387.lastbuildstate".
+        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fnvynj\\cmTC_71387.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.74
+        Time Elapsed 00:00:00.84
         
       exitCode: 0
   -
@@ -388,8 +388,8 @@ events:
     checks:
       - "Check size of void*"
     directories:
-      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-lot8vt"
-      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-lot8vt"
+      source: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-b8parw"
+      binary: "E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-b8parw"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -400,36 +400,36 @@ events:
       variable: "HAVE_SIZEOF_VOID_PTR"
       cached: true
       stdout: |
-        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-lot8vt
+        Change Dir: E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-b8parw
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_197fa.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
-        Build started 10/31/2023 10:15:42 AM.
-        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\cmTC_197fa.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_76fdc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.3.1+2badb37d1 for .NET Framework
+        Build started 11/1/2023 6:34:43 PM.
+        Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\cmTC_76fdc.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_197fa.dir\\Debug\\".
-          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\Debug\\".
-          Creating directory "cmTC_197fa.dir\\Debug\\cmTC_197fa.tlog\\".
+          Creating directory "cmTC_76fdc.dir\\Debug\\".
+          Creating directory "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\Debug\\".
+          Creating directory "cmTC_76fdc.dir\\Debug\\cmTC_76fdc.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_197fa.dir\\Debug\\cmTC_197fa.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_76fdc.dir\\Debug\\cmTC_76fdc.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_197fa.dir\\Debug\\\\" /Fd"cmTC_197fa.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\SIZEOF_VOID_PTR.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_76fdc.dir\\Debug\\\\" /Fd"cmTC_76fdc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\SIZEOF_VOID_PTR.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
           SIZEOF_VOID_PTR.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_197fa.dir\\Debug\\\\" /Fd"cmTC_197fa.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\SIZEOF_VOID_PTR.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_76fdc.dir\\Debug\\\\" /Fd"cmTC_76fdc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\SIZEOF_VOID_PTR.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\Debug\\cmTC_197fa.exe" /INCREMENTAL /ILK:"cmTC_197fa.dir\\Debug\\cmTC_197fa.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-lot8vt/Debug/cmTC_197fa.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-lot8vt/Debug/cmTC_197fa.lib" /MACHINE:X64  /machine:x64 cmTC_197fa.dir\\Debug\\SIZEOF_VOID_PTR.obj
-          cmTC_197fa.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\Debug\\cmTC_197fa.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\Debug\\cmTC_76fdc.exe" /INCREMENTAL /ILK:"cmTC_76fdc.dir\\Debug\\cmTC_76fdc.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-b8parw/Debug/cmTC_76fdc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/CMakeScratch/TryCompile-b8parw/Debug/cmTC_76fdc.lib" /MACHINE:X64  /machine:x64 cmTC_76fdc.dir\\Debug\\SIZEOF_VOID_PTR.obj
+          cmTC_76fdc.vcxproj -> E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\Debug\\cmTC_76fdc.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_197fa.dir\\Debug\\cmTC_197fa.tlog\\unsuccessfulbuild".
-          Touching "cmTC_197fa.dir\\Debug\\cmTC_197fa.tlog\\cmTC_197fa.lastbuildstate".
-        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lot8vt\\cmTC_197fa.vcxproj" (default targets).
+          Deleting file "cmTC_76fdc.dir\\Debug\\cmTC_76fdc.tlog\\unsuccessfulbuild".
+          Touching "cmTC_76fdc.dir\\Debug\\cmTC_76fdc.tlog\\cmTC_76fdc.lastbuildstate".
+        Done Building Project "E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b8parw\\cmTC_76fdc.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.82
+        Time Elapsed 00:00:00.84
         
       exitCode: 0
 ...

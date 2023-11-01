@@ -93,5 +93,6 @@
         "syncstream": "cpp",
         "cassert": "cpp"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "cmake.sourceDirectory": "E:/CS202/SoloProject/CS202-Solo-Project"
 }

@@ -17,7 +17,7 @@ struct WitchMover
     }
     void operator () (Witch& witch, sf::Time) const
     {
-        witch.accelerate(velocity);
+        witch.accelerate(velocity * witch.getMaxSpeed());
         witch.setAnimation(Witch::Animation::Walk);
     }
 };
@@ -29,6 +29,7 @@ Player::Player()
     mKeyBinding[sf::Keyboard::W] = moveUp;
     mKeyBinding[sf::Keyboard::S] = moveDown;
     mMouseBinding[sf::Mouse::Left] = attack;
+    mKeyBinding[sf::Keyboard::Space] = attack;
     mKeyBinding[sf::Keyboard::Q] = charge;
 
     mActionBinding[moveLeft].action = derivedAction<Witch>(WitchMover(-1.f, 0.f));
@@ -36,9 +37,7 @@ Player::Player()
     mActionBinding[moveUp].action = derivedAction<Witch>(WitchMover(0.f, -1.f));
     mActionBinding[moveDown].action = derivedAction<Witch>(WitchMover(0.f, 1.f));
     mActionBinding[attack].action = derivedAction<Witch>([] (Witch& w, sf::Time) {
-        sf::Vector2i mousePos = sf::Mouse::getPosition();
-        sf::Vector2f worldPos = w.getWorldPosition();
-        w.fire(worldPos + sf::Vector2f(mousePos.x, mousePos.y));
+        w.fire();
     });
 
     for(auto &pair : mActionBinding)
@@ -109,14 +108,17 @@ void Player::handleRealtimeInput(CommandQueue& commands)
     }
 }
 
+void Player::setMissionStatus(MissionStatus status)
+{
+    mCurrentMissionStatus = status;
+}
+
+Player::MissionStatus Player::getMissionStatus() const
+{
+    return mCurrentMissionStatus;
+}
+
 void Player::handleEvent(const sf::Event& event, CommandQueue& commands)
 {
-    if (event.type == sf::Event::KeyReleased)
-    {
-        Command switchIdle;
-        switchIdle.category = Category::Player;
-        switchIdle.action = derivedAction<Witch>([] (Witch& w, sf::Time) {
-            if (w.isCharge()) w.setAnimation(Witch::Idle);
-        });
-    }
+
 }

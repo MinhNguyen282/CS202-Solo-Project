@@ -27,6 +27,8 @@ class World : private sf::NonCopyable
         void update(sf::Time deltaTime);
         void draw();
         CommandQueue& getCommandQueue();
+        bool hasAlivePlayer();
+        bool isBossDefeated();
 
     private:
         void loadTextures();
@@ -35,9 +37,14 @@ class World : private sf::NonCopyable
         void buildScene();
         void addEnemies();
         void addEnemy(float relX, float relY);
+        void addBosses();
+        void addBoss(float relX, float relY);
         void spawnEnemies();
         void destroyEntitiesOutsideView();
         void guideMissiles();
+        void handleCollisions();
+        void adaptPlayerPosition();
+        void adaptPlayerVelocity();
 
 
         sf::FloatRect getViewBounds() const;
@@ -80,6 +87,12 @@ class World : private sf::NonCopyable
 
         std::vector<SpawnPoint> mEnemySpawnPoints;
         std::vector<MechaBoss*> mActiveEnemies;
+        //Boss
+        std::vector<SpawnPoint> mBossSpawnPoints;
+        std::vector<MechaBoss*> mActiveBoss;
+        MechaBoss* mBoss;
+        bool isBoss = false;
+        bool hasBossSpawn = false;
 };
 
 #endif // WORLD_HPP

@@ -39,8 +39,8 @@ bool Projectile::isGuided() const
 
 unsigned int Projectile::getCategory() const
 {
-    if (mType == EnemyBullet)
-        return Category::EnemyProjectile;
+    if (mType == EnemyBullet || mType == MechaBossRangedAttack || mType == MechaBossSkillAttack)
+        return Category::EnemiesProjectile;
     else
         return Category::AlliedProjectile;
 }

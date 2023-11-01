@@ -11,8 +11,11 @@ namespace Category
         Enemy = 1<<2,
         EnemyProjectile = 1<<3,
         AlliedProjectile = 1<<4,
+        MechaBoss = 1<<5,
+        BossProjectile = 1<<6,
 
-        Projectile = EnemyProjectile | AlliedProjectile,
+        Projectile = EnemyProjectile | AlliedProjectile | BossProjectile,
+        EnemiesProjectile = EnemyProjectile | BossProjectile,
     };
 }
 

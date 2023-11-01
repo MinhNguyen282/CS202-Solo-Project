@@ -19,7 +19,7 @@ std::vector<ProjectileData> initializeProjectileData()
 {
     std::vector<ProjectileData> data(Projectile::typeCount);
 
-    data[Projectile::AlliedBullet].damage = 10;
+    data[Projectile::AlliedBullet].damage = 500;
     data[Projectile::AlliedBullet].speed = 400.f;
     data[Projectile::AlliedBullet].texture = Textures::AlliedBullet;
 
@@ -48,14 +48,14 @@ MechaBossData initializeMechaBossData()
     Direction direction07(270.f, 50.f);
     Direction direction08(315.f, 50.f);
 
-    data.directions.push_back(direction01);
-    data.directions.push_back(direction02);
-    data.directions.push_back(direction03);
-    data.directions.push_back(direction04);
-    data.directions.push_back(direction05);
-    data.directions.push_back(direction06);
-    data.directions.push_back(direction07);
-    data.directions.push_back(direction08);
+    // data.directions.push_back(direction01);
+    // data.directions.push_back(direction02);
+    // data.directions.push_back(direction03);
+    // data.directions.push_back(direction04);
+    // data.directions.push_back(direction05);
+    // data.directions.push_back(direction06);
+    // data.directions.push_back(direction07);
+    // data.directions.push_back(direction08);
 
     return data;
 }

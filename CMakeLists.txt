@@ -40,6 +40,7 @@ src/TitleState.cpp
 src/Utility.cpp
 src/Witch.cpp
 src/World.cpp
+src/GameOverState.cpp
 )
 target_include_directories(CMakeSFMLProject PUBLIC ${CMAKE_SOURCE_DIR})
 target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)

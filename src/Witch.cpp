@@ -19,7 +19,7 @@ namespace
 	const std::vector<WitchData> Table = initializeWitchData();
 }
 
-Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts, sf::RenderWindow& window)
+Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 : Entity(Table[type].hitpoints)
 , mType(type)
 , mSprite(textures.get(toTextureID(type)))
@@ -31,7 +31,6 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts, 
 , mIsMarkedForRemoval(false)
 , mIsLaunchingAbility(false)
 , mIsFiring(false)
-, mWindow(window)
 {
 	if (mType == BlueWitch){
 		mSprite.setTextureRect(sf::IntRect(0, 0, 64, 96));
@@ -54,15 +53,29 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts, 
 		createBullets(node,textures);
 	};
 
-    mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
-
 	std::unique_ptr<TextNode> healthDisplay(new TextNode(fonts,""));
+	mHealthDisplay = healthDisplay.get();
+	mHealthDisplay->setColor(sf::Color::Black);
+	attachChild(std::move(healthDisplay));
+
+    mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
+}
+
+void Witch::getTarget(sf::Vector2f target)
+{
+	mTargetDirection = target;
 }
 
 void Witch::createBullets(SceneNode& node, const TextureHolder& textures) const
 {
 	Projectile::Type type = Projectile::AlliedBullet;
-	createProjectile(node, type, 0.5f, 0.0f, textures);
+	//std::cout << "Called create bullets \n";
+	createProjectile(node, type, 0.0f, 0.0f, textures);
+}
+
+bool Witch::isMarkedForRemoval() const
+{
+	return mIsMarkedForRemoval;
 }
 
 void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const
@@ -76,8 +89,7 @@ void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 	sf::Vector2f initPos = getWorldPosition();
 
 	//get mouse position
-	sf::Vector2i pos = sf::Mouse::getPosition(mWindow);
-	sf::Vector2f worldPos = mWindow.mapPixelToCoords(pos);
+	sf::Vector2f worldPos = mTargetDirection;
 
 	//get angle
 	float angle = std::atan2(worldPos.y - initPos.y, worldPos.x - initPos.x);
@@ -98,6 +110,7 @@ void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 void Witch::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(mSprite, states);
+
 }
 
 void Witch::setTextureRect(sf::IntRect rect)
@@ -107,7 +120,12 @@ void Witch::setTextureRect(sf::IntRect rect)
 
 sf::FloatRect Witch::getBoundingRect() const
 {
-	return getWorldTransform().transformRect(mSprite.getGlobalBounds());
+	sf::FloatRect rect = getWorldTransform().transformRect(mSprite.getGlobalBounds());
+	rect.width -= 30;
+	rect.left += 15;
+	rect.height -= 30;
+	rect.top += 15;
+	return rect;
 }
 
 unsigned int Witch::getCategory() const
@@ -169,9 +187,12 @@ void Witch::updateCurrent(sf::Time deltaTime, CommandQueue& mCommandQueue)
 
 	checkProjectileLaunch(deltaTime, mCommandQueue);
 	Entity::updateCurrent(deltaTime, mCommandQueue);
-	updateMovementPattern(deltaTime);
+	updateTexts();
 
-	move(getVelocity() * getMaxSpeed() * deltaTime.asSeconds());
+	if (getVelocity().x < 0) mSprite.setScale(-1.f, 1.f);
+	else mSprite.setScale(1.f, 1.f);
+	//move(getVelocity() * getMaxSpeed() * deltaTime.asSeconds());
+
 	if (getVelocity().x == 0 && getVelocity().y==0 && mCurrentAnimation == Walk) setAnimation(Witch::Idle);
 	int maxNumRow = std::get<0>(mAnimationMap[mCurrentAnimation]);
 	int width = std::get<1>(mAnimationMap[mCurrentAnimation]);
@@ -197,12 +218,11 @@ bool Witch::isAllied()
 	return true;
 }
 
-void Witch::fire(const sf::Vector2f& target)
+void Witch::fire()
 {
 	if (Table[mType].fireInterval != sf::Time::Zero)
 	{
 		mIsFiring = true;
-		mTargetDirection = target - getWorldPosition();
 	}
 }
 
@@ -210,6 +230,7 @@ void Witch::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 {
 	if (mIsFiring && mFireCountdown <= sf::Time::Zero)
 	{
+		std::cout << "Fire! \n";
 		commands.push(mFireCommand);
 		mFireCountdown += Table[mType].fireInterval / (mFireRateLevel + 1.f);
 		mIsFiring = false;
@@ -225,22 +246,4 @@ void Witch::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 		commands.push(mLaunchAbilityCommand);
 		mIsLaunchingAbility = false;
 	}
-}
-
-void Witch::updateMovementPattern(sf::Time deltaTime)
-{
-	const std::vector<Direction>& direction = Table[mType].directions;
-	if (direction.empty()) return;
-	if (mTravelDistance > (direction[mDirectionIndex].distance))
-	{
-		mDirectionIndex = (mDirectionIndex + 1) % direction.size();
-		mTravelDistance = 0.f;
-	}
-	float radians = toRadian(direction[mDirectionIndex].angle + 90.f);
-	float vx = getMaxSpeed() * std::cos(radians);
-	float vy = getMaxSpeed() * std::sin(radians);
-
-	setVelocity(vx, vy);
-
-	mTravelDistance += getMaxSpeed() * deltaTime.asSeconds();
 }

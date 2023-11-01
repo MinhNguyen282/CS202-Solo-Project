@@ -24,7 +24,7 @@ class MechaBoss : public Entity
             AnimationCount,
         };
     public:
-        explicit MechaBoss(const TextureHolder& textures, const FontHolder& fonts, sf::RenderWindow& window);
+        explicit MechaBoss(const TextureHolder& textures, const FontHolder& fonts);
         void setTextureRect(sf::IntRect rect);
         virtual sf::FloatRect getBoundingRect() const;
 
@@ -37,15 +37,24 @@ class MechaBoss : public Entity
         void createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
 
         void setAnimation(Animation animation);
+        void setTargetDirection(sf::Vector2f direction);
+
+        int numAnimation();
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);
+        virtual unsigned int getCategory() const;
+
         void updateMovementPattern(sf::Time deltaTime);
 
         void checkProjectileLaunch(sf::Time deltaTime, CommandQueue& commands);
+        void updateTexts();
     private:
         sf::Sprite mSprite;
-        sf::RenderWindow& mWindow;
+        TextNode* mHealthDisplay;
+
+        //Target locked at player
+        sf::Vector2f mTargetDirection;
 
         std::map<Animation, std::tuple<int,int,int>> mAnimation;
         Animation mCurrentAnimation;

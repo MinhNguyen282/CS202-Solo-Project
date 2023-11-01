@@ -8,7 +8,7 @@ namespace
     const MechaBossData  Table = initializeMechaBossData();
 }
 
-MechaBoss::MechaBoss(const TextureHolder& textures, const FontHolder& fonts, sf::RenderWindow& window)
+MechaBoss::MechaBoss(const TextureHolder& textures, const FontHolder& fonts)
 : Entity(1000)
 , mSprite(textures.get(Textures::MechaBoss))
 , mTravelDistance(0.f)
@@ -17,7 +17,6 @@ MechaBoss::MechaBoss(const TextureHolder& textures, const FontHolder& fonts, sf:
 , mIsMarkedForRemoval(false)
 , mIsSkill(false)
 , mIsFiring(false)
-, mWindow(window)
 {
     mSprite.setTextureRect(sf::IntRect(0, 0, 346, 346));
     mAnimation[Idle] = std::make_tuple(4, 346, 346);
@@ -44,7 +43,28 @@ MechaBoss::MechaBoss(const TextureHolder& textures, const FontHolder& fonts, sf:
         createProjectile(node, Projectile::MechaBossSkillAttack, 0.f, 0.f, textures);
     };
 
+    std::unique_ptr<TextNode> healthDisplay(new TextNode(fonts,""));
+	mHealthDisplay = healthDisplay.get();
+    mHealthDisplay->setColor(sf::Color::Black);
+	attachChild(std::move(healthDisplay));
+
     mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
+    mSprite.setScale(-mSprite.getScale().x, mSprite.getScale().y);
+}
+
+int MechaBoss::numAnimation()
+{
+    return numRow;
+}
+
+unsigned int MechaBoss::getCategory() const
+{
+    return Category::MechaBoss;
+}
+
+void MechaBoss::setTargetDirection(sf::Vector2f direction)
+{
+    mTargetDirection = direction;
 }
 
 void MechaBoss::createBullets(SceneNode& node, const TextureHolder& textures) const
@@ -58,15 +78,26 @@ void MechaBoss::createProjectile(SceneNode& node, Projectile::Type type, float x
     std::unique_ptr<Projectile> projectile(new Projectile(type, textures, std::get<0>(mProjectileAnimationMap.at(type)), std::get<1>(mProjectileAnimationMap.at(type)), std::get<2>(mProjectileAnimationMap.at(type))));
     sf::Vector2f offset(xOffset, yOffset);
     sf::Vector2f velocity(-projectile->getMaxSpeed(),0);
-    projectile->setPosition(getWorldPosition() + offset);
+
+    sf::Vector2f initPos = getWorldPosition();
+
+    float angle = std::atan2(mTargetDirection.y - initPos.y, mTargetDirection.x - initPos.x);
+
+    velocity.x = projectile->getMaxSpeed() * std::cos(angle);
+    velocity.y = projectile->getMaxSpeed() * std::sin(angle);
+
+
+    projectile->setPosition(getWorldPosition() + sf::Vector2f(-100, -45));
     projectile->setVelocity(velocity);
+    projectile->setRotation(toDegree(angle));
     node.attachChild(std::move(projectile));
 }
 
 void MechaBoss::setAnimation(Animation animation)
 {
-    if (mCurrentAnimation == RangedAttack || mCurrentAnimation == SkillAttack || mCurrentAnimation == Shield || mCurrentAnimation == TakedDamage || mCurrentAnimation == Die) return;
+    if (animation!=Die && (mCurrentAnimation == RangedAttack || mCurrentAnimation == SkillAttack || mCurrentAnimation == Shield || mCurrentAnimation == TakedDamage || mCurrentAnimation == Die)) return;
     mCurrentAnimation = animation;
+    curX = 0;
     for(size_t i=0; i<AnimationCount; i++)
     {
         if (i == animation) break;
@@ -83,18 +114,18 @@ void MechaBoss::setTextureRect(sf::IntRect rect)
 
 sf::FloatRect MechaBoss::getBoundingRect() const
 {
-    return getWorldTransform().transformRect(mSprite.getGlobalBounds());
+    sf::FloatRect rect = getWorldTransform().transformRect(mSprite.getGlobalBounds());
+    rect.width -= 260;
+    rect.left += 130;
+    rect.height -= 180;
+    rect.top += 80;
+    return rect;
 }
 
 
 float MechaBoss::getMaxSpeed() const
 {
     return Table.speed;
-}
-
-void MechaBoss::fireAttack()
-{
-    mIsFiring = true;
 }
 
 void MechaBoss::skillAttack(const sf::Vector2f& target)
@@ -114,6 +145,13 @@ void MechaBoss::updateCurrent(sf::Time deltaTime, CommandQueue& commands)
         mIsMarkedForRemoval = true;
         return;
     }
+    checkProjectileLaunch(deltaTime, commands);
+    updateMovementPattern(deltaTime);
+    Entity::updateCurrent(deltaTime, commands);
+
+    //Update health display
+    updateTexts();
+
 
     int widthSprite = std::get<1>(mAnimation.at(mCurrentAnimation));
     int heightSprite = std::get<2>(mAnimation.at(mCurrentAnimation));
@@ -131,19 +169,17 @@ void MechaBoss::updateCurrent(sf::Time deltaTime, CommandQueue& commands)
             if (mCurrentAnimation == RangedAttack || mCurrentAnimation == SkillAttack || mCurrentAnimation == Shield || mCurrentAnimation == TakedDamage)
             {
                 mCurrentAnimation = Idle;
-                setAnimation(Idle);
+                curX = 0;
+                numRow = 0;
             }
             if (mCurrentAnimation == Die)
             {
-                mIsMarkedForRemoval = true;
+                damage(100);
             }
         }
         mSprite.setTextureRect(sf::IntRect(curX, numRow * heightSprite, widthSprite, heightSprite));
     }
 
-    checkProjectileLaunch(deltaTime, commands);
-    Entity::updateCurrent(deltaTime, commands);
-    updateMovementPattern(deltaTime);
 }
 
 void MechaBoss::updateMovementPattern(sf::Time deltaTime)
@@ -168,10 +204,17 @@ void MechaBoss::updateMovementPattern(sf::Time deltaTime)
     }
 }
 
+void MechaBoss::fireAttack()
+{
+    mIsFiring = true;
+    if (mFireCountdown <= sf::Time::Zero) setAnimation(RangedAttack);
+}
+
 void MechaBoss::checkProjectileLaunch(sf::Time deltaTime, CommandQueue& commands)
 {
-    fireAttack();
-    if (mIsFiring && mFireCountdown <= sf::Time::Zero)
+    if (mCurrentAnimation != Die) fireAttack();
+    else mIsFiring = false;
+    if (mIsFiring && mFireCountdown <= sf::Time::Zero && numRow == 7)
     {
         commands.push(mFireCommand);
         mFireCountdown += Table.fireInterval;
@@ -182,4 +225,12 @@ void MechaBoss::checkProjectileLaunch(sf::Time deltaTime, CommandQueue& commands
         mFireCountdown -= deltaTime;
         mIsFiring = false;
     }
+}
+
+void MechaBoss::updateTexts()
+{
+    if (mCurrentAnimation!=Die) mHealthDisplay->setString(std::to_string(getHitpoints()) + " HP");
+    else mHealthDisplay->setString("0 HP");
+	mHealthDisplay->setPosition(0.f, 100.f);
+	mHealthDisplay->setRotation(-getRotation());
 }

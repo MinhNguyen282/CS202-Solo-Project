@@ -88,6 +88,9 @@
     <ClCompile Include="E:\CS202\SoloProject\CS202-Solo-Project\src\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\CS202\SoloProject\CS202-Solo-Project\src\GameOverState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\CS202\SoloProject\CS202-Solo-Project\CMakeLists.txt" />

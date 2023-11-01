@@ -18,3 +18,8 @@ void TextNode::setString(const std::string& text)
     mText.setString(text);
     centerOrigin(mText);
 }
+
+void TextNode::setColor(const sf::Color& color)
+{
+    mText.setColor(color);
+}

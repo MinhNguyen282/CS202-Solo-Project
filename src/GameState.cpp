@@ -25,6 +25,19 @@ bool GameState::update(sf::Time deltaTime)
 {
     mWorld.update(deltaTime);
 
+    if (!mWorld.hasAlivePlayer())
+    {
+        std::cout << "Fail!\n";
+        mPlayer.setMissionStatus(Player::MissionFailure);
+        requestStackPush(States::GameOver);
+    }
+    else if (mWorld.isBossDefeated())
+    {
+        std::cout << "Win!\n";
+        mPlayer.setMissionStatus(Player::MissionSuccess);
+        requestStackPush(States::GameOver);
+    }
+
     CommandQueue& commands = mWorld.getCommandQueue();
     mPlayer.handleRealtimeInput(commands);
     return true;

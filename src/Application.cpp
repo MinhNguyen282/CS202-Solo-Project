@@ -9,6 +9,7 @@
 #include "include/LoadingState.hpp"
 #include "include/SettingState.hpp"
 #include "include/CreditState.hpp"
+#include "include/GameOverState.hpp"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -115,6 +116,7 @@ void Application::registerStates()
     mStateStack.registerState<CreditState>(States::Credit);
     mStateStack.registerState<SettingState>(States::Setting);
     mStateStack.registerState<GameState>(States::Game);
+    mStateStack.registerState<GameOverState>(States::GameOver);
     mStateStack.registerState<LoadingState>(States::Loading);
     mStateStack.registerState<PauseState>(States::Pause);
 }
