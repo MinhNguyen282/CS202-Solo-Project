@@ -18,70 +18,105 @@
 // static libraries
 BUILD_SHARED_LIBS:BOOL=OFF
 
+//Build the testing tree.
+BUILD_TESTING:BOOL=ON
+
 //Path to a program.
-CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/lib.exe
+CMAKE_ADDR2LINE:FILEPATH=C:/mingw64/bin/addr2line.exe
+
+//Path to a program.
+CMAKE_AR:FILEPATH=C:/mingw64/bin/ar.exe
 
 //Choose the type of build (Debug or Release)
-CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_BUILD_TYPE:STRING=Debug
 
-//Semicolon separated list of supported configuration types, only
-// supports Debug, Release, MinSizeRel, and RelWithDebInfo, anything
-// else will be ignored.
-CMAKE_CONFIGURATION_TYPES:STRING=Debug;Release;MinSizeRel;RelWithDebInfo
+//Enable/Disable color output during build.
+CMAKE_COLOR_MAKEFILE:BOOL=ON
+
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:FILEPATH=C:/mingw64/bin/g++.exe
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_CXX_COMPILER_AR:FILEPATH=C:/mingw64/bin/gcc-ar.exe
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/mingw64/bin/gcc-ranlib.exe
 
 //Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /GR /EHsc
+CMAKE_CXX_FLAGS:STRING=
 
 //Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1
+CMAKE_CXX_FLAGS_DEBUG:STRING=-g
 
 //Flags used by the CXX compiler during MINSIZEREL builds.
-CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG
+CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
 //Flags used by the CXX compiler during RELEASE builds.
-CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
-CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG
+CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Libraries linked by default with all C++ applications.
-CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:FILEPATH=C:/mingw64/bin/gcc.exe
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_C_COMPILER_AR:FILEPATH=C:/mingw64/bin/gcc-ar.exe
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_C_COMPILER_RANLIB:FILEPATH=C:/mingw64/bin/gcc-ranlib.exe
 
 //Flags used by the C compiler during all build types.
-CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS
+CMAKE_C_FLAGS:STRING=
 
 //Flags used by the C compiler during DEBUG builds.
-CMAKE_C_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1
+CMAKE_C_FLAGS_DEBUG:STRING=-g
 
 //Flags used by the C compiler during MINSIZEREL builds.
-CMAKE_C_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG
+CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
 //Flags used by the C compiler during RELEASE builds.
-CMAKE_C_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG
+CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
 //Flags used by the C compiler during RELWITHDEBINFO builds.
-CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG
+CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Libraries linked by default with all C applications.
-CMAKE_C_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+CMAKE_C_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+
+//Path to a program.
+CMAKE_DLLTOOL:FILEPATH=C:/mingw64/bin/dlltool.exe
 
 //Flags used by the linker during all build types.
-CMAKE_EXE_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_EXE_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during DEBUG builds.
-CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
+CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
 
 //Flags used by the linker during MINSIZEREL builds.
-CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=/INCREMENTAL:NO
+CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=
 
 //Flags used by the linker during RELEASE builds.
-CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
+CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during RELWITHDEBINFO builds.
-CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
+CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+//No help, variable specified on the command line.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=E:/CS202/SoloProject/CS202-Solo-Project/build/CMakeFiles/pkgRedirects
+
+//Convert GNU import libraries to MS format (requires Visual Studio)
+CMAKE_GNUtoMS:BOOL=OFF
 
 //User executables (bin)
 CMAKE_INSTALL_BINDIR:PATH=bin
@@ -120,7 +155,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/CMakeSFMLProject
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/LittleWitchAdventure
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -135,30 +170,39 @@ CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
 CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/link.exe
+CMAKE_LINKER:FILEPATH=C:/mingw64/bin/ld.exe
+
+//make program
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
-CMAKE_MODULE_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_MODULE_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during the creation of modules during
 // DEBUG builds.
-CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
+CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=
 
 //Flags used by the linker during the creation of modules during
 // MINSIZEREL builds.
-CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=/INCREMENTAL:NO
+CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=
 
 //Flags used by the linker during the creation of modules during
 // RELEASE builds.
-CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
+CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during the creation of modules during
 // RELWITHDEBINFO builds.
-CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
+CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_MT:FILEPATH=CMAKE_MT-NOTFOUND
+CMAKE_NM:FILEPATH=C:/mingw64/bin/nm.exe
+
+//Path to a program.
+CMAKE_OBJCOPY:FILEPATH=C:/mingw64/bin/objcopy.exe
+
+//Path to a program.
+CMAKE_OBJDUMP:FILEPATH=C:/mingw64/bin/objdump.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -167,16 +211,34 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=CMakeSFMLProject
+CMAKE_PROJECT_NAME:STATIC=LittleWitchAdventure
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=0.1.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+
+//Path to a program.
+CMAKE_RANLIB:FILEPATH=C:/mingw64/bin/ranlib.exe
 
 //RC compiler
-CMAKE_RC_COMPILER:FILEPATH=rc
+CMAKE_RC_COMPILER:FILEPATH=C:/mingw64/bin/windres.exe
 
 //Flags for Windows Resource Compiler during all build types.
-CMAKE_RC_FLAGS:STRING=-DWIN32
+CMAKE_RC_FLAGS:STRING=
 
 //Flags for Windows Resource Compiler during DEBUG builds.
-CMAKE_RC_FLAGS_DEBUG:STRING=-D_DEBUG
+CMAKE_RC_FLAGS_DEBUG:STRING=
 
 //Flags for Windows Resource Compiler during MINSIZEREL builds.
 CMAKE_RC_FLAGS_MINSIZEREL:STRING=
@@ -187,25 +249,28 @@ CMAKE_RC_FLAGS_RELEASE:STRING=
 //Flags for Windows Resource Compiler during RELWITHDEBINFO builds.
 CMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=
 
+//Path to a program.
+CMAKE_READELF:FILEPATH=C:/mingw64/bin/readelf.exe
+
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
-CMAKE_SHARED_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_SHARED_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during the creation of shared libraries
 // during DEBUG builds.
-CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
+CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=
 
 //Flags used by the linker during the creation of shared libraries
 // during MINSIZEREL builds.
-CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=/INCREMENTAL:NO
+CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=
 
 //Flags used by the linker during the creation of shared libraries
 // during RELEASE builds.
-CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
+CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during the creation of shared libraries
 // during RELWITHDEBINFO builds.
-CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
+CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //If set, runtime paths are not added when installing shared libraries,
 // but are added when building.
@@ -216,7 +281,7 @@ CMAKE_SKIP_RPATH:BOOL=NO
 
 //Flags used by the linker during the creation of static libraries
 // during all build types.
-CMAKE_STATIC_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_STATIC_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during the creation of static libraries
 // during DEBUG builds.
@@ -234,6 +299,9 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 // during RELWITHDEBINFO builds.
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
+//Path to a program.
+CMAKE_STRIP:FILEPATH=C:/mingw64/bin/strip.exe
+
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -248,6 +316,13 @@ CMakeSFMLProject_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 CMakeSFMLProject_SOURCE_DIR:STATIC=E:/CS202/SoloProject/CS202-Solo-Project
+
+//Path to the coverage program that CTest uses for performing coverage
+// inspection
+COVERAGE_COMMAND:FILEPATH=C:/mingw64/bin/gcov.exe
+
+//Extra command line flags to pass to the coverage tool
+COVERAGE_EXTRA_FLAGS:STRING=-l
 
 //Enable to build 7-Zip packages
 CPACK_BINARY_7Z:BOOL=OFF
@@ -273,6 +348,15 @@ CPACK_SOURCE_7Z:BOOL=ON
 //Enable to build ZIP source packages
 CPACK_SOURCE_ZIP:BOOL=ON
 
+//How many times to retry timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_COUNT:STRING=3
+
+//How long to wait between timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_DELAY:STRING=5
+
+//Maximum time allowed before CTest will kill the test.
+DART_TESTING_TIMEOUT:STRING=1500
+
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps
 
@@ -297,7 +381,7 @@ FETCHCONTENT_UPDATES_DISCONNECTED_SFML:BOOL=OFF
 FLAC_INCLUDE_DIR:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers
 
 //Path to a library.
-FLAC_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/flac.lib
+FLAC_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a
 
 //Path to a file.
 FREETYPE_INCLUDE_DIR_freetype2:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/freetype2
@@ -306,22 +390,43 @@ FREETYPE_INCLUDE_DIR_freetype2:PATH=E:/CS202/SoloProject/CS202-Solo-Project/buil
 FREETYPE_INCLUDE_DIR_ft2build:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/freetype2
 
 //Path to a library.
-FREETYPE_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/freetype.lib
+FREETYPE_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
+
+//Path to a program.
+GITCOMMAND:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
 //Git command line client
-GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/mingw64/bin/git.exe
+GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
+
+//Value Computed by CMake
+LittleWitchAdventure_BINARY_DIR:STATIC=E:/CS202/SoloProject/CS202-Solo-Project/build
+
+//Value Computed by CMake
+LittleWitchAdventure_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+LittleWitchAdventure_SOURCE_DIR:STATIC=E:/CS202/SoloProject/CS202-Solo-Project
+
+//Command to build the project
+MAKECOMMAND:STRING=C:/mingw64/bin/cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
+
+//Path to the memory checking command, used for memory error detection.
+MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
+
+//File that contains suppressions for the memory checker
+MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //Path to a file.
 OGG_INCLUDE_DIR:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers
 
 //Path to a library.
-OGG_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/ogg.lib
+OGG_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a
 
 //Path to a file.
 OPENAL_INCLUDE_DIR:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/AL
 
 //Path to a library.
-OPENAL_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/openal32.lib
+OPENAL_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a
 
 //OpenGL library for win32
 OPENGL_gl_LIBRARY:STRING=opengl32
@@ -354,10 +459,6 @@ SFML_BUILD_TEST_SUITE:BOOL=FALSE
 // if the graphics module is built.
 SFML_BUILD_WINDOW:BOOL=TRUE
 
-//True to generate PDB debug symbols, FALSE otherwise. Requires
-// CMake 3.1.
-SFML_GENERATE_PDB:BOOL=TRUE
-
 //TRUE to automatically install pkg-config files so other projects
 // can find SFML
 SFML_INSTALL_PKGCONFIG_FILES:BOOL=FALSE
@@ -379,17 +480,20 @@ SFML_USE_STATIC_STD_LIBS:BOOL=FALSE
 //TRUE to use system dependencies, FALSE to use the bundled ones.
 SFML_USE_SYSTEM_DEPS:BOOL=FALSE
 
-//Path to a library.
-VORBISENC_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/vorbisenc.lib
+//Name of the computer/site where compile is being run
+SITE:STRING=DESKTOP-MDPGADO
 
 //Path to a library.
-VORBISFILE_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/vorbisfile.lib
+VORBISENC_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a
+
+//Path to a library.
+VORBISFILE_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a
 
 //Path to a file.
 VORBIS_INCLUDE_DIR:PATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers
 
 //Path to a library.
-VORBIS_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/vorbis.lib
+VORBIS_LIBRARY:FILEPATH=E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a
 
 //Treat compiler warnings as errors
 WARNINGS_AS_ERRORS:BOOL=OFF
@@ -398,7 +502,7 @@ WARNINGS_AS_ERRORS:BOOL=OFF
 sfml-audio_LIB_DEPENDS:STATIC=general;sfml-system;
 
 //Dependencies for the target
-sfml-graphics_LIB_DEPENDS:STATIC=general;sfml-window;general;legacy_stdio_definitions.lib;
+sfml-graphics_LIB_DEPENDS:STATIC=general;sfml-window;
 
 //Dependencies for the target
 sfml-network_LIB_DEPENDS:STATIC=general;sfml-system;general;ws2_32;
@@ -414,6 +518,8 @@ sfml-window_LIB_DEPENDS:STATIC=general;sfml-system;general;winmm;general;gdi32;
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: CMAKE_ADDR2LINE
+CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -424,12 +530,22 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
+//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
+CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=C:/mingw64/bin/cmake.exe
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=C:/mingw64/bin/cpack.exe
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=C:/mingw64/bin/ctest.exe
+//ADVANCED property for variable: CMAKE_CXX_COMPILER
+CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
+CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
+CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
 CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
@@ -442,6 +558,12 @@ CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_STANDARD_LIBRARIES
 CMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER
+CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_AR
+CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
+CMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS
 CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
@@ -454,6 +576,8 @@ CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_STANDARD_LIBRARIES
 CMAKE_C_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_DLLTOOL
+CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=Unknown
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -469,9 +593,9 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022
+CMAKE_GENERATOR:INTERNAL=MinGW Makefiles
 //Generator instance identifier.
-CMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community
+CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
@@ -513,6 +637,8 @@ CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
 CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MAKE_PROGRAM
+CMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
 CMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG
@@ -523,14 +649,18 @@ CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_MT
-CMAKE_MT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_NM
+CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
 CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+//ADVANCED property for variable: CMAKE_OBJCOPY
+CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_OBJDUMP
+CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
-//noop for ranlib
-CMAKE_RANLIB:INTERNAL=:
+//ADVANCED property for variable: CMAKE_RANLIB
+CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
 CMAKE_RC_COMPILER-ADVANCED:INTERNAL=1
 CMAKE_RC_COMPILER_WORKS:INTERNAL=1
@@ -544,6 +674,8 @@ CMAKE_RC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO
 CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_READELF
+CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
 CMAKE_ROOT:INTERNAL=C:/mingw64/share/cmake-3.26
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
@@ -570,8 +702,14 @@ CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STRIP
+CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_COMMAND
+COVERAGE_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
+COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_BINARY_7Z
 CPACK_BINARY_7Z-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_BINARY_IFW
@@ -588,14 +726,22 @@ CPACK_BINARY_ZIP-ADVANCED:INTERNAL=1
 CPACK_SOURCE_7Z-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_SOURCE_ZIP
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
+CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
+CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DART_TESTING_TIMEOUT
+DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//Have include dinput.h
+DINPUT_H_FOUND:INTERNAL=1
 //Details about finding FLAC
-FIND_PACKAGE_MESSAGE_DETAILS_FLAC:INTERNAL=[E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/flac.lib][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_FLAC:INTERNAL=[E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers][v()]
 //Details about finding OpenAL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenAL:INTERNAL=[E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/openal32.lib][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/AL][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenAL:INTERNAL=[E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/AL][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
 //Details about finding VORBIS
-FIND_PACKAGE_MESSAGE_DETAILS_VORBIS:INTERNAL=[E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/vorbisenc.lib;E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/vorbisfile.lib;E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/vorbis.lib;E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-msvc-universal/x64/ogg.lib][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_VORBIS:INTERNAL=[E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a;E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a;E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a;E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers][E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers][v()]
 //ADVANCED property for variable: FLAC_INCLUDE_DIR
 FLAC_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FLAC_LIBRARY
@@ -606,6 +752,8 @@ FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
 FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FREETYPE_LIBRARY
 FREETYPE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //Result of TRY_COMPILE
@@ -616,6 +764,12 @@ HAVE_STDDEF_H:INTERNAL=1
 HAVE_STDINT_H:INTERNAL=1
 //Have include sys/types.h
 HAVE_SYS_TYPES_H:INTERNAL=1
+//ADVANCED property for variable: MAKECOMMAND
+MAKECOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_COMMAND
+MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
+MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OGG_INCLUDE_DIR
 OGG_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OGG_LIBRARY
@@ -628,6 +782,8 @@ OPENAL_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SITE
+SITE-ADVANCED:INTERNAL=1
 //CHECK_TYPE_SIZE: sizeof(void*)
 SIZEOF_VOID_PTR:INTERNAL=8
 //ADVANCED property for variable: VORBISENC_LIBRARY
@@ -638,6 +794,8 @@ VORBISFILE_LIBRARY-ADVANCED:INTERNAL=1
 VORBIS_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: VORBIS_LIBRARY
 VORBIS_LIBRARY-ADVANCED:INTERNAL=1
+//linker supports push/pop state
+_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/CMakeSFMLProject
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/LittleWitchAdventure
 

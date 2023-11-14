@@ -13,7 +13,7 @@ file(MAKE_DIRECTORY
   "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp"
 )
 
-set(configSubDirs Debug)
+set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
     file(MAKE_DIRECTORY "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/${subDir}")
 endforeach()

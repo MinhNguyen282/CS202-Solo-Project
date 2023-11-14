@@ -14,6 +14,10 @@ namespace Textures
 	enum ID
 	{
 		BlueWitch,
+		FlyingEye,
+		Goblin,
+		Mushroom,
+		Skeleton,
 		MechaBoss,
 		Desert,
 		Title,

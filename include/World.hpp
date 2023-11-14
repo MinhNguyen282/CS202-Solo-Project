@@ -4,10 +4,16 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <array>
+#include <map>
+#include <tuple>
 #include <math.h>
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 #include "Witch.hpp"
+#include "Enemy.hpp"
 #include "MechaRockBoss.hpp"
 #include "SceneNode.hpp"
 #include "SpriteNode.hpp"
@@ -35,8 +41,6 @@ class World : private sf::NonCopyable
 
 
         void buildScene();
-        void addEnemies();
-        void addEnemy(float relX, float relY);
         void addBosses();
         void addBoss(float relX, float relY);
         void spawnEnemies();
@@ -68,6 +72,18 @@ class World : private sf::NonCopyable
             float x;
             float y;
         };
+        struct EnemySpawnPoint
+        {
+            EnemySpawnPoint(Enemy::Type type, float x, float y)
+            : type(type)
+            , x(x)
+            , y(y)
+            {
+            }
+            Enemy::Type type;
+            float x;
+            float y;
+        };
 
     private:
         sf::RenderWindow& mWindow;
@@ -85,14 +101,18 @@ class World : private sf::NonCopyable
         Witch* mPlayerCharacter;
         CommandQueue mCommandQueue;
 
-        std::vector<SpawnPoint> mEnemySpawnPoints;
-        std::vector<MechaBoss*> mActiveEnemies;
+        //Enemy
+        std::vector<Enemy*> mActiveEnemies;
+
         //Boss
         std::vector<SpawnPoint> mBossSpawnPoints;
         std::vector<MechaBoss*> mActiveBoss;
         MechaBoss* mBoss;
+
         bool isBoss = false;
         bool hasBossSpawn = false;
+
+        sf::Time mIsInvicibleTime = sf::Time::Zero;
 };
 
 #endif // WORLD_HPP

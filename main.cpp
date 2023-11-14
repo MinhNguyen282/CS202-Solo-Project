@@ -7,6 +7,7 @@ int main()
 {
     try
     {
+        cout << "Minh dep trai! \n";
         Application app;
         app.run();
     }

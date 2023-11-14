@@ -1,5 +1,8 @@
-cmake_minimum_required(VERSION 3.16)
-project(CMakeSFMLProject LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.0.0)
+project(LittleWitchAdventure VERSION 0.1.0 LANGUAGES C CXX)
+
+include(CTest)
+enable_testing()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_STANDARD 17)
@@ -11,47 +14,57 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(CMakeSFMLProject main.cpp
-src/Application.cpp
-src/Button.cpp
-src/Command.cpp
-src/CommandQueue.cpp
-src/Component.cpp
-src/Container.cpp
-src/CreditState.cpp
-src/DataTables.cpp
-src/Entity.cpp
-src/GameState.cpp
-src/Label.cpp
-src/LoadingState.cpp
-src/MechaRockBoss.cpp
-src/MenuState.cpp
-src/ParallelTask.cpp
-src/PauseState.cpp
-src/Player.cpp
-src/Projectile.cpp
-src/SceneNode.cpp
-src/SettingState.cpp
-src/SpriteNode.cpp
-src/State.cpp
-src/StateStack.cpp
-src/TextNode.cpp
-src/TitleState.cpp
-src/Utility.cpp
-src/Witch.cpp
+add_executable(LittleWitchAdventure main.cpp
+src/SceneNode/Command.cpp
+src/SceneNode/CommandQueue.cpp
+src/SceneNode/Utility.cpp
+src/SceneNode/Entity.cpp
+src/SceneNode/ParallelTask.cpp
+src/SceneNode/SceneNode.cpp
+src/SceneNode/SpriteNode.cpp
+
+src/GUI/Component.cpp
+src/GUI/Button.cpp
+src/GUI/Container.cpp
+src/GUI/Label.cpp
+
+src/Data/DataTables.cpp
+
+src/Entity/Enemy.cpp
+src/Entity/MechaRockBoss.cpp
+src/Entity/Player.cpp
+src/Entity/Projectile.cpp
+src/Entity/TextNode.cpp
+src/Entity/Witch.cpp
+
 src/World.cpp
-src/GameOverState.cpp
+
+src/State/GameOverState.cpp
+src/State/TitleState.cpp
+src/State/State.cpp
+src/State/StateStack.cpp
+src/State/SettingState.cpp
+src/State/MenuState.cpp
+src/State/GameState.cpp
+src/State/Application.cpp
+src/State/PauseState.cpp
+src/State/CreditState.cpp
+src/State/LoadingState.cpp
 )
-target_include_directories(CMakeSFMLProject PUBLIC ${CMAKE_SOURCE_DIR})
-target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)
-target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)
+target_include_directories(LittleWitchAdventure PUBLIC ${CMAKE_SOURCE_DIR})
+target_link_libraries(LittleWitchAdventure PRIVATE sfml-graphics)
+target_compile_features(LittleWitchAdventure PRIVATE cxx_std_17)
 
 if(WIN32)
     add_custom_command(
-        TARGET CMakeSFMLProject
+        TARGET LittleWitchAdventure
         COMMENT "Copy OpenAL DLL"
-        PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:CMakeSFMLProject>
+        PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:LittleWitchAdventure>
         VERBATIM)
 endif()
 
-install(TARGETS CMakeSFMLProject)
+install(TARGETS LittleWitchAdventure)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)

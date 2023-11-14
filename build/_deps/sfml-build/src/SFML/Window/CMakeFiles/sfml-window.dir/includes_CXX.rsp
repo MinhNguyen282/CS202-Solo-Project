@@ -1,0 +1,1 @@
+-I"E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/include" -I"E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/src" -I"E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/vulkan" -isystem "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/headers/glad/include"

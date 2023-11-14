@@ -31,6 +31,16 @@ struct WitchData
     std::vector<Direction> directions;
 };
 
+struct EnemyData
+{
+    int hitpoints;
+    int bodyDamage;
+    int fireDamage;
+    float speed;
+    Textures::ID texture;
+    sf::Time fireInterval;
+};
+
 struct ProjectileData
 {
     int damage;
@@ -57,6 +67,7 @@ struct MechaBossData
 std::vector<ProjectileData> initializeProjectileData();
 std::vector<PickupData> initializePickupData();
 std::vector<WitchData> initializeWitchData();
+std::vector<EnemyData> initializeEnemyData();
 MechaBossData initializeMechaBossData();
 
 #endif // DATATABLES_HPP    

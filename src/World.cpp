@@ -1,5 +1,4 @@
 #include "include/World.hpp"
-#include "include/Witch.hpp"
 
 World::World(sf::RenderWindow& window)
 : mWindow(window)
@@ -7,11 +6,12 @@ World::World(sf::RenderWindow& window)
 , mTextures()
 , mSceneGraph()
 , mSceneLayers()
-, mWorldBounds(0.f, 0.f, 3000.f, mWorldView.getSize().y)
-, mSpawnPosition(mWorldView.getSize().x / 2, mWorldBounds.height - mWorldView.getSize().y / 2)
+, mWorldBounds(0.f, 0.f, 2800.f, 2800.f)
+, mSpawnPosition(100, mWorldBounds.height / 4 - 200)
 , mScrollSpeed(-100.f)
 , mPlayerCharacter(nullptr)
 {
+    srand(time(NULL));
     loadTextures();
     buildScene();
 
@@ -30,8 +30,8 @@ bool World::isBossDefeated()
 
 void World::update(sf::Time deltaTime)
 {
-    if (!isBoss) mWorldView.move(-mScrollSpeed * deltaTime.asSeconds(), 0.f);
     mPlayerCharacter->setVelocity(0.f, 0.f);
+    mIsInvicibleTime += deltaTime;
 
     destroyEntitiesOutsideView();
     if (isBoss && mBoss->getHitpoints() <= 0)
@@ -40,13 +40,18 @@ void World::update(sf::Time deltaTime)
     }
     //guideMissiles();
 
-    sf::Vector2f Target = sf::Vector2f(mPlayerCharacter->getWorldPosition().x + 32, mPlayerCharacter->getWorldPosition().y + 48);
+    sf::Vector2f Target = sf::Vector2f(mPlayerCharacter->getWorldPosition().x + 16, mPlayerCharacter->getWorldPosition().y + 24);
     
     sf::Vector2i mousePosition = sf::Mouse::getPosition(mWindow);
     sf::Vector2f worldMousePosition = mWindow.mapPixelToCoords(mousePosition,mWorldView);
     mPlayerCharacter->getTarget(worldMousePosition);
+    
 
     if (isBoss) mBoss->setTargetDirection(Target);
+    for(int i=0; i<mActiveEnemies.size(); i++)
+    {
+        mActiveEnemies[i]->setTargetDirection(Target);
+    }
     
     while (mCommandQueue.isEmpty() == false)
     {
@@ -57,9 +62,8 @@ void World::update(sf::Time deltaTime)
 
     handleCollisions();
 
-    if (!isBoss) mPlayerCharacter->accelerate(-mScrollSpeed, 0.f);
-    mSceneGraph.removeWrecks();
     spawnEnemies();
+    mSceneGraph.removeWrecks();
 
     mSceneGraph.update(deltaTime,mCommandQueue);
     adaptPlayerPosition();
@@ -77,13 +81,52 @@ void World::adaptPlayerVelocity()
 void World::adaptPlayerPosition()
 {
     sf::FloatRect viewBounds(mWorldView.getCenter() - mWorldView.getSize() / 2.f, mWorldView.getSize());
-    const float borderDistance = 10.f;
+    const float borderDistance = 5.f;
 
     sf::Vector2f position = mPlayerCharacter->getPosition();
+
     position.x = std::max(position.x, viewBounds.left + borderDistance);
     position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance - mPlayerCharacter->getBoundingRect().width);
     position.y = std::max(position.y, viewBounds.top + borderDistance);
     position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance - mPlayerCharacter->getBoundingRect().height);
+
+    if (position.x > viewBounds.left + viewBounds.width / 2.f - borderDistance)
+    {
+        mWorldView.move(position.x - viewBounds.left - viewBounds.width / 2.f + borderDistance, 0.f);
+    }
+    else if (position.x < viewBounds.left + viewBounds.width / 2.f - borderDistance)
+    {
+        mWorldView.move(position.x - viewBounds.left - viewBounds.width / 2.f + borderDistance, 0.f);
+    }
+    if (position.y > viewBounds.top + viewBounds.height / 2.f - borderDistance)
+    {
+        mWorldView.move(0.f, position.y - viewBounds.top - viewBounds.height / 2.f + borderDistance);
+    }
+    else if (position.y < viewBounds.top + viewBounds.height / 2.f - borderDistance)
+    {
+        mWorldView.move(0.f, position.y - viewBounds.top - viewBounds.height / 2.f + borderDistance);
+    }
+    
+    if ((mWorldView.getCenter() - mWorldView.getSize() / 2.f).x < 0) 
+    {
+        mWorldView.setCenter(mWorldView.getSize().x / 2.f, mWorldView.getCenter().y);
+    }
+
+    if ((mWorldView.getCenter() + mWorldView.getSize() / 2.f).y < 0) 
+    {
+        mWorldView.setCenter(mWorldView.getCenter().x, -mWorldView.getSize().y / 2.f);
+    }
+
+    if ((mWorldView.getCenter() + mWorldView.getSize() / 2.f).x > mWorldBounds.width) 
+    {
+        mWorldView.setCenter(mWorldBounds.width - mWorldView.getSize().x / 2.f, mWorldView.getCenter().y);
+    }
+
+    if ((mWorldView.getCenter() + mWorldView.getSize() / 2.f).y > mWorldBounds.height) 
+    {
+        mWorldView.setCenter(mWorldView.getCenter().x, mWorldBounds.height - mWorldView.getSize().y / 2.f);
+    }
+
     mPlayerCharacter->setPosition(position);
 }
 
@@ -105,6 +148,7 @@ void World::loadTextures()
     mTextures.load(Textures::AlliedBullet, "Media/Textures/AlliedBullet.png");
     mTextures.load(Textures::MechaBoss, "Media/Textures/bosssheet.png");
     mTextures.load(Textures::MechaBossRangedAttack, "Media/Textures/bossprojectilesheet.png");
+    mTextures.load(Textures::FlyingEye, "Media/Textures/FlyingEye/enemysheet.png");
     mFonts.load(Fonts::Main, "Media/buddychampion.ttf");
 }
 
@@ -122,26 +166,26 @@ void World::spawnEnemies()
         mBossSpawnPoints.pop_back();
     }
 
-    if (mEnemySpawnPoints.empty()) return;
-    SpawnPoint spawn = mEnemySpawnPoints.back();
-    std::unique_ptr<MechaBoss> enemy(new MechaBoss( mTextures, mFonts));
-    enemy->setPosition(spawn.x, spawn.y);
-    mSceneLayers[Ground]->attachChild(std::move(enemy));
-    mEnemySpawnPoints.pop_back();
-}
-
-void World::addEnemy(float relX, float relY)
-{
-    SpawnPoint spawn(mSpawnPosition.x + relX, mSpawnPosition.y - relY);
-    mEnemySpawnPoints.push_back(spawn);
-}
-
-void World::addEnemies()
-{
-    std::sort(mEnemySpawnPoints.begin(), mEnemySpawnPoints.end(), [](SpawnPoint lhs, SpawnPoint rhs)
+    for(auto &it : mActiveEnemies)
     {
-        return lhs.x < rhs.x;
-    });
+        if (it->isMarkedForRemoval())
+        {
+            it->destroy();
+            mActiveEnemies.erase(std::remove(mActiveEnemies.begin(), mActiveEnemies.end(), it), mActiveEnemies.end());
+        }
+    }
+
+    while (mActiveEnemies.size() < 5){
+        int randX = (rand() % 2 == 0 ? -1 : 1);
+        int randY = (rand() % 2 == 0 ? -1 : 1);
+        int randomX = mPlayerCharacter->getWorldPosition().x + rand() % 600 + randX * 1000;
+        int randomY = mPlayerCharacter->getWorldPosition().y + rand() % 320 + randY * 500;
+        int randomEnemy = rand() % 1;
+        std::unique_ptr<Enemy> enemy(new Enemy(Enemy::FlyingEye, mTextures, mFonts));
+        enemy->setPosition(randomX, randomY);
+        mActiveEnemies.push_back(enemy.get());
+        mSceneLayers[Ground]->attachChild(std::move(enemy));
+    }
 }
 
 void World::destroyEntitiesOutsideView()
@@ -173,13 +217,18 @@ void World::buildScene()
         mSceneLayers[i] = layer.get();
         mSceneGraph.attachChild(std::move(layer));
     }
-    
+
     sf::Texture& texture = mTextures.get(Textures::Desert);
-    sf::IntRect textureRect(mWorldBounds);
     texture.setRepeated(true);
+
+    float viewHeight = mWorldView.getSize().y;
+    sf::IntRect textureRect(mWorldBounds);
+    textureRect.height += static_cast<int>(viewHeight);
+
     std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(texture, textureRect));
-    backgroundSprite->setPosition(mWorldBounds.left, mWorldBounds.top);
+    backgroundSprite->setPosition(mWorldBounds.left, mWorldBounds.top - viewHeight);
     mSceneLayers[Background]->attachChild(std::move(backgroundSprite));
+
 
     std::unique_ptr<Witch> player(new Witch(Witch::BlueWitch, mTextures, mFonts));
     mPlayerCharacter = player.get();
@@ -187,7 +236,7 @@ void World::buildScene()
     mPlayerCharacter->setPosition(mSpawnPosition);
     mSceneLayers[Ground]->attachChild(std::move(player));
 
-    addBosses();
+    //addBosses();
 }
 
 sf::FloatRect World::getViewBounds() const
@@ -247,6 +296,29 @@ void World::handleCollisions()
             auto& player = static_cast<Witch&>(*pair.first);
             auto& projectile = static_cast<Projectile&>(*pair.second);
             player.damage(projectile.getDamage());
+            projectile.destroy();
+        }
+        else if (matchesCategories(pair, Category::Player,Category::Enemy) && mIsInvicibleTime >= sf::seconds(1.0))
+        {
+            auto& player = static_cast<Witch&>(*pair.first);
+            auto& enemy = static_cast<Enemy&>(*pair.second);
+            player.damage(enemy.getBodyDamage());
+            player.setAnimation(Witch::TakedDamage);
+            enemy.setAnimation(Enemy::Attack1);
+            mIsInvicibleTime = sf::Time::Zero;
+        }
+        else if (matchesCategories(pair, Category::Enemy, Category::AlliedProjectile))
+        {
+            auto& enemy = static_cast<Enemy&>(*pair.first);
+            auto& projectile = static_cast<Projectile&>(*pair.second);
+            if (enemy.getHitpoints() > 1) 
+            {
+                enemy.damage(projectile.getDamage());
+                if (enemy.getHitpoints() <= 0){
+                    enemy.heal(1 - enemy.getHitpoints());
+                    enemy.setAnimation(Enemy::Death);
+                }
+            }
             projectile.destroy();
         }
     }

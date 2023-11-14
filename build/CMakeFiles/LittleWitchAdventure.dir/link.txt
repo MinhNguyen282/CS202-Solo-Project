@@ -1,0 +1,3 @@
+C:\mingw64\bin\cmake.exe -E rm -f CMakeFiles\LittleWitchAdventure.dir/objects.a
+C:\mingw64\bin\ar.exe qc CMakeFiles\LittleWitchAdventure.dir/objects.a @CMakeFiles\LittleWitchAdventure.dir\objects1.rsp
+C:\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\LittleWitchAdventure.dir/objects.a -Wl,--no-whole-archive -o bin\LittleWitchAdventure.exe -Wl,--out-implib,libLittleWitchAdventure.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\LittleWitchAdventure.dir\linkLibs.rsp
