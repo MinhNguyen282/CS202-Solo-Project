@@ -35,6 +35,11 @@ class Witch : public Entity
         virtual unsigned int getCategory() const;
         bool isAllied();
         bool isMarkedForRemoval() const;
+        void receiveExp(int expPoint);
+        float getExpRatio() const;
+        float getCoolDownE() const;
+        float getCoolDownQ() const;
+        int getLevel() const;
 
         void getTarget(sf::Vector2f target);
 
@@ -42,6 +47,7 @@ class Witch : public Entity
 
         void fire();
         void launchAbility();
+        void laundDebuff();
 
         void createBullets(SceneNode& node, const TextureHolder& textures) const;
         void createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
@@ -74,16 +80,33 @@ class Witch : public Entity
 
         Command mFireCommand;
         Command mLaunchAbilityCommand;
+        Command mLaunchDebuffCommand;
+
         sf::Time mFireCountdown;
+        sf::Time mAbilityCountdown;
+        sf::Time mDebuffCountdown;
+
         sf::Vector2f mTargetDirection;
 
         bool mIsFiring;
         bool mIsLaunchingAbility;
+        bool mIsLauchingDebuff;
+
         bool mIsMarkedForRemoval;
 
         int mFireRateLevel;
         int mSpreadLevel;
         int mMissileAmmo;
+
+        //level system
+        int level;
+        int curExpPoint;
+        int expCap[10];
+        float mLevelUpSpeed;
+
+        //hit points system
+        int maxHitPoints;
+        int mDamageUp;
 
         Command mDropPickupCommand;
         std::size_t mDirectionIndex;

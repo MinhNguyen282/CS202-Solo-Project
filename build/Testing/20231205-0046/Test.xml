@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Win32-mingw32-make"
+	BuildStamp="20231205-0046-Experimental"
+	Name="DESKTOP-MDPGADO"
+	Generator="ctest-3.26.4"
+	CompilerName="C:/mingw64/bin/g++.exe"
+	CompilerVersion="13.1.0"
+	OSName="Windows"
+	Hostname="DESKTOP-MDPGADO"
+	OSRelease=" Personal"
+	OSVersion=" (Build 9200)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="0"
+	ModelID="0"
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="18626"
+	TotalPhysicalMemory="16194"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2096"
+	>
+	<Testing>
+		<StartDateTime>Dec 05 08:06 SE Asia Standard Time</StartDateTime>
+		<StartTestTime>1701738368</StartTestTime>
+		<TestList/>
+		<EndDateTime>Dec 05 08:06 SE Asia Standard Time</EndDateTime>
+		<EndTestTime>1701738368</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

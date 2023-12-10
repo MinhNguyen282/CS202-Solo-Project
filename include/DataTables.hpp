@@ -28,17 +28,23 @@ struct WitchData
     float speed;
     Textures::ID texture;
     sf::Time fireInterval;
+    sf::Time abilityInterval;
+    sf::Time debuffInterval;
     std::vector<Direction> directions;
 };
 
 struct EnemyData
 {
+    int width, height;
     int hitpoints;
     int bodyDamage;
     int fireDamage;
+    int expPoint;
     float speed;
     Textures::ID texture;
     sf::Time fireInterval;
+    std::vector<std::tuple<int,int,int>> animations;
+    std::tuple<int,int,int> projectileAnimation;
 };
 
 struct ProjectileData
@@ -63,11 +69,18 @@ struct MechaBossData
     std::vector<Direction> directions;
 };
 
+struct ParticleData
+{
+	sf::Color						color;
+	sf::Time						lifetime;
+};
 
 std::vector<ProjectileData> initializeProjectileData();
 std::vector<PickupData> initializePickupData();
 std::vector<WitchData> initializeWitchData();
 std::vector<EnemyData> initializeEnemyData();
 MechaBossData initializeMechaBossData();
+std::vector<ParticleData>	initializeParticleData();
+
 
 #endif // DATATABLES_HPP    

@@ -1,6 +1,8 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 #include <SFML/Graphics.hpp>
+#include <thread>
+
 #include "World.hpp"
 #include "Player.hpp"
 #include "State.hpp"

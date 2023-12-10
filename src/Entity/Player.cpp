@@ -30,7 +30,8 @@ Player::Player()
     mKeyBinding[sf::Keyboard::S] = moveDown;
     mMouseBinding[sf::Mouse::Left] = attack;
     mKeyBinding[sf::Keyboard::Space] = attack;
-    mKeyBinding[sf::Keyboard::Q] = charge;
+    mKeyBinding[sf::Keyboard::Q] = launchAbility;
+    mKeyBinding[sf::Keyboard::E] = launchDebuff;
 
     mActionBinding[moveLeft].action = derivedAction<Witch>(WitchMover(-1.f, 0.f));
     mActionBinding[moveRight].action = derivedAction<Witch>(WitchMover(1.f, 0.f));
@@ -38,6 +39,12 @@ Player::Player()
     mActionBinding[moveDown].action = derivedAction<Witch>(WitchMover(0.f, 1.f));
     mActionBinding[attack].action = derivedAction<Witch>([] (Witch& w, sf::Time) {
         w.fire();
+    });
+    mActionBinding[launchAbility].action = derivedAction<Witch>([] (Witch& w, sf::Time) {
+        w.launchAbility();
+    });
+    mActionBinding[launchDebuff].action = derivedAction<Witch>([] (Witch& w, sf::Time) {
+        w.laundDebuff();
     });
 
     for(auto &pair : mActionBinding)
@@ -83,7 +90,8 @@ bool Player::isRealtimeAction(Action action)
         case moveUp:
         case moveDown:
         case attack:
-        case charge:
+        case launchAbility:
+        case launchDebuff:
             return true;
         default:
             return false;

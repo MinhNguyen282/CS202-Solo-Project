@@ -741,6 +741,30 @@ src/Entity/MechaRockBoss.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.s
 .PHONY : src/Entity/MechaRockBoss.cpp.s
 
+src/Entity/ParticleNode.obj: src/Entity/ParticleNode.cpp.obj
+.PHONY : src/Entity/ParticleNode.obj
+
+# target to build an object file
+src/Entity/ParticleNode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj
+.PHONY : src/Entity/ParticleNode.cpp.obj
+
+src/Entity/ParticleNode.i: src/Entity/ParticleNode.cpp.i
+.PHONY : src/Entity/ParticleNode.i
+
+# target to preprocess a source file
+src/Entity/ParticleNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.i
+.PHONY : src/Entity/ParticleNode.cpp.i
+
+src/Entity/ParticleNode.s: src/Entity/ParticleNode.cpp.s
+.PHONY : src/Entity/ParticleNode.s
+
+# target to generate assembly for a file
+src/Entity/ParticleNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.s
+.PHONY : src/Entity/ParticleNode.cpp.s
+
 src/Entity/Player.obj: src/Entity/Player.cpp.obj
 .PHONY : src/Entity/Player.obj
 
@@ -1101,6 +1125,54 @@ src/SceneNode/Utility.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/SceneNode/Utility.cpp.s
 .PHONY : src/SceneNode/Utility.cpp.s
 
+src/Shader/BloomEffect.obj: src/Shader/BloomEffect.cpp.obj
+.PHONY : src/Shader/BloomEffect.obj
+
+# target to build an object file
+src/Shader/BloomEffect.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Shader/BloomEffect.cpp.obj
+.PHONY : src/Shader/BloomEffect.cpp.obj
+
+src/Shader/BloomEffect.i: src/Shader/BloomEffect.cpp.i
+.PHONY : src/Shader/BloomEffect.i
+
+# target to preprocess a source file
+src/Shader/BloomEffect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Shader/BloomEffect.cpp.i
+.PHONY : src/Shader/BloomEffect.cpp.i
+
+src/Shader/BloomEffect.s: src/Shader/BloomEffect.cpp.s
+.PHONY : src/Shader/BloomEffect.s
+
+# target to generate assembly for a file
+src/Shader/BloomEffect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Shader/BloomEffect.cpp.s
+.PHONY : src/Shader/BloomEffect.cpp.s
+
+src/Shader/PostEffect.obj: src/Shader/PostEffect.cpp.obj
+.PHONY : src/Shader/PostEffect.obj
+
+# target to build an object file
+src/Shader/PostEffect.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Shader/PostEffect.cpp.obj
+.PHONY : src/Shader/PostEffect.cpp.obj
+
+src/Shader/PostEffect.i: src/Shader/PostEffect.cpp.i
+.PHONY : src/Shader/PostEffect.i
+
+# target to preprocess a source file
+src/Shader/PostEffect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Shader/PostEffect.cpp.i
+.PHONY : src/Shader/PostEffect.cpp.i
+
+src/Shader/PostEffect.s: src/Shader/PostEffect.cpp.s
+.PHONY : src/Shader/PostEffect.s
+
+# target to generate assembly for a file
+src/Shader/PostEffect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Shader/PostEffect.cpp.s
+.PHONY : src/Shader/PostEffect.cpp.s
+
 src/State/Application.obj: src/State/Application.cpp.obj
 .PHONY : src/State/Application.obj
 
@@ -1451,6 +1523,9 @@ help:
 	@echo ... src/Entity/MechaRockBoss.obj
 	@echo ... src/Entity/MechaRockBoss.i
 	@echo ... src/Entity/MechaRockBoss.s
+	@echo ... src/Entity/ParticleNode.obj
+	@echo ... src/Entity/ParticleNode.i
+	@echo ... src/Entity/ParticleNode.s
 	@echo ... src/Entity/Player.obj
 	@echo ... src/Entity/Player.i
 	@echo ... src/Entity/Player.s
@@ -1496,6 +1571,12 @@ help:
 	@echo ... src/SceneNode/Utility.obj
 	@echo ... src/SceneNode/Utility.i
 	@echo ... src/SceneNode/Utility.s
+	@echo ... src/Shader/BloomEffect.obj
+	@echo ... src/Shader/BloomEffect.i
+	@echo ... src/Shader/BloomEffect.s
+	@echo ... src/Shader/PostEffect.obj
+	@echo ... src/Shader/PostEffect.i
+	@echo ... src/Shader/PostEffect.s
 	@echo ... src/State/Application.obj
 	@echo ... src/State/Application.i
 	@echo ... src/State/Application.s

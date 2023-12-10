@@ -19,6 +19,26 @@ Textures::ID toTextureIDEnemy(Enemy::Type type)
     return Textures::FlyingEye;
 }
 
+Projectile::Type toProjectileType(Enemy::Type type)
+{
+    switch (type)
+    {
+    case Enemy::FlyingEye:
+        return Projectile::FlyingEyeBullet;
+        break;
+    case Enemy::Goblin:
+        return Projectile::GoblinBullet;
+        break;
+    case Enemy::Mushroom:
+        return Projectile::MushroomBullet;
+        break;
+    case Enemy::Skeleton:
+        return Projectile::SkeletonBullet;
+        break;
+    }
+    return Projectile::FlyingEyeBullet;
+}
+
 std::string dirEnemy(Enemy::Type type)
 {
     switch (type)
@@ -52,16 +72,19 @@ namespace
 Enemy::Enemy(Type type, const TextureHolder& textures, const FontHolder& fonts)
 : Entity(Table[type].hitpoints)
 , mType(type)
+, mSpeedDiff(0.f)
 , mSprite(textures.get(toTextureIDEnemy(type)))
-, mIsMarkedForRemoval(false)
 , mTargetDirection()
 , mHealthDisplay(nullptr)
 , mAnimationTime(sf::Time::Zero)
 , mFireCountdown(sf::Time::Zero)
+, invicibleTime(sf::Time::Zero)
 , curX(0)
 , numRow(0)
+, mIsKnockback(false)
 , mIsNearPlayer(false)
 , mIsAttack(false)
+, mIsMarkedForRemoval(false)
 {
     readEnemyData(type);
     mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
@@ -69,12 +92,12 @@ Enemy::Enemy(Type type, const TextureHolder& textures, const FontHolder& fonts)
     mAttack3.category = Category::Scene;
     mAttack3.action = [this, &textures](SceneNode& node, sf::Time)
     {
-        createProjectile(node, Projectile::EnemyBullet, 0.f, 0.f, textures);
+        createProjectile(node, toProjectileType(mType), 0.f, 0.f, textures);
     };
 
     std::unique_ptr<TextNode> healthDisplay(new TextNode(fonts,""));
     mHealthDisplay = healthDisplay.get();
-    mHealthDisplay->setColor(sf::Color::Black);
+    mHealthDisplay->setColor(sf::Color::White);
     attachChild(std::move(healthDisplay));
 }
 
@@ -92,7 +115,7 @@ void Enemy::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
     velocity.y = projectile->getMaxSpeed() * std::sin(angle);
 
 
-    projectile->setPosition(getWorldPosition() + sf::Vector2f(-100, -45));
+    projectile->setPosition(getWorldPosition() + sf::Vector2f(10, 10));
     projectile->setVelocity(velocity);
     projectile->setRotation(toDegree(angle));
     node.attachChild(std::move(projectile));
@@ -100,35 +123,31 @@ void Enemy::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 
 void Enemy::readEnemyData(Type type)
 {
-    std::ifstream ifs("Media/Textures/"+dirEnemy(type)+"/info.txt");
-    int width, height;
-    ifs >> width >> height;
+    int width = Table[type].width;
+    int height = Table[type].height;
     mSprite.setTextureRect(sf::IntRect(0, 0, width, height));
-    int x, y, z;
-    ifs >> x >> y >> z;
-    std::cout << x << ' ' << y << ' ' << z << '\n';
-    mAnimation[Attack1] = std::make_tuple(x,y,z);
-    ifs >> x >> y >> z;
-    mAnimation[Death] = std::make_tuple(x,y,z);
-    ifs >> x >> y >> z;
-    mAnimation[Move] = std::make_tuple(x,y,z);
-    ifs >> x >> y >> z;
-    mAnimation[TakedDamage] = std::make_tuple(x,y,z);
-    ifs >> x >> y >> z;
-    mAnimation[Attack2] = std::make_tuple(x,y,z);
-    ifs >> x >> y >> z;
-    mAnimation[Attack3] = std::make_tuple(x,y,z);
+    mAnimation[Attack1] = Table[type].animations[0];
+    mAnimation[Death] = Table[type].animations[1];
+    mAnimation[Move] = Table[type].animations[2];
+    mAnimation[TakedDamage] = Table[type].animations[3];
+    mAnimation[Attack2] = Table[type].animations[4];
+    mAnimation[Attack3] = Table[type].animations[5];
+    expPoint = Table[type].expPoint;
     curX = 0;
     numRow = 0;
     setAnimation(Move);
-    ifs.close();
-    ifs.open("Media/Textures/"+dirEnemy(type)+"/projectileinfo.txt");
-    ifs >> width >> height >> x;
-    mProjectileAnimationMap[Projectile::EnemyBullet] = std::make_tuple(x, width, height);
+    mProjectileAnimationMap[toProjectileType(type)] = Table[type].projectileAnimation;
+}
+
+int Enemy::getExpPoint() const
+{
+    return expPoint;
 }
 
 void Enemy::setAnimation(Animation animation)
 {
+    if (mCurrentAnimation == Death) return;
+    if (mCurrentAnimation == animation) return;
     mCurrentAnimation = animation;
     curX = 0;
     for(size_t i=0; i<AnimationCount; i++)
@@ -160,24 +179,65 @@ unsigned int Enemy::getCategory() const
     return Category::Enemy;
 }
 
+int Enemy::getNumRow() const
+{
+    return numRow;
+}
+
 sf::FloatRect Enemy::getBoundingRect() const
 {
     sf::FloatRect rect = getWorldTransform().transformRect(mSprite.getGlobalBounds());
-    rect.width -= 300;
-    rect.left += 150;
-    rect.height -= 300;
-    rect.top += 150;
+    if (mType == FlyingEye)
+    {
+        rect.width -= 300;
+        rect.left += 150;
+        rect.height -= 300;
+        rect.top += 150;
+    }
+    if (mType == Goblin)
+    {
+        rect.width -= 300;
+        rect.left += 150;
+        rect.height -= 275;
+        rect.top += 150;
+    }
+    if (mType == Mushroom)
+    {
+        rect.width -= 300;
+        rect.left += 150;
+        rect.height -= 275;
+        rect.top += 150;
+    }
+    if (mType == Skeleton)
+    {
+        rect.width -= 300;
+        rect.left += 150;
+        rect.height -= 250;
+        rect.top += 125;
+    }
     return rect;
 }
 
 bool Enemy::isMarkedForRemoval() const
 {
-    return mIsMarkedForRemoval;
+    return isDestroyed();
+}
+
+bool Enemy::isDestroyed() const
+{
+    return getHitpoints() <= 0;
+}
+
+Enemy::Animation Enemy::getCurrentAnimation() const
+{
+    return mCurrentAnimation;
 }
 
 float Enemy::getMaxSpeed() const
 {
-    return Table[mType].speed;
+    float speed = Table[mType].speed;
+    if (mDebuffDuration > sf::Time::Zero) speed -= mSpeedDiff;
+    return speed;
 }
 
 void Enemy::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
@@ -185,21 +245,34 @@ void Enemy::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(mSprite, states);
 }
 
+void Enemy::knockback(sf::Vector2f direction, float distance)
+{
+    setAnimation(TakedDamage);
+    move(direction * distance);
+}
+
 void Enemy::updateCurrent(sf::Time deltaTime, CommandQueue& commands)
 {
-    if (isDestroyed())
-    {
-        mIsMarkedForRemoval = true;
-        return;
+    if (getVelocity().x < 0) setScale(-1.f, 1.f), mHealthDisplay->setScale(-1.f, 1.f);
+    if (getVelocity().x > 0) setScale(1.f, 1.f), mHealthDisplay->setScale(1.f, 1.f);
+
+    if (mDebuffDuration > sf::Time::Zero){
+        mSprite.setColor(sf::Color::Blue);
     }
+    else mSprite.setColor(sf::Color::White);
+
+    invicibleTime += deltaTime;
     mFireCountdown += deltaTime;
-    if (mCurrentAnimation==Move) Entity::updateCurrent(deltaTime, commands);
-    doAnimation(deltaTime);
+    mDebuffDuration -= deltaTime;
+
+    if (mCurrentAnimation==Move || mCurrentAnimation==TakedDamage) Entity::updateCurrent(deltaTime, commands);
+    updateTexts();
+    doAnimation(deltaTime,commands);
     updateMovementPattern(deltaTime);
     fireAttack(commands);
 }
 
-void Enemy::doAnimation(sf::Time deltaTime)
+void Enemy::doAnimation(sf::Time deltaTime, CommandQueue& commands)
 {
     int width = std::get<1>(mAnimation.at(mCurrentAnimation));
     int height = std::get<2>(mAnimation.at(mCurrentAnimation));
@@ -210,16 +283,38 @@ void Enemy::doAnimation(sf::Time deltaTime)
     {
         mAnimationTime = sf::Time::Zero;
         numRow++;
+        if (numRow==4 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="FlyingEye")
+        {
+            commands.push(mAttack3);
+        }
+        if (numRow==10 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="Goblin")
+        {
+            commands.push(mAttack3);
+        }
+        if (numRow==8 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="Mushroom")
+        {
+            commands.push(mAttack3);
+        }
+        if (numRow==4 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="Skeleton")
+        {
+            commands.push(mAttack3);
+        }
         if (numRow == maxCol)
         {
             if (mCurrentAnimation==Attack1 || mCurrentAnimation==Attack2 || mCurrentAnimation==Attack3)
             {
                 setAnimation(Move);
+                numRow = 0;
             }
             if (mCurrentAnimation == Death)
             {
                 mIsMarkedForRemoval = true;
                 return;
+            }
+            if (mCurrentAnimation == TakedDamage)
+            {
+                numRow = 0;
+                setAnimation(Move);
             }
             numRow = 0;
         }
@@ -237,9 +332,40 @@ void Enemy::updateMovementPattern(sf::Time deltaTime)
 
 void Enemy::fireAttack(CommandQueue& commands)
 {
-    if (mFireCountdown >= sf::seconds(5.0))
+    float timeFire = (rand() % 300)/100.0 + 4;
+    if (mFireCountdown >= sf::seconds(timeFire))
     {
         mFireCountdown = sf::Time::Zero;
-        commands.push(mAttack3);
+        setAnimation(Attack3);
     }
+    sf::Vector2f currentDir = getWorldPosition();
+    sf::Vector2f playerDir = mTargetDirection;
+    float distance = std::sqrt((currentDir.x - playerDir.x)*(currentDir.x - playerDir.x) + (currentDir.y - playerDir.y)*(currentDir.y - playerDir.y));
+    if (distance <= 30){
+        srand(time(NULL));
+        int rant = rand() % 2;
+        if (rant == 0) setAnimation(Attack1);
+        else setAnimation(Attack2);
+    }
+}
+
+void Enemy::updateTexts()
+{
+    mHealthDisplay->setString(std::to_string(getHitpoints()) + " HP");
+    mHealthDisplay->setPosition(0.f, 50.f);
+    mHealthDisplay->setRotation(-getRotation());
+}
+
+void Enemy::damage(int points)
+{
+    if (invicibleTime >= sf::seconds(0.1f)){
+        invicibleTime = sf::Time::Zero;
+        Entity::damage(points);
+    }
+}
+
+void Enemy::debuff(float speedDiff, sf::Time duration)
+{
+    mSpeedDiff = speedDiff;
+    mDebuffDuration = duration;
 }

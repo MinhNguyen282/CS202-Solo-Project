@@ -49,6 +49,18 @@
 },
 {
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Shader\\PostEffect.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Shader\\PostEffect.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Shader/PostEffect.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Shader/PostEffect.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Shader\\BloomEffect.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Shader\\BloomEffect.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Shader/BloomEffect.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Shader/BloomEffect.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
   "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\GUI\\Component.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\GUI\\Component.cpp",
   "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/GUI/Component.cpp",
   "output": "CMakeFiles/LittleWitchAdventure.dir/src/GUI/Component.cpp.obj"
@@ -112,6 +124,12 @@
   "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Entity\\Witch.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Entity\\Witch.cpp",
   "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Witch.cpp",
   "output": "CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Entity\\ParticleNode.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Entity\\ParticleNode.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/ParticleNode.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj"
 },
 {
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",

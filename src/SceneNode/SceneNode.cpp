@@ -88,6 +88,11 @@ void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) const
     drawBoundingRect(target, states);
 }
 
+int SceneNode::getSize() const
+{
+    return mChildren.size();
+}
+
 //Vẽ nút hiện tại
 void SceneNode::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {

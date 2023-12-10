@@ -13,6 +13,7 @@ class TextNode : public SceneNode
         explicit TextNode(const FontHolder& fonts, const std::string& text);
         void setString(const std::string& text);
         void setColor(const sf::Color& color);
+        void setCharacterSize(int size);
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
     private:

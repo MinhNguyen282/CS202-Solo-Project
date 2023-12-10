@@ -8,7 +8,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_STANDARD 17)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-include(FetchContent)
+include(FetchContent)   
 FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
     GIT_TAG 2.6.x)
@@ -23,6 +23,9 @@ src/SceneNode/ParallelTask.cpp
 src/SceneNode/SceneNode.cpp
 src/SceneNode/SpriteNode.cpp
 
+src/Shader/PostEffect.cpp
+src/Shader/BloomEffect.cpp
+
 src/GUI/Component.cpp
 src/GUI/Button.cpp
 src/GUI/Container.cpp
@@ -36,6 +39,7 @@ src/Entity/Player.cpp
 src/Entity/Projectile.cpp
 src/Entity/TextNode.cpp
 src/Entity/Witch.cpp
+src/Entity/ParticleNode.cpp
 
 src/World.cpp
 

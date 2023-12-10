@@ -16,7 +16,8 @@ class Player
             moveRight,
             moveUp,
             moveDown,
-            charge,
+            launchAbility,
+            launchDebuff,
             attack,
             actionCount,
         };

@@ -20,6 +20,7 @@ class SceneNode : public sf::Transformable, public sf::Drawable, private sf::Non
         typedef std::pair<SceneNode*, SceneNode*> Pair;
     
     public:
+        int getSize() const;
         explicit SceneNode(Category::Type category = Category::None);
         void attachChild(Ptr child);
         Ptr detachChild(const SceneNode& node);

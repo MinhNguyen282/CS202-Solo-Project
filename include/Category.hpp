@@ -13,6 +13,7 @@ namespace Category
         AlliedProjectile = 1<<4,
         MechaBoss = 1<<5,
         BossProjectile = 1<<6,
+        ParticleSystem = 1<<7,
 
         Projectile = EnemyProjectile | AlliedProjectile | BossProjectile,
         EnemiesProjectile = EnemyProjectile | BossProjectile,

@@ -2,7 +2,7 @@
 
 GameState::GameState(StateStack& stack, Context context)
 : State(stack, context)
-, mWorld(*context.window)
+, mWorld(*context.window, *context.fonts)
 , mPlayer(*context.player)
 {
 
@@ -11,6 +11,10 @@ GameState::GameState(StateStack& stack, Context context)
 bool GameState::handleEvent(const sf::Event& event)
 {
     CommandQueue& commands = mWorld.getCommandQueue();
+
+    // get mouse position
+    sf::Vector2i mousePosition = sf::Mouse::getPosition(*getContext().window);
+    mWorld.setMousePosition(mousePosition);
 
     mPlayer.handleEvent(event, commands);
 

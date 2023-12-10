@@ -9,7 +9,7 @@ namespace
 }
 
 MechaBoss::MechaBoss(const TextureHolder& textures, const FontHolder& fonts)
-: Entity(1000)
+: Entity(Table.hitpoints)
 , mSprite(textures.get(Textures::MechaBoss))
 , mTravelDistance(0.f)
 , mDirectionIndex(0)
@@ -95,7 +95,7 @@ void MechaBoss::createProjectile(SceneNode& node, Projectile::Type type, float x
 
 void MechaBoss::setAnimation(Animation animation)
 {
-    if (animation!=Die && (mCurrentAnimation == RangedAttack || mCurrentAnimation == SkillAttack || mCurrentAnimation == Shield || mCurrentAnimation == TakedDamage || mCurrentAnimation == Die)) return;
+    if (mCurrentAnimation == Die) return;
     mCurrentAnimation = animation;
     curX = 0;
     for(size_t i=0; i<AnimationCount; i++)
@@ -142,12 +142,12 @@ void MechaBoss::updateCurrent(sf::Time deltaTime, CommandQueue& commands)
 {
     if (isDestroyed())
     {
-        mIsMarkedForRemoval = true;
+        setAnimation(Die);
         return;
     }
     checkProjectileLaunch(deltaTime, commands);
     updateMovementPattern(deltaTime);
-    Entity::updateCurrent(deltaTime, commands);
+    if (mCurrentAnimation != Die) Entity::updateCurrent(deltaTime, commands);
 
     //Update health display
     updateTexts();
@@ -163,19 +163,23 @@ void MechaBoss::updateCurrent(sf::Time deltaTime, CommandQueue& commands)
     {
         mAnimationTime = sf::Time::Zero;
         numRow++;
+        if (numRow == 8 && mCurrentAnimation == RangedAttack){
+            commands.push(mFireCommand);
+        }
         if (numRow == maxCol)
         {
-            if (mCurrentAnimation != Die) numRow = 0;
-            if (mCurrentAnimation == RangedAttack || mCurrentAnimation == SkillAttack || mCurrentAnimation == Shield || mCurrentAnimation == TakedDamage)
-            {
-                mCurrentAnimation = Idle;
-                curX = 0;
-                numRow = 0;
+            if (mCurrentAnimation == Die){
+                mIsMarkedForRemoval = true;
+                return;
             }
-            if (mCurrentAnimation == Die)
-            {
-                damage(100);
+            if (mCurrentAnimation == RangedAttack){
+                setAnimation(Idle);
+                mFireCountdown = sf::Time::Zero;
             }
+            if (mCurrentAnimation == TakedDamage){
+                setAnimation(Idle);
+            }
+            numRow = 0;
         }
         mSprite.setTextureRect(sf::IntRect(curX, numRow * heightSprite, widthSprite, heightSprite));
     }
@@ -218,9 +222,9 @@ void MechaBoss::checkProjectileLaunch(sf::Time deltaTime, CommandQueue& commands
 {
     if (mCurrentAnimation != Die) fireAttack();
     else mIsFiring = false;
-    if (mIsFiring && mFireCountdown <= sf::Time::Zero && numRow == 7)
+    if (mIsFiring && mFireCountdown <= sf::Time::Zero)
     {
-        commands.push(mFireCommand);
+        setAnimation(RangedAttack);
         mFireCountdown += Table.fireInterval;
         mIsFiring = false;
     }

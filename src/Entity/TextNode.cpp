@@ -19,6 +19,11 @@ void TextNode::setString(const std::string& text)
     centerOrigin(mText);
 }
 
+void TextNode::setCharacterSize(int size)
+{
+    mText.setCharacterSize(size);
+}
+
 void TextNode::setColor(const sf::Color& color)
 {
     mText.setFillColor(color);

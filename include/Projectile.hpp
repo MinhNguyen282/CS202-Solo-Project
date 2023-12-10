@@ -14,7 +14,12 @@ class Projectile : public Entity
         enum Type
         {
             AlliedBullet,
-            EnemyBullet,
+            AlliedSkillE,
+            AlliedSkillQ,
+            FlyingEyeBullet,
+            GoblinBullet,
+            MushroomBullet,
+            SkeletonBullet,
             Missile,
             MechaBossRangedAttack,
             MechaBossSkillAttack,
@@ -25,11 +30,14 @@ class Projectile : public Entity
         void guideToward(sf::Vector2f position);
         bool isGuided() const;
         void pushAnimation(int mCol, int wS, int hS);
+        Type getType() const;
 
         virtual unsigned int getCategory() const;
         virtual sf::FloatRect getBoundingRect() const;
         float getMaxSpeed() const;
         int getDamage() const;
+        void addDamage(int damage);
+        sf::Vector2f getTargetDirection() const;
     private:
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -41,6 +49,7 @@ class Projectile : public Entity
         int maxCol;
         int widthSprite;
         int heightSprite;
+        int mDamgeUp;
         sf::Time mAnimationTime;
 };
 

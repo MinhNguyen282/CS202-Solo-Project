@@ -21,6 +21,7 @@ namespace
 
 Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 : Entity(Table[type].hitpoints)
+, maxHitPoints(Table[type].hitpoints)
 , mType(type)
 , mSprite(textures.get(toTextureID(type)))
 , mHealthDisplay(nullptr)
@@ -30,7 +31,12 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 , mFireRateLevel(1)
 , mIsMarkedForRemoval(false)
 , mIsLaunchingAbility(false)
+, mIsLauchingDebuff(false)
 , mIsFiring(false)
+, level(1)
+, curExpPoint(0)
+, mLevelUpSpeed(0.f)
+, mDamageUp(0)
 {
 	if (mType == BlueWitch){
 		mSprite.setTextureRect(sf::IntRect(0, 0, 64, 96));
@@ -45,7 +51,21 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 		numRow = 0;
 	}
 
+	//set level system
+	expCap[0] = 0;
+	expCap[1] = 100;
+	expCap[2] = 200;
+	expCap[3] = 300;
+	expCap[4] = 400;
+	expCap[5] = 500;
+	expCap[6] = 600;
+	expCap[7] = 700;
+	expCap[8] = 800;
+	expCap[9] = 900;
+
 	mProjectileAnimationMap[Projectile::AlliedBullet] = std::make_tuple(4, 32, 21);
+	mProjectileAnimationMap[Projectile::AlliedSkillE] = std::make_tuple(4, 142, 96);
+	mProjectileAnimationMap[Projectile::AlliedSkillQ] = std::make_tuple(9, 96, 96);
 
 	mFireCommand.category = Category::Scene;
 	mFireCommand.action = [this, &textures](SceneNode& node, sf::Time)
@@ -53,12 +73,48 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 		createBullets(node,textures);
 	};
 
+	mLaunchAbilityCommand.category = Category::Scene;
+	mLaunchAbilityCommand.action = [this, &textures](SceneNode& node, sf::Time)
+	{
+		createProjectile(node, Projectile::AlliedSkillE, 0.0f, 0.0f, textures);
+	};
+
+	mLaunchDebuffCommand.category = Category::Scene;
+	mLaunchDebuffCommand.action = [this, &textures](SceneNode& node, sf::Time)
+	{
+		createProjectile(node, Projectile::AlliedSkillQ, 0.0f, 0.0f, textures);
+	};
+
 	std::unique_ptr<TextNode> healthDisplay(new TextNode(fonts,""));
 	mHealthDisplay = healthDisplay.get();
-	mHealthDisplay->setColor(sf::Color::Black);
+	mHealthDisplay->setColor(sf::Color::White);
 	attachChild(std::move(healthDisplay));
 
     mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
+}
+
+void Witch::receiveExp(int expPoint)
+{
+	if (level == 10) return;
+	curExpPoint += expPoint;
+	if (curExpPoint >= expCap[level]){
+		level++;
+		curExpPoint = 0;
+		maxHitPoints += 10;
+		mDamageUp += 10;
+		heal(10);
+		mLevelUpSpeed += 10.f;
+	}
+}
+
+float Witch::getExpRatio() const
+{
+	return static_cast<float>(curExpPoint) / expCap[level];
+}
+
+int Witch::getLevel() const
+{
+	return level;
 }
 
 void Witch::getTarget(sf::Vector2f target)
@@ -69,7 +125,6 @@ void Witch::getTarget(sf::Vector2f target)
 void Witch::createBullets(SceneNode& node, const TextureHolder& textures) const
 {
 	Projectile::Type type = Projectile::AlliedBullet;
-	//std::cout << "Called create bullets \n";
 	createProjectile(node, type, 0.0f, 0.0f, textures);
 }
 
@@ -83,6 +138,7 @@ void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 	std::unique_ptr<Projectile> projectile(new Projectile(type, textures, std::get<0>(mProjectileAnimationMap.at(type)), std::get<1>(mProjectileAnimationMap.at(type)), std::get<2>(mProjectileAnimationMap.at(type))));
 	sf::Vector2f offset(xOffset * mSprite.getGlobalBounds().width, yOffset * mSprite.getGlobalBounds().height);
 	sf::Vector2f velocity(projectile->getMaxSpeed(), projectile->getMaxSpeed());
+	if (type == Projectile::AlliedSkillE) projectile->setScale(-1,1);
 	float sign = 1.f;
 	
 	//get character position
@@ -90,7 +146,6 @@ void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 
 	//get mouse position
 	sf::Vector2f worldPos = mTargetDirection;
-	std::cout << "Target: " << mTargetDirection.x << " " << mTargetDirection.y << "\n";
 
 	//get angle
 	float angle = std::atan2(worldPos.y - initPos.y, worldPos.x - initPos.x);
@@ -105,6 +160,7 @@ void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 	
 	projectile->setPosition(getWorldPosition() + sf::Vector2f(5,5));
 	projectile->setVelocity(velocity);
+	projectile->addDamage(mDamageUp);
 	node.attachChild(std::move(projectile));
 }
 
@@ -143,13 +199,13 @@ void Witch::updateTexts()
 
 float Witch::getMaxSpeed() const
 {
-	return Table[mType].speed;
+	return Table[mType].speed + mLevelUpSpeed;
 }
 
 void Witch::setAnimation(Animation animation)
 {
+	if (mCurrentAnimation == Die || (mCurrentAnimation==TakedDamage && animation==Walk)) return;
 	if (mCurrentAnimation == animation) return;
-	if (mCurrentAnimation == Attack && animation != Idle) return;
 	mCurrentAnimation = animation;
 	curX = 0;
 	numRow = 0;
@@ -157,6 +213,7 @@ void Witch::setAnimation(Animation animation)
 		if (i == animation) break;
 		curX += std::get<1>(mAnimationMap[(Animation)i]);
 	}
+	mAnimationTime = sf::Time::Zero;
 }
 
 bool Witch::isAttack()
@@ -186,15 +243,16 @@ void Witch::updateCurrent(sf::Time deltaTime, CommandQueue& mCommandQueue)
 		return;
 	}
 
+	mAbilityCountdown -= deltaTime;
+	mDebuffCountdown -= deltaTime;
 	checkProjectileLaunch(deltaTime, mCommandQueue);
 	Entity::updateCurrent(deltaTime, mCommandQueue);
 	updateTexts();
 
 	if (getVelocity().x < 0) mSprite.setScale(-1.f, 1.f);
-	else mSprite.setScale(1.f, 1.f);
-	//move(getVelocity() * getMaxSpeed() * deltaTime.asSeconds());
+	if (getVelocity().x > 0) mSprite.setScale(1.f, 1.f);
+	if (getVelocity().x == 0 && getVelocity().y == 0) setAnimation(Idle);
 
-	if (getVelocity().x == 0 && getVelocity().y==0 && mCurrentAnimation == Walk) setAnimation(Witch::Idle);
 	int maxNumRow = std::get<0>(mAnimationMap[mCurrentAnimation]);
 	int width = std::get<1>(mAnimationMap[mCurrentAnimation]);
 	int height = std::get<2>(mAnimationMap[mCurrentAnimation]);
@@ -208,7 +266,8 @@ void Witch::updateCurrent(sf::Time deltaTime, CommandQueue& mCommandQueue)
 		if (numRow == maxNumRow)
 		{
 			numRow = 0;
-			if (isAttack()) setAnimation(Witch::Idle), width = std::get<1>(mAnimationMap[mCurrentAnimation]), height = std::get<2>(mAnimationMap[mCurrentAnimation]);
+			if (mCurrentAnimation == TakedDamage) setAnimation(Idle);
+			if (mCurrentAnimation == Die) mIsMarkedForRemoval = true;
 		}
 		mSprite.setTextureRect(sf::IntRect(curX, height * numRow, width, height));
 	}
@@ -231,7 +290,6 @@ void Witch::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 {
 	if (mIsFiring && mFireCountdown <= sf::Time::Zero)
 	{
-		std::cout << "Fire! \n";
 		commands.push(mFireCommand);
 		mFireCountdown += Table[mType].fireInterval / (mFireRateLevel + 1.f);
 		mIsFiring = false;
@@ -247,4 +305,38 @@ void Witch::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 		commands.push(mLaunchAbilityCommand);
 		mIsLaunchingAbility = false;
 	}
+	if (mIsLauchingDebuff)
+	{
+		commands.push(mLaunchDebuffCommand);
+		mIsLauchingDebuff = false;
+	}
+}
+
+void Witch::launchAbility()
+{
+	if (mAbilityCountdown <= sf::Time::Zero){
+		mAbilityCountdown = sf::Time::Zero;
+		mAbilityCountdown += Table[mType].abilityInterval;
+		mIsLaunchingAbility = true;
+	}
+}
+
+void Witch::laundDebuff()
+{
+	if (mDebuffCountdown <= sf::Time::Zero){
+		mDebuffCountdown = sf::Time::Zero;
+		mDebuffCountdown += Table[mType].debuffInterval;
+		mIsLauchingDebuff = true;
+		std::cout << "Debuff" << std::endl;
+	}
+}
+
+float Witch::getCoolDownE() const
+{
+	return std::max(0.0f, mAbilityCountdown.asSeconds()) / Table[mType].abilityInterval.asSeconds();
+}
+
+float Witch::getCoolDownQ() const
+{
+	return std::max(0.0f, mDebuffCountdown.asSeconds()) / Table[mType].debuffInterval.asSeconds();
 }

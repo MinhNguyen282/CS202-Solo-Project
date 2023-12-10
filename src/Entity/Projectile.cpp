@@ -2,6 +2,7 @@
 #include "include/DataTables.hpp"
 #include "include/Utility.hpp"
 #include "include/ResourcesHolder.hpp"
+#include "include/Enemy.hpp"
 
 #include <cmath>
 #include <cassert>
@@ -17,6 +18,7 @@ Projectile::Projectile(Type type, const TextureHolder& textures, int mCol, int w
 , mSprite(textures.get(Table[type].texture))
 , mTargetDirection()
 , curCol(0)
+, mDamgeUp(0)
 , mAnimationTime(sf::Time::Zero)
 {
     maxCol = mCol;
@@ -37,12 +39,17 @@ bool Projectile::isGuided() const
     return mType == Missile;
 }
 
+Projectile::Type Projectile::getType() const
+{
+    return mType;
+}
+
 unsigned int Projectile::getCategory() const
 {
-    if (mType == EnemyBullet || mType == MechaBossRangedAttack || mType == MechaBossSkillAttack)
-        return Category::EnemiesProjectile;
-    else
+    if (mType == AlliedBullet || mType == AlliedSkillE)
         return Category::AlliedProjectile;
+    else
+        return Category::EnemyProjectile;
 }
 
 void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
@@ -66,6 +73,18 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
         curCol++;
         if (curCol == maxCol)
         {
+            if (mType==AlliedSkillQ){
+                destroy();
+                Command debuffCommand;
+                debuffCommand.category = Category::Enemy;
+                debuffCommand.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
+                {
+                    enemy.debuff(getDamage(), sf::seconds(2.f));
+                    enemy.setAnimation(Enemy::TakedDamage);
+                    enemy.damage(getDamage()/5);
+                });
+                commands.push(debuffCommand);
+            }
             curCol = 0;
         }
         mSprite.setTextureRect(sf::IntRect(curCol * widthSprite, 0, widthSprite, heightSprite));
@@ -81,7 +100,71 @@ void Projectile::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) 
 
 sf::FloatRect Projectile::getBoundingRect() const
 {
-    return getWorldTransform().transformRect(mSprite.getGlobalBounds());
+    sf::FloatRect rect = getWorldTransform().transformRect(mSprite.getGlobalBounds());
+    if (mType == AlliedBullet){
+        float height = 25.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 30;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == AlliedSkillE){
+        float height = 96.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 100;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == FlyingEyeBullet){
+        float height = 35.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 35.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == GoblinBullet)
+    {
+        float height = 35.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 35.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == MushroomBullet)
+    {
+        float height = 35.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 35.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == SkeletonBullet)
+    {
+        float height = 35.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 35.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    return rect;   
 }
 
 float Projectile::getMaxSpeed() const
@@ -91,5 +174,15 @@ float Projectile::getMaxSpeed() const
 
 int Projectile::getDamage() const
 {
-    return Table[mType].damage;
+    return Table[mType].damage + mDamgeUp;
+}
+
+void Projectile::addDamage(int damage)
+{
+    mDamgeUp += damage;
+}
+
+sf::Vector2f Projectile::getTargetDirection() const
+{
+    return mTargetDirection;
 }
