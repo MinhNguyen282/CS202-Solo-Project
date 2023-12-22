@@ -30,7 +30,8 @@ struct WitchData
     sf::Time fireInterval;
     sf::Time abilityInterval;
     sf::Time debuffInterval;
-    std::vector<Direction> directions;
+    sf::Time ultimateInterval;
+    float mCoolDown;
 };
 
 struct EnemyData
@@ -51,6 +52,7 @@ struct ProjectileData
 {
     int damage;
     float speed;
+    sf::Time lifetime;
     Textures::ID texture;
 };
 
@@ -60,7 +62,7 @@ struct PickupData
     Textures::ID texture;
 };
 
-struct MechaBossData
+struct DarkWizzardData
 {
     int hitpoints;
     float speed;
@@ -79,7 +81,7 @@ std::vector<ProjectileData> initializeProjectileData();
 std::vector<PickupData> initializePickupData();
 std::vector<WitchData> initializeWitchData();
 std::vector<EnemyData> initializeEnemyData();
-MechaBossData initializeMechaBossData();
+DarkWizzardData initializeDarkWizzardData();
 std::vector<ParticleData>	initializeParticleData();
 
 

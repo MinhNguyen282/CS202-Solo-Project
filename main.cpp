@@ -1,13 +1,15 @@
 #include <iostream>
 #include "include/Application.hpp"
+#include <Windows.h>
 
 using namespace std;
 
 int main()
 {
+    HWND hwnd = GetConsoleWindow();
+    ShowWindow(hwnd, SW_HIDE);
     try
     {
-        cout << "Minh dep trai! \n";
         Application app;
         app.run();
     }

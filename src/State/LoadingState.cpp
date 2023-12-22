@@ -54,7 +54,7 @@ bool LoadingState::update(sf::Time)
         setCompletion(mLoadingTask.getCompletion());
     }
 
-    return true;
+    return false;
 }
 
 bool LoadingState::handleEvent(const sf::Event&)

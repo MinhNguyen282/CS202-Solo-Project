@@ -1,6 +1,7 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 #include "SceneNode.hpp"
+#include "SoundNode.hpp"
 #include "CommandQueue.hpp"
 
 class Entity : public SceneNode
@@ -19,6 +20,8 @@ class Entity : public SceneNode
 
         int getHitpoints() const;
         virtual bool isDestroyed() const;
+        virtual void rebuildTable();
+        void playLocalSound(CommandQueue& commands, SoundEffect::ID effect);
 
     protected:
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);

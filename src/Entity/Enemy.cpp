@@ -61,7 +61,7 @@ std::string dirEnemy(Enemy::Type type)
 
 namespace
 {
-    const std::vector<EnemyData> Table = initializeEnemyData();
+    std::vector<EnemyData> Table = initializeEnemyData();
 }
 
 //First 5 Min: FlyingEye and Goblin
@@ -85,6 +85,7 @@ Enemy::Enemy(Type type, const TextureHolder& textures, const FontHolder& fonts)
 , mIsNearPlayer(false)
 , mIsAttack(false)
 , mIsMarkedForRemoval(false)
+, mCurrentAnimation(Attack1)
 {
     readEnemyData(type);
     mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
@@ -137,6 +138,12 @@ void Enemy::readEnemyData(Type type)
     numRow = 0;
     setAnimation(Move);
     mProjectileAnimationMap[toProjectileType(type)] = Table[type].projectileAnimation;
+}
+
+void Enemy::rebuildTable()
+{
+    Table = initializeEnemyData();
+    Entity::heal(std::max(0, Table[mType].hitpoints - getHitpoints()));
 }
 
 int Enemy::getExpPoint() const
@@ -286,25 +293,32 @@ void Enemy::doAnimation(sf::Time deltaTime, CommandQueue& commands)
         if (numRow==4 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="FlyingEye")
         {
             commands.push(mAttack3);
+            float distance = std::sqrt((getWorldPosition().x - mTargetDirection.x)*(getWorldPosition().x - mTargetDirection.x) + (getWorldPosition().y - mTargetDirection.y)*(getWorldPosition().y - mTargetDirection.y));
+            if (distance <= 600) Entity::playLocalSound(commands, SoundEffect::FlyingEyeFiring);
         }
         if (numRow==10 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="Goblin")
         {
             commands.push(mAttack3);
+            float distance = std::sqrt((getWorldPosition().x - mTargetDirection.x)*(getWorldPosition().x - mTargetDirection.x) + (getWorldPosition().y - mTargetDirection.y)*(getWorldPosition().y - mTargetDirection.y));
+            if (distance <= 600) Entity::playLocalSound(commands, SoundEffect::GoblinFiring);
         }
         if (numRow==8 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="Mushroom")
         {
             commands.push(mAttack3);
+            float distance = std::sqrt((getWorldPosition().x - mTargetDirection.x)*(getWorldPosition().x - mTargetDirection.x) + (getWorldPosition().y - mTargetDirection.y)*(getWorldPosition().y - mTargetDirection.y));
+            if (distance <= 600) Entity::playLocalSound(commands, SoundEffect::MushroomFiring);
         }
         if (numRow==4 && mCurrentAnimation==Attack3 && dirEnemy(mType)=="Skeleton")
         {
             commands.push(mAttack3);
+            float distance = std::sqrt((getWorldPosition().x - mTargetDirection.x)*(getWorldPosition().x - mTargetDirection.x) + (getWorldPosition().y - mTargetDirection.y)*(getWorldPosition().y - mTargetDirection.y));
+            if (distance <= 600) Entity::playLocalSound(commands, SoundEffect::SkeletonFiring);
         }
         if (numRow == maxCol)
         {
             if (mCurrentAnimation==Attack1 || mCurrentAnimation==Attack2 || mCurrentAnimation==Attack3)
             {
                 setAnimation(Move);
-                numRow = 0;
             }
             if (mCurrentAnimation == Death)
             {
@@ -313,7 +327,6 @@ void Enemy::doAnimation(sf::Time deltaTime, CommandQueue& commands)
             }
             if (mCurrentAnimation == TakedDamage)
             {
-                numRow = 0;
                 setAnimation(Move);
             }
             numRow = 0;
@@ -332,7 +345,7 @@ void Enemy::updateMovementPattern(sf::Time deltaTime)
 
 void Enemy::fireAttack(CommandQueue& commands)
 {
-    float timeFire = (rand() % 300)/100.0 + 4;
+    float timeFire = (rand() % 300)/100.0 + 5;
     if (mFireCountdown >= sf::seconds(timeFire))
     {
         mFireCountdown = sf::Time::Zero;

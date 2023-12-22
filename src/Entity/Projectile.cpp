@@ -9,7 +9,7 @@
 
 namespace 
 {
-    const std::vector<ProjectileData> Table = initializeProjectileData();
+    std::vector<ProjectileData> Table = initializeProjectileData();
 }
 
 Projectile::Projectile(Type type, const TextureHolder& textures, int mCol, int wS, int hS)
@@ -20,12 +20,18 @@ Projectile::Projectile(Type type, const TextureHolder& textures, int mCol, int w
 , curCol(0)
 , mDamgeUp(0)
 , mAnimationTime(sf::Time::Zero)
+, mAliveTime(sf::Time::Zero)
 {
     maxCol = mCol;
     widthSprite = wS;
     heightSprite = hS;
     mSprite.setTextureRect(sf::IntRect(curCol * wS, 0, wS, hS));
     centerOrigin(mSprite);
+}
+
+void Projectile::rebuildTable()
+{
+    Table = initializeProjectileData();
 }
 
 void Projectile::guideToward(sf::Vector2f position)
@@ -36,7 +42,7 @@ void Projectile::guideToward(sf::Vector2f position)
 
 bool Projectile::isGuided() const
 {
-    return mType == Missile;
+    return mType == AlliedUltimate;
 }
 
 Projectile::Type Projectile::getType() const
@@ -46,14 +52,17 @@ Projectile::Type Projectile::getType() const
 
 unsigned int Projectile::getCategory() const
 {
-    if (mType == AlliedBullet || mType == AlliedSkillE)
+    if (mType == AlliedBullet || mType == AlliedSkillE || mType == AlliedUltimate)
         return Category::AlliedProjectile;
+    else if (mType == AlliedSkillQ)
+        return Category::None;
     else
         return Category::EnemyProjectile;
 }
 
 void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
 {
+    mAliveTime += dt;
     if (isGuided())
     {
         const float approachRate = 200.f;
@@ -62,9 +71,10 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
         newVelocity *= getMaxSpeed();
         float angle = std::atan2(newVelocity.y, newVelocity.x);
 
-        setRotation(toDegree(angle) + 90.f);
+        setRotation(toDegree(angle));
         setVelocity(newVelocity);
     }
+    if (mType == AlliedUltimate && mAliveTime >= Table[mType].lifetime) destroy();
 
     mAnimationTime += dt;
     if (mAnimationTime >= sf::seconds(0.1f))
@@ -81,9 +91,12 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
                 {
                     enemy.debuff(getDamage(), sf::seconds(2.f));
                     enemy.setAnimation(Enemy::TakedDamage);
-                    enemy.damage(getDamage()/5);
+                    enemy.damage(getDamage());
                 });
                 commands.push(debuffCommand);
+            }
+            if (mType == ThunderStrike || mType == ExplosionAttack){
+                destroy();
             }
             curCol = 0;
         }
@@ -91,6 +104,11 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
     }
 
     Entity::updateCurrent(dt, commands);
+}
+
+int Projectile::getCurrentAnimation() const
+{
+    return curCol;
 }
 
 void Projectile::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
@@ -117,6 +135,16 @@ sf::FloatRect Projectile::getBoundingRect() const
         rect.height -= diffHei;
         rect.top += diffHei / 2;
         float width = 100;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == AlliedUltimate){
+        float height = 110.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 110.0;
         float diffWid = rect.width - width;
         rect.width -= diffWid;
         rect.left += diffWid / 2;
@@ -160,6 +188,39 @@ sf::FloatRect Projectile::getBoundingRect() const
         rect.height -= diffHei;
         rect.top += diffHei / 2;
         float width = 35.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == DarkAttack)
+    {
+        float height = 75.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 75.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == ExplosionAttack)
+    {
+        float height = 75.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 75.0;
+        float diffWid = rect.width - width;
+        rect.width -= diffWid;
+        rect.left += diffWid / 2;
+    }
+    if (mType == ThunderStrike)
+    {
+        float height = 75.0;
+        float diffHei = rect.height - height;
+        rect.height -= diffHei;
+        rect.top += diffHei / 2;
+        float width = 75.0;
         float diffWid = rect.width - width;
         rect.width -= diffWid;
         rect.left += diffWid / 2;

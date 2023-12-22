@@ -1,6 +1,7 @@
 #include "include/Witch.hpp"
 #include "include/ResourcesHolder.hpp"
 #include "include/Utility.hpp"
+#include "include/SoundNode.hpp"
 #include "include/Projectile.hpp"
 #include <iostream>
 
@@ -16,13 +17,14 @@ Textures::ID toTextureID(Witch::Type type)
 
 namespace
 {
-	const std::vector<WitchData> Table = initializeWitchData();
+	std::vector<WitchData> pTable = initializeWitchData();
 }
 
 Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
-: Entity(Table[type].hitpoints)
-, maxHitPoints(Table[type].hitpoints)
+: Entity(pTable[type].hitpoints)
+, maxHitPoints(pTable[type].hitpoints)
 , mType(type)
+, mCoolDownE(pTable[type].mCoolDown)
 , mSprite(textures.get(toTextureID(type)))
 , mHealthDisplay(nullptr)
 , mTravelDistance(0.f)
@@ -32,6 +34,7 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 , mIsMarkedForRemoval(false)
 , mIsLaunchingAbility(false)
 , mIsLauchingDebuff(false)
+, mIsLauchingUltimate(false)
 , mIsFiring(false)
 , level(1)
 , curExpPoint(0)
@@ -66,6 +69,7 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 	mProjectileAnimationMap[Projectile::AlliedBullet] = std::make_tuple(4, 32, 21);
 	mProjectileAnimationMap[Projectile::AlliedSkillE] = std::make_tuple(4, 142, 96);
 	mProjectileAnimationMap[Projectile::AlliedSkillQ] = std::make_tuple(9, 96, 96);
+	mProjectileAnimationMap[Projectile::AlliedUltimate] = std::make_tuple(16, 165, 165);
 
 	mFireCommand.category = Category::Scene;
 	mFireCommand.action = [this, &textures](SceneNode& node, sf::Time)
@@ -85,12 +89,26 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 		createProjectile(node, Projectile::AlliedSkillQ, 0.0f, 0.0f, textures);
 	};
 
+	mLaunchUltimateCommand.category = Category::Scene;
+	mLaunchUltimateCommand.action = [this, &textures](SceneNode& node, sf::Time)
+	{
+		createProjectile(node, Projectile::AlliedUltimate, 0.0f, 0.0f, textures);
+	};
+
 	std::unique_ptr<TextNode> healthDisplay(new TextNode(fonts,""));
 	mHealthDisplay = healthDisplay.get();
 	mHealthDisplay->setColor(sf::Color::White);
 	attachChild(std::move(healthDisplay));
 
     mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f, mSprite.getLocalBounds().height / 2.f);
+}
+
+void Witch::rebuildTable()
+{
+	pTable = initializeWitchData();
+	maxHitPoints = pTable[mType].hitpoints;
+	Entity::heal(std::max(0, pTable[mType].hitpoints - getHitpoints()));
+	mCoolDownE = pTable[mType].mCoolDown;
 }
 
 void Witch::receiveExp(int expPoint)
@@ -105,6 +123,11 @@ void Witch::receiveExp(int expPoint)
 		heal(10);
 		mLevelUpSpeed += 10.f;
 	}
+}
+
+float Witch::getHealthRatio() const
+{
+	return static_cast<float>(getHitpoints()) / maxHitPoints;
 }
 
 float Witch::getExpRatio() const
@@ -153,7 +176,7 @@ void Witch::createProjectile(SceneNode& node, Projectile::Type type, float xOffs
 	velocity.y = projectile->getMaxSpeed() * std::sin(angle);
 
 	//rotate projectile
-	projectile->setRotation(toDegree(angle));
+	if (type != Projectile::AlliedSkillQ) projectile->setRotation(toDegree(angle));
 
 	//get sign
 	if (angle > 0 && angle < 3.14f) sign = -1.f;
@@ -199,7 +222,7 @@ void Witch::updateTexts()
 
 float Witch::getMaxSpeed() const
 {
-	return Table[mType].speed + mLevelUpSpeed;
+	return pTable[mType].speed + mLevelUpSpeed;
 }
 
 void Witch::setAnimation(Animation animation)
@@ -245,6 +268,7 @@ void Witch::updateCurrent(sf::Time deltaTime, CommandQueue& mCommandQueue)
 
 	mAbilityCountdown -= deltaTime;
 	mDebuffCountdown -= deltaTime;
+	mUltimateCountdown -= deltaTime;
 	checkProjectileLaunch(deltaTime, mCommandQueue);
 	Entity::updateCurrent(deltaTime, mCommandQueue);
 	updateTexts();
@@ -280,7 +304,7 @@ bool Witch::isAllied()
 
 void Witch::fire()
 {
-	if (Table[mType].fireInterval != sf::Time::Zero)
+	if (pTable[mType].fireInterval != sf::Time::Zero)
 	{
 		mIsFiring = true;
 	}
@@ -291,7 +315,8 @@ void Witch::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 	if (mIsFiring && mFireCountdown <= sf::Time::Zero)
 	{
 		commands.push(mFireCommand);
-		mFireCountdown += Table[mType].fireInterval / (mFireRateLevel + 1.f);
+		Entity::playLocalSound(commands, SoundEffect::AlliedFiring);
+		mFireCountdown += pTable[mType].fireInterval / (mFireRateLevel + 1.f);
 		mIsFiring = false;
 	}
 	else if (mFireCountdown > sf::Time::Zero)
@@ -303,12 +328,20 @@ void Witch::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 	if (mIsLaunchingAbility)
 	{
 		commands.push(mLaunchAbilityCommand);
+		Entity::playLocalSound(commands, SoundEffect::AlliedAbility);
 		mIsLaunchingAbility = false;
 	}
 	if (mIsLauchingDebuff)
 	{
 		commands.push(mLaunchDebuffCommand);
+		Entity::playLocalSound(commands, SoundEffect::AlliedDebuff);
 		mIsLauchingDebuff = false;
+	}
+	if (mIsLauchingUltimate)
+	{
+		commands.push(mLaunchUltimateCommand);
+		Entity::playLocalSound(commands, SoundEffect::AlliedUltimate);
+		mIsLauchingUltimate = false;
 	}
 }
 
@@ -316,7 +349,7 @@ void Witch::launchAbility()
 {
 	if (mAbilityCountdown <= sf::Time::Zero){
 		mAbilityCountdown = sf::Time::Zero;
-		mAbilityCountdown += Table[mType].abilityInterval;
+		mAbilityCountdown += pTable[mType].abilityInterval - sf::seconds(mCoolDownE * pTable[mType].abilityInterval.asSeconds());
 		mIsLaunchingAbility = true;
 	}
 }
@@ -325,18 +358,32 @@ void Witch::laundDebuff()
 {
 	if (mDebuffCountdown <= sf::Time::Zero){
 		mDebuffCountdown = sf::Time::Zero;
-		mDebuffCountdown += Table[mType].debuffInterval;
+		mDebuffCountdown += pTable[mType].debuffInterval - sf::seconds(mCoolDownE * pTable[mType].debuffInterval.asSeconds());
 		mIsLauchingDebuff = true;
 		std::cout << "Debuff" << std::endl;
 	}
 }
 
+void Witch::launchUltimate()
+{
+	if (mUltimateCountdown <= sf::Time::Zero){
+		mUltimateCountdown = sf::Time::Zero;
+		mUltimateCountdown += pTable[mType].ultimateInterval - sf::seconds(mCoolDownE * pTable[mType].ultimateInterval.asSeconds());
+		mIsLauchingUltimate = true;
+	}
+}
+
 float Witch::getCoolDownE() const
 {
-	return std::max(0.0f, mAbilityCountdown.asSeconds()) / Table[mType].abilityInterval.asSeconds();
+	return std::max(0.0f, mAbilityCountdown.asSeconds()) / (pTable[mType].abilityInterval.asSeconds() - mCoolDownE * pTable[mType].abilityInterval.asSeconds());
 }
 
 float Witch::getCoolDownQ() const
 {
-	return std::max(0.0f, mDebuffCountdown.asSeconds()) / Table[mType].debuffInterval.asSeconds();
+	return std::max(0.0f, mDebuffCountdown.asSeconds()) / (pTable[mType].debuffInterval.asSeconds() - mCoolDownE * pTable[mType].debuffInterval.asSeconds());
+}
+
+float Witch::getCoolDownUltimate() const
+{
+	return std::max(0.0f, mUltimateCountdown.asSeconds()) / (pTable[mType].ultimateInterval.asSeconds() - mCoolDownE * pTable[mType].ultimateInterval.asSeconds());
 }

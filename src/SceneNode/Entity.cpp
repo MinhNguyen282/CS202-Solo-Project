@@ -62,3 +62,22 @@ void Entity::accelerate(float vx, float vy)
     mVelocity.x += vx;
     mVelocity.y += vy;
 }
+
+void Entity::rebuildTable()
+{
+    //do nothing
+}
+
+void Entity::playLocalSound(CommandQueue& commands, SoundEffect::ID effect)
+{
+    sf::Vector2f worldPosition = getWorldPosition();
+
+    Command command;
+    command.category = Category::SoundEffect;
+    command.action = derivedAction<SoundNode>(
+        [effect, worldPosition] (SoundNode& node, sf::Time)
+        {
+            node.playSound(effect, worldPosition);
+        });
+    commands.push(command);
+}

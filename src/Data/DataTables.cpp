@@ -8,19 +8,43 @@ using namespace std::placeholders;
 std::vector<WitchData> initializeWitchData()
 {
     std::vector<WitchData> data(Witch::typeCount);
-
-    data[Witch::BlueWitch].hitpoints = 100;
-    data[Witch::BlueWitch].speed = 300.f;
     data[Witch::BlueWitch].texture = Textures::BlueWitch;
-    data[Witch::BlueWitch].fireInterval = sf::seconds(1);
-    data[Witch::BlueWitch].abilityInterval = sf::seconds(5);
-    data[Witch::BlueWitch].debuffInterval = sf::seconds(5);
+
+    std::cout << "Data called" << std::endl;
+
+    std::ifstream ifs("Data/Character/BlueWitch/BasePower.dat");
+
+    ifs >> data[Witch::BlueWitch].hitpoints;
+    ifs >> data[Witch::BlueWitch].speed;
+    int x;
+    ifs >> x;
+    data[Witch::BlueWitch].fireInterval = sf::seconds(x);
+    ifs >> x;
+    data[Witch::BlueWitch].abilityInterval = sf::seconds(x);
+    ifs >> x;
+    data[Witch::BlueWitch].debuffInterval = sf::seconds(x);
+    ifs >> x;
+    data[Witch::BlueWitch].ultimateInterval = sf::seconds(x);
+    ifs >> data[Witch::BlueWitch].mCoolDown;
+    data[Witch::BlueWitch].mCoolDown /= 100.f;
+    ifs.close();
+
+    ifs.open("Data/Upgrade/BlueWitch/UpgradePower.dat");
+    int y,z; ifs >> x >> y >> z;
+    data[Witch::BlueWitch].hitpoints += x;
+    ifs >> x >> y >> z;
+    data[Witch::BlueWitch].speed += x;
+    ifs >> x >> y >> z;
+    data[Witch::BlueWitch].mCoolDown += (float)x/100.f;
+    ifs.close();
 
     return data;
 }
 
 std::vector<EnemyData> initializeEnemyData()
 {
+    std::cout << "Enemy Data Called" << std::endl;
+
     std::vector<EnemyData> data(Enemy::typeCount);
     std::ifstream ifs("Media/Textures/FlyingEye/info.txt");
     ifs >> data[Enemy::FlyingEye].width >> data[Enemy::FlyingEye].height;
@@ -157,23 +181,42 @@ std::vector<EnemyData> initializeEnemyData()
 
 std::vector<ProjectileData> initializeProjectileData()
 {
+    std::cout << "Projectile Data Called" << std::endl;
+
     std::vector<ProjectileData> data(Projectile::typeCount);
 
-    data[Projectile::AlliedBullet].damage = 100;
-    data[Projectile::AlliedBullet].speed = 600.f;
+    std::ifstream ifs("Data/Character/BlueWitch/ProjectilePower.dat");
+
+    ifs >> data[Projectile::AlliedBullet].damage;
+    ifs >> data[Projectile::AlliedBullet].speed;
     data[Projectile::AlliedBullet].texture = Textures::AlliedBullet;
 
-    data[Projectile::AlliedSkillE].damage = 25;
-    data[Projectile::AlliedSkillE].speed = 500.f;
+    ifs >> data[Projectile::AlliedSkillE].damage;
+    ifs >> data[Projectile::AlliedSkillE].speed;
     data[Projectile::AlliedSkillE].texture = Textures::AlliedSkillE;
 
-    data[Projectile::AlliedSkillQ].damage = 100;
-    data[Projectile::AlliedSkillQ].speed = 0.f;
+    ifs >> data[Projectile::AlliedSkillQ].damage;
+    ifs >> data[Projectile::AlliedSkillQ].speed;
     data[Projectile::AlliedSkillQ].texture = Textures::AlliedSkillQ;
 
-    data[Projectile::MechaBossRangedAttack].damage = 40;
-    data[Projectile::MechaBossRangedAttack].speed = 600.f;
-    data[Projectile::MechaBossRangedAttack].texture = Textures::MechaBossRangedAttack;
+    ifs >> data[Projectile::AlliedUltimate].damage;
+    ifs >> data[Projectile::AlliedUltimate].speed;
+    int x; ifs >> x;
+    data[Projectile::AlliedUltimate].lifetime = sf::seconds(x);
+    data[Projectile::AlliedUltimate].texture = Textures::AlliedUltimate;
+    ifs.close();
+
+    ifs.open("Data/Upgrade/BlueWitch/ProjectilePower.dat");
+    int y, z;
+    ifs >> x >> y >> z;
+    data[Projectile::AlliedBullet].damage += x;
+    ifs >> x >> y >> z;
+    data[Projectile::AlliedSkillE].damage += x;
+    ifs >> x >> y >> z;
+    data[Projectile::AlliedSkillQ].damage += x;
+    ifs >> x >> y >> z;
+    data[Projectile::AlliedUltimate].damage += x;
+    ifs.close();
 
     data[Projectile::FlyingEyeBullet].damage = 10;
     data[Projectile::FlyingEyeBullet].speed = 200.f;
@@ -191,35 +234,31 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::SkeletonBullet].speed = 400.f;
     data[Projectile::SkeletonBullet].texture = Textures::SkeletonBullet;
 
+    data[Projectile::DarkAttack].damage = 100;
+    data[Projectile::DarkAttack].speed = 300.f;
+    data[Projectile::DarkAttack].texture = Textures::DarkAttack;
+
+    data[Projectile::ExplosionAttack].damage = 50;
+    data[Projectile::ExplosionAttack].speed = 300.f;
+    data[Projectile::ExplosionAttack].texture = Textures::ExplosionAttack;
+
+    data[Projectile::ThunderStrike].damage = 50;
+    data[Projectile::ThunderStrike].speed = 300.f;
+    data[Projectile::ThunderStrike].texture = Textures::ThunderStrike;
+
     return data;
 }
 
-MechaBossData initializeMechaBossData()
+DarkWizzardData initializeDarkWizzardData()
 {
-    MechaBossData data;
+    std::cout << "Dark Wizzard Data Called" << std::endl;
 
-    data.hitpoints = 1000;
-    data.speed = 200.f;
-    data.texture = Textures::MechaBoss;
+    DarkWizzardData data;
+
+    data.hitpoints = 10000;
+    data.speed = 300.f;
+    data.texture = Textures::DarkWizzard;
     data.fireInterval = sf::seconds(1);
-
-    Direction direction01(0.f, 50.f);
-    Direction direction02(45.f, 50.f);
-    Direction direction03(90.f, 50.f);
-    Direction direction04(135.f, 50.f);
-    Direction direction05(180.f, 50.f);
-    Direction direction06(225.f, 50.f);
-    Direction direction07(270.f, 50.f);
-    Direction direction08(315.f, 50.f);
-
-    data.directions.push_back(direction01);
-    data.directions.push_back(direction02);
-    data.directions.push_back(direction03);
-    data.directions.push_back(direction04);
-    data.directions.push_back(direction05);
-    data.directions.push_back(direction06);
-    data.directions.push_back(direction07);
-    data.directions.push_back(direction08);
 
     return data;
 }

@@ -10,31 +10,27 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-class MechaBoss : public Entity
+class DarkWizzard : public Entity
 {
     public:
         enum Animation
         {
+            Attack1,
+            Attack2,
+            Death,
             Idle,
+            Run,
             TakedDamage,
-            RangedAttack,
-            SkillAttack,
-            Shield,
-            Die,
             AnimationCount,
         };
     public:
-        explicit MechaBoss(const TextureHolder& textures, const FontHolder& fonts);
+        explicit DarkWizzard(const TextureHolder& textures, const FontHolder& fonts);
         void setTextureRect(sf::IntRect rect);
         virtual sf::FloatRect getBoundingRect() const;
 
         float getMaxSpeed() const;
 
-        void fireAttack();
-        void skillAttack(const sf::Vector2f& target);
-
-        void createBullets(SceneNode& node, const TextureHolder& textures) const;
-        void createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
+        void fireAttack(CommandQueue& commands);
 
         void setAnimation(Animation animation);
         void setTargetDirection(sf::Vector2f direction);
@@ -43,9 +39,12 @@ class MechaBoss : public Entity
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);
+        void doAnimation(sf::Time deltaTime, CommandQueue& commands);
+        void createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
+        void createThunderStrike(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
+        void createExplosion(SceneNode& node, float xOffset, float yOffset, const TextureHolder& textures) const;
         virtual unsigned int getCategory() const;
-
-        void updateMovementPattern(sf::Time deltaTime);
+        virtual void rebuildTable();
 
         void checkProjectileLaunch(sf::Time deltaTime, CommandQueue& commands);
         void updateTexts();
@@ -63,12 +62,20 @@ class MechaBoss : public Entity
 
         std::map<Projectile::Type, std::tuple<int,int,int>> mProjectileAnimationMap;
 
-        Command mFireCommand;
-        Command mSkillCommand;
-        sf::Time mFireCountdown;
-        
+        sf::Time mMovingTime;
+        bool mAttackPattern;
+
+        Command mDarkAttackCommand;
+        Command mExplosionCommand;
+        Command mThunderStrikeCommand;
+
+        int attackLeft;
+
+        bool mIsAngry;
         bool mIsFiring;
-        bool mIsSkill;
+        bool mIsExplosion;
+        bool mIsThunderStrike;
+        bool mIsChasing;
         bool mIsMarkedForRemoval;
 
         std::size_t mDirectionIndex;

@@ -9,7 +9,9 @@
 #include "include/LoadingState.hpp"
 #include "include/SettingState.hpp"
 #include "include/CreditState.hpp"
+#include "include/UpgradeState.hpp"
 #include "include/GameOverState.hpp"
+#include "include/CheatState.hpp"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -18,7 +20,9 @@ Application::Application()
 , mTextures()
 , mFonts()
 , mPlayer()
-, mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer))
+, mMusic()
+, mSounds()
+, mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer, mMusic, mSounds))
 , mStatisticsText()
 , mStatisticsUpdateTime()
 , mStatisticsNumFrames(0)
@@ -26,6 +30,7 @@ Application::Application()
     mWindow.setKeyRepeatEnabled(false);
 
     mFonts.load(Fonts::Main, "Media/buddychampion.ttf");
+    mFonts.load(Fonts::Title, "Media/Title.ttf");
     mTextures.load(Textures::Title, "Media/Textures/TitleScreen.png");
     mTextures.load(Textures::ButtonNormal, "Media/Textures/ButtonNormal.png");
     mTextures.load(Textures::ButtonSelected, "Media/Textures/ButtonSelected.png");
@@ -39,6 +44,8 @@ Application::Application()
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
     mStatisticsText.setPosition(5.f, 5.f);
     mStatisticsText.setCharacterSize(10u);
+
+    mMusic.setVolume(25.f);
 
     registerStates();
     mStateStack.pushState(States::Title);
@@ -115,7 +122,9 @@ void Application::registerStates()
     mStateStack.registerState<MenuState>(States::Menu);
     mStateStack.registerState<CreditState>(States::Credit);
     mStateStack.registerState<SettingState>(States::Setting);
+    mStateStack.registerState<UpgradeState>(States::Upgrade);
     mStateStack.registerState<GameState>(States::Game);
+    mStateStack.registerState<CheatState>(States::Cheat);
     mStateStack.registerState<GameOverState>(States::GameOver);
     mStateStack.registerState<LoadingState>(States::Loading);
     mStateStack.registerState<PauseState>(States::Pause);

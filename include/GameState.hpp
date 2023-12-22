@@ -6,6 +6,9 @@
 #include "World.hpp"
 #include "Player.hpp"
 #include "State.hpp"
+#include "Witch.hpp"
+
+#include <stack>
 
 class GameState : public State
 {
@@ -19,6 +22,7 @@ class GameState : public State
         World mWorld;
         bool mIsPaused = false;
         Player& mPlayer;
+        int mMusicIndex = 0;
 };  
 
 #endif // GAME_HPP

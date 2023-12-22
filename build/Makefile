@@ -693,6 +693,30 @@ src/Data/DataTables.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Data/DataTables.cpp.s
 .PHONY : src/Data/DataTables.cpp.s
 
+src/Entity/DarkWizzard.obj: src/Entity/DarkWizzard.cpp.obj
+.PHONY : src/Entity/DarkWizzard.obj
+
+# target to build an object file
+src/Entity/DarkWizzard.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj
+.PHONY : src/Entity/DarkWizzard.cpp.obj
+
+src/Entity/DarkWizzard.i: src/Entity/DarkWizzard.cpp.i
+.PHONY : src/Entity/DarkWizzard.i
+
+# target to preprocess a source file
+src/Entity/DarkWizzard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.i
+.PHONY : src/Entity/DarkWizzard.cpp.i
+
+src/Entity/DarkWizzard.s: src/Entity/DarkWizzard.cpp.s
+.PHONY : src/Entity/DarkWizzard.s
+
+# target to generate assembly for a file
+src/Entity/DarkWizzard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.s
+.PHONY : src/Entity/DarkWizzard.cpp.s
+
 src/Entity/Enemy.obj: src/Entity/Enemy.cpp.obj
 .PHONY : src/Entity/Enemy.obj
 
@@ -716,30 +740,6 @@ src/Entity/Enemy.s: src/Entity/Enemy.cpp.s
 src/Entity/Enemy.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.s
 .PHONY : src/Entity/Enemy.cpp.s
-
-src/Entity/MechaRockBoss.obj: src/Entity/MechaRockBoss.cpp.obj
-.PHONY : src/Entity/MechaRockBoss.obj
-
-# target to build an object file
-src/Entity/MechaRockBoss.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj
-.PHONY : src/Entity/MechaRockBoss.cpp.obj
-
-src/Entity/MechaRockBoss.i: src/Entity/MechaRockBoss.cpp.i
-.PHONY : src/Entity/MechaRockBoss.i
-
-# target to preprocess a source file
-src/Entity/MechaRockBoss.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.i
-.PHONY : src/Entity/MechaRockBoss.cpp.i
-
-src/Entity/MechaRockBoss.s: src/Entity/MechaRockBoss.cpp.s
-.PHONY : src/Entity/MechaRockBoss.s
-
-# target to generate assembly for a file
-src/Entity/MechaRockBoss.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.s
-.PHONY : src/Entity/MechaRockBoss.cpp.s
 
 src/Entity/ParticleNode.obj: src/Entity/ParticleNode.cpp.obj
 .PHONY : src/Entity/ParticleNode.obj
@@ -956,6 +956,78 @@ src/GUI/Label.s: src/GUI/Label.cpp.s
 src/GUI/Label.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/GUI/Label.cpp.s
 .PHONY : src/GUI/Label.cpp.s
+
+src/Music/MusicPlayer.obj: src/Music/MusicPlayer.cpp.obj
+.PHONY : src/Music/MusicPlayer.obj
+
+# target to build an object file
+src/Music/MusicPlayer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj
+.PHONY : src/Music/MusicPlayer.cpp.obj
+
+src/Music/MusicPlayer.i: src/Music/MusicPlayer.cpp.i
+.PHONY : src/Music/MusicPlayer.i
+
+# target to preprocess a source file
+src/Music/MusicPlayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.i
+.PHONY : src/Music/MusicPlayer.cpp.i
+
+src/Music/MusicPlayer.s: src/Music/MusicPlayer.cpp.s
+.PHONY : src/Music/MusicPlayer.s
+
+# target to generate assembly for a file
+src/Music/MusicPlayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.s
+.PHONY : src/Music/MusicPlayer.cpp.s
+
+src/Music/SoundNode.obj: src/Music/SoundNode.cpp.obj
+.PHONY : src/Music/SoundNode.obj
+
+# target to build an object file
+src/Music/SoundNode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj
+.PHONY : src/Music/SoundNode.cpp.obj
+
+src/Music/SoundNode.i: src/Music/SoundNode.cpp.i
+.PHONY : src/Music/SoundNode.i
+
+# target to preprocess a source file
+src/Music/SoundNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.i
+.PHONY : src/Music/SoundNode.cpp.i
+
+src/Music/SoundNode.s: src/Music/SoundNode.cpp.s
+.PHONY : src/Music/SoundNode.s
+
+# target to generate assembly for a file
+src/Music/SoundNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.s
+.PHONY : src/Music/SoundNode.cpp.s
+
+src/Music/SoundPlayer.obj: src/Music/SoundPlayer.cpp.obj
+.PHONY : src/Music/SoundPlayer.obj
+
+# target to build an object file
+src/Music/SoundPlayer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj
+.PHONY : src/Music/SoundPlayer.cpp.obj
+
+src/Music/SoundPlayer.i: src/Music/SoundPlayer.cpp.i
+.PHONY : src/Music/SoundPlayer.i
+
+# target to preprocess a source file
+src/Music/SoundPlayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.i
+.PHONY : src/Music/SoundPlayer.cpp.i
+
+src/Music/SoundPlayer.s: src/Music/SoundPlayer.cpp.s
+.PHONY : src/Music/SoundPlayer.s
+
+# target to generate assembly for a file
+src/Music/SoundPlayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.s
+.PHONY : src/Music/SoundPlayer.cpp.s
 
 src/SceneNode/Command.obj: src/SceneNode/Command.cpp.obj
 .PHONY : src/SceneNode/Command.obj
@@ -1197,6 +1269,30 @@ src/State/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.s
 .PHONY : src/State/Application.cpp.s
 
+src/State/CheatState.obj: src/State/CheatState.cpp.obj
+.PHONY : src/State/CheatState.obj
+
+# target to build an object file
+src/State/CheatState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj
+.PHONY : src/State/CheatState.cpp.obj
+
+src/State/CheatState.i: src/State/CheatState.cpp.i
+.PHONY : src/State/CheatState.i
+
+# target to preprocess a source file
+src/State/CheatState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.i
+.PHONY : src/State/CheatState.cpp.i
+
+src/State/CheatState.s: src/State/CheatState.cpp.s
+.PHONY : src/State/CheatState.s
+
+# target to generate assembly for a file
+src/State/CheatState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.s
+.PHONY : src/State/CheatState.cpp.s
+
 src/State/CreditState.obj: src/State/CreditState.cpp.obj
 .PHONY : src/State/CreditState.obj
 
@@ -1437,6 +1533,30 @@ src/State/TitleState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.s
 .PHONY : src/State/TitleState.cpp.s
 
+src/State/UpgradeState.obj: src/State/UpgradeState.cpp.obj
+.PHONY : src/State/UpgradeState.obj
+
+# target to build an object file
+src/State/UpgradeState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj
+.PHONY : src/State/UpgradeState.cpp.obj
+
+src/State/UpgradeState.i: src/State/UpgradeState.cpp.i
+.PHONY : src/State/UpgradeState.i
+
+# target to preprocess a source file
+src/State/UpgradeState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.i
+.PHONY : src/State/UpgradeState.cpp.i
+
+src/State/UpgradeState.s: src/State/UpgradeState.cpp.s
+.PHONY : src/State/UpgradeState.s
+
+# target to generate assembly for a file
+src/State/UpgradeState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.s
+.PHONY : src/State/UpgradeState.cpp.s
+
 src/World.obj: src/World.cpp.obj
 .PHONY : src/World.obj
 
@@ -1517,12 +1637,12 @@ help:
 	@echo ... src/Data/DataTables.obj
 	@echo ... src/Data/DataTables.i
 	@echo ... src/Data/DataTables.s
+	@echo ... src/Entity/DarkWizzard.obj
+	@echo ... src/Entity/DarkWizzard.i
+	@echo ... src/Entity/DarkWizzard.s
 	@echo ... src/Entity/Enemy.obj
 	@echo ... src/Entity/Enemy.i
 	@echo ... src/Entity/Enemy.s
-	@echo ... src/Entity/MechaRockBoss.obj
-	@echo ... src/Entity/MechaRockBoss.i
-	@echo ... src/Entity/MechaRockBoss.s
 	@echo ... src/Entity/ParticleNode.obj
 	@echo ... src/Entity/ParticleNode.i
 	@echo ... src/Entity/ParticleNode.s
@@ -1550,6 +1670,15 @@ help:
 	@echo ... src/GUI/Label.obj
 	@echo ... src/GUI/Label.i
 	@echo ... src/GUI/Label.s
+	@echo ... src/Music/MusicPlayer.obj
+	@echo ... src/Music/MusicPlayer.i
+	@echo ... src/Music/MusicPlayer.s
+	@echo ... src/Music/SoundNode.obj
+	@echo ... src/Music/SoundNode.i
+	@echo ... src/Music/SoundNode.s
+	@echo ... src/Music/SoundPlayer.obj
+	@echo ... src/Music/SoundPlayer.i
+	@echo ... src/Music/SoundPlayer.s
 	@echo ... src/SceneNode/Command.obj
 	@echo ... src/SceneNode/Command.i
 	@echo ... src/SceneNode/Command.s
@@ -1580,6 +1709,9 @@ help:
 	@echo ... src/State/Application.obj
 	@echo ... src/State/Application.i
 	@echo ... src/State/Application.s
+	@echo ... src/State/CheatState.obj
+	@echo ... src/State/CheatState.i
+	@echo ... src/State/CheatState.s
 	@echo ... src/State/CreditState.obj
 	@echo ... src/State/CreditState.i
 	@echo ... src/State/CreditState.s
@@ -1610,6 +1742,9 @@ help:
 	@echo ... src/State/TitleState.obj
 	@echo ... src/State/TitleState.i
 	@echo ... src/State/TitleState.s
+	@echo ... src/State/UpgradeState.obj
+	@echo ... src/State/UpgradeState.i
+	@echo ... src/State/UpgradeState.s
 	@echo ... src/World.obj
 	@echo ... src/World.i
 	@echo ... src/World.s

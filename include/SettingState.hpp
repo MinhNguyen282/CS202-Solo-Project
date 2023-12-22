@@ -23,9 +23,13 @@ class SettingState : public State
         void addButtonLabel(Player::Action action, float y, const std::string& text, Context context);
     private:
         sf::Sprite mBackgroundSprite;
-        GUI::Container mGUIContainer;
-        std::array<GUI::Button::Ptr, Player::actionCount> mBindingButtons;
-        std::array<GUI::Label::Ptr, Player::actionCount> mBindingLabels;
+        sf::RectangleShape mBlur;
+        std::size_t mActiveButtons;
+        sf::RectangleShape mExit;
+        sf::Text mExitText;
+        std::array<sf::RectangleShape, Player::actionCount> mBindingButtons;
+        std::array<sf::Text, Player::actionCount> mBindingTexts;
+        std::array<sf::Text, Player::actionCount> mBindingLabels;
 };
 
 #endif // SETTINGSTATE_HPP

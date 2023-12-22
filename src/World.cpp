@@ -1,11 +1,18 @@
 #include "include/World.hpp"
 #include "include/ParticleNode.hpp"
+#include "include/SoundNode.hpp"
 
-World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
+#include <algorithm>
+#include <cmath>
+#include <limits>
+
+World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sounds)
 : mTarget(outputTarget)
 , mWorldView(outputTarget.getDefaultView())
 , mTextures()
+, mBoss(nullptr)
 , mFonts(fonts)
+, mSounds(sounds)
 , mSceneTexture()
 , mSceneGraph()
 , mSceneLayers()
@@ -13,14 +20,25 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
 , mSpawnPosition(100, mWorldBounds.height / 4 - 200)
 , mScrollSpeed(-100.f)
 , mPlayerCharacter(nullptr)
-, numEnemy(10)
+, numEnemy(5)
+, isBoss(false)
+, hasBossSpawn(false)
+, mScore(0)
+, invicible(false)
 {
     srand(time(NULL));
     mSceneTexture.create(mTarget.getSize().x, mTarget.getSize().y);
 
+    Command rebuildTable;
+    rebuildTable.category = Category::Entity | Category::Projectile;
+    rebuildTable.action = derivedAction<Entity>([this](Entity& e, sf::Time)
+    {
+        e.rebuildTable();
+    });
+    mCommandQueue.push(rebuildTable);
+
     loadTextures();
     buildScene();
-    invicible = true;
 
     sf::Vector2f viewSize = mWorldView.getSize();
 
@@ -48,34 +66,31 @@ void World::update(sf::Time deltaTime)
     mIsInvicibleTime += deltaTime;
     mSpawnTime += deltaTime;
     mPlayedTime += deltaTime;
-    if (mPlayedTime >= sf::seconds(60.0 * 5)){
-        numEnemy = 15;
+
+    if (mBoss && mBoss->getHitpoints() <= 0){
+        isBoss = false;
     }
-    if (mPlayedTime >= sf::seconds(60.0 * 10)){
+
+    if (mPlayedTime >= sf::seconds(60.0 * 15)){
+        numEnemy = 0;
+        if (!hasBossSpawn) addBosses();
+    }
+    else if (mPlayedTime >= sf::seconds(60.0 * 10)){
         numEnemy = 20;
     }
-    if (mPlayedTime >= sf::seconds(60.0 * 15)){
-        numEnemy = 25;
+    else if (mPlayedTime >= sf::seconds(60.0 * 5)){
+        numEnemy = 15;
+    }
+    else if (mPlayedTime >= sf::seconds(60.0 * 1)){
+        numEnemy = 10;
     }
 
     destroyEntitiesOutsideView();
-    if (isBoss && mBoss->getHitpoints() <= 0)
-    {
-        isBoss = false;
-    }
-    //guideMissiles();
+    guideMissiles();
+    guideTarget();
+    spawnEnemies();
 
-    sf::Vector2f Target = sf::Vector2f(mPlayerCharacter->getWorldPosition().x + 16, mPlayerCharacter->getWorldPosition().y + 24);
-    
     mPlayerCharacter->getTarget(mMousePosition);
-    
-
-    if (isBoss) mBoss->setTargetDirection(Target);
-    for(int i=0; i<mActiveEnemies.size(); i++)
-    {
-        if (mActiveEnemies[i] == nullptr) continue;
-        mActiveEnemies[i]->setTargetDirection(Target);
-    }
     
     while (mCommandQueue.isEmpty() == false)
     {
@@ -85,12 +100,13 @@ void World::update(sf::Time deltaTime)
     adaptPlayerVelocity();
 
     handleCollisions();
-    spawnEnemies();
     mSceneGraph.removeWrecks();
 
     mSceneGraph.update(deltaTime,mCommandQueue);
     adaptPlayerPosition();
     adaptGUI();
+
+    updateSounds();
 }
 
 void World::adaptPlayerVelocity()
@@ -155,6 +171,11 @@ void World::adaptPlayerPosition()
 
 void World::adaptGUI()
 {
+    float percent = mPlayerCharacter->getHealthRatio();
+    mHealthBarFrame->setScale(percent,1);
+
+    mHealthBar->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 10, mWorldView.getCenter().y - mWorldView.getSize().y / 2.f + 50);
+    mHealthBarFrame->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 28, mWorldView.getCenter().y - mWorldView.getSize().y / 2.f + 55);
     mExpBar->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 10, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 15);
     mExpBarFrame->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 10, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 15);
     mSkillEIcon->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 15, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 50);
@@ -163,11 +184,22 @@ void World::adaptGUI()
     mSkillQIcon->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 50, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 50);
     mSkillQBlur->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 50, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 50);
     mSkillQBlur->setScale(mPlayerCharacter->getCoolDownQ(),1);
+    mUltimateIcon->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 85, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 50);
+    mUltimateBlur->setPosition(mWorldView.getCenter().x - mWorldView.getSize().x / 2.f + 85, mWorldView.getCenter().y + mWorldView.getSize().y / 2.f - 50);
+    mUltimateBlur->setScale(mPlayerCharacter->getCoolDownUltimate(),1);
 
     mPlayedTimeText->setString("Time: " + std::to_string((int)(mPlayedTime.asSeconds()/60)) + " : " + std::to_string((int)mPlayedTime.asSeconds()%60));
     mPlayedTimeText->setPosition(mWorldView.getCenter().x + mWorldView.getSize().x / 2.f - 150, mWorldView.getCenter().y - mWorldView.getSize().y / 2.f + 10);
     mLevelText->setString("Level: " + std::to_string(mPlayerCharacter->getLevel()));
     mLevelText->setPosition(mWorldView.getCenter().x + mWorldView.getSize().x / 2.f - 150, mWorldView.getCenter().y - mWorldView.getSize().y / 2.f + 40);
+    mScoreText->setString("Score: " + std::to_string(mScore));
+    mScoreText->setPosition(mWorldView.getCenter().x + mWorldView.getSize().x / 2.f - 150, mWorldView.getCenter().y - mWorldView.getSize().y / 2.f + 70);
+}
+
+void World::updateSounds()
+{
+    mSounds.setListenerPosition(mPlayerCharacter->getWorldPosition());
+    mSounds.removeStoppedSounds();
 }
 
 CommandQueue& World::getCommandQueue()
@@ -201,10 +233,13 @@ void World::loadTextures()
     mTextures.load(Textures::AlliedBullet, "Media/Textures/AlliedBullet.png");
     mTextures.load(Textures::AlliedSkillE, "Media/Textures/AlliedSkillE.png");
     mTextures.load(Textures::AlliedSkillQ, "Media/Textures/AlliedSkillQ.png");
+    mTextures.load(Textures::AlliedUltimate, "Media/Textures/AlliedUltimate.png");
 
 
-    mTextures.load(Textures::MechaBoss, "Media/Textures/bosssheet.png");
-    mTextures.load(Textures::MechaBossRangedAttack, "Media/Textures/bossprojectilesheet.png");
+    mTextures.load(Textures::DarkWizzard, "Media/Textures/bosssheet.png");
+    mTextures.load(Textures::DarkAttack, "Media/Textures/DarkAttack.png");
+    mTextures.load(Textures::ExplosionAttack, "Media/Textures/ExplosionAttack.png");
+    mTextures.load(Textures::ThunderStrike, "Media/Textures/ThunderStrike.png");
 
     //Enemy texture
     mTextures.load(Textures::FlyingEye, "Media/Textures/FlyingEye/enemysheet.png");
@@ -217,10 +252,13 @@ void World::loadTextures()
     mTextures.load(Textures::SkeletonBullet, "Media/Textures/Skeleton/projectilesheet.png");
 
     //GUI
+    mTextures.load(Textures::HealthBar, "Media/Textures/HealthBar.png");
+    mTextures.load(Textures::HealthBarFrame, "Media/Textures/HealthBarFrame.png");
     mTextures.load(Textures::ExpBar, "Media/Textures/ExpBar.png");
     mTextures.load(Textures::ExpBarFrame, "Media/Textures/ExpBarFrame.png");
     mTextures.load(Textures::SkillEIcon, "Media/Textures/SkillEIcon.png");
     mTextures.load(Textures::SkillQIcon, "Media/Textures/SkillQIcon.png");
+    mTextures.load(Textures::UltimateIcon, "Media/Textures/UltimateIcon.png");
     mTextures.load(Textures::SkillBorder, "Media/Textures/SkillBorder.png");
     mTextures.load(Textures::IconBlur, "Media/Textures/IconBlur.png");
     //mFonts.load(Fonts::Main, "Media/buddychampion.ttf");
@@ -228,11 +266,13 @@ void World::loadTextures()
 
 void World::spawnEnemies()
 {
-    if (mActiveEnemies.size()){
-        auto wreckfieldBegin = std::remove_if(mActiveEnemies.begin(), mActiveEnemies.end(), std::mem_fn(&Enemy::isMarkedForRemoval));
-        mActiveEnemies.erase(wreckfieldBegin, mActiveEnemies.end());
-    }
-
+    Command enemyCollector;
+    enemyCollector.category = Category::Enemy;
+    enemyCollector.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
+    {
+        if (!enemy.isDestroyed()) mActiveEnemies.push_back(&enemy);
+    });
+    mSceneGraph.onCommand(enemyCollector, sf::Time::Zero);
     if (mActiveEnemies.size() < numEnemy && mSpawnTime >= sf::seconds(0.5)){
         mSpawnTime = sf::Time::Zero;
         int randX = (rand() % 2 == 0 ? -1 : 1);
@@ -242,19 +282,18 @@ void World::spawnEnemies()
         int randomEnemy = rand() % 4;
         std::unique_ptr<Enemy> enemy(new Enemy((Enemy::Type)(randomEnemy), mTextures, mFonts));
         enemy->setPosition(randomX, randomY);
-        mActiveEnemies.push_back(enemy.get());
-        if (enemy->isMarkedForRemoval() == false) std::cout << "False\n";
-        else std::cout << "True\n";
         mSceneLayers[Ground]->attachChild(std::move(enemy));
     }
+    mActiveEnemies.clear();
 }
 
 void World::destroyEntitiesOutsideView()
 {
     Command command;
     command.category = Category::Projectile;
-    command.action = derivedAction<Entity>([this] (Entity& e, sf::Time)
+    command.action = derivedAction<Projectile>([this] (Projectile& e, sf::Time)
     {
+        if (e.isGuided()) return;
         if (!getBattlefieldBounds().intersects(e.getBoundingRect()))
         {
             e.destroy();
@@ -266,7 +305,65 @@ void World::destroyEntitiesOutsideView()
 
 void World::guideMissiles()
 {
+    Command enemyCollector;
+    enemyCollector.category = Category::Enemy;
+    enemyCollector.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
+    {
+        if (!enemy.isDestroyed()) mActiveEnemies.push_back(&enemy);
+    });
 
+    Command ultimateGuide;
+    ultimateGuide.category = Category::AlliedProjectile;
+    ultimateGuide.action = derivedAction<Projectile>([this](Projectile &proj, sf::Time){
+        if (!proj.isGuided()) return;
+        float minDistance = std::numeric_limits<float>::max();
+        DarkWizzard* closetBoss = mBoss;
+        if (mBoss) minDistance = distance(proj, *closetBoss);
+        Enemy* closestEnemy = nullptr;
+        for (Enemy* enemy : mActiveEnemies)
+        {
+            float enemyDistance = distance(proj, *enemy);
+            if (enemyDistance < minDistance)
+            {
+                closestEnemy = enemy;
+                minDistance = enemyDistance;
+            }
+        }
+        if (closestEnemy)
+        {
+            sf::Vector2f velocity = unitVector(closestEnemy->getWorldPosition() - proj.getWorldPosition());
+            proj.setVelocity(velocity * proj.getMaxSpeed());
+        }
+        else{
+            sf::Vector2f velocity = unitVector(closetBoss->getWorldPosition() - proj.getWorldPosition());
+            proj.setVelocity(velocity * proj.getMaxSpeed());
+        }
+    });
+    mCommandQueue.push(enemyCollector);
+    mCommandQueue.push(ultimateGuide);
+    mActiveEnemies.clear();
+}
+
+void World::guideTarget()
+{
+    Command enemyCollector;
+    enemyCollector.category = Category::Enemy;
+    enemyCollector.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
+    {
+        if (!enemy.isDestroyed()) mActiveEnemies.push_back(&enemy);
+    });
+
+    Command guideTarget;
+    guideTarget.category = Category::Enemy;
+    guideTarget.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
+    {
+        if (!enemy.isDestroyed()) enemy.setTargetDirection(mPlayerCharacter->getWorldPosition());
+    });
+    mCommandQueue.push(enemyCollector);
+    mCommandQueue.push(guideTarget);
+    mActiveEnemies.clear();
+
+    if (mBoss) mBoss->setTargetDirection(mPlayerCharacter->getWorldPosition());
 }
 
 void World::buildScene()
@@ -299,6 +396,15 @@ void World::buildScene()
     mPlayerCharacter->setPosition(mSpawnPosition);
     mSceneLayers[Ground]->attachChild(std::move(player));
 
+    std::unique_ptr<SpriteNode> healthBar(new SpriteNode(mTextures.get(Textures::HealthBar)));
+    mHealthBar = healthBar.get();
+    mSceneLayers[GUILayer]->attachChild(std::move(healthBar));
+
+    std::unique_ptr<SpriteNode> healthBarFrame(new SpriteNode(mTextures.get(Textures::HealthBarFrame)));
+    mHealthBarFrame = healthBarFrame.get();
+    mHealthBarFrame->setScale(0,1);
+    mSceneLayers[GUILayer]->attachChild(std::move(healthBarFrame));
+
     std::unique_ptr<SpriteNode> expBar(new SpriteNode(mTextures.get(Textures::ExpBar)));
     mExpBar = expBar.get();
     mSceneLayers[GUILayer]->attachChild(std::move(expBar));
@@ -326,6 +432,15 @@ void World::buildScene()
     mSkillQBlur->setScale(0,1);
     mSceneLayers[GUILayer]->attachChild(std::move(skillQBlur));
 
+    std::unique_ptr<SpriteNode> ultimateIcon(new SpriteNode(mTextures.get(Textures::UltimateIcon)));
+    mUltimateIcon = ultimateIcon.get();
+    mSceneLayers[GUILayer]->attachChild(std::move(ultimateIcon));
+
+    std::unique_ptr<SpriteNode> ultimateBlur(new SpriteNode(mTextures.get(Textures::IconBlur)));
+    mUltimateBlur = ultimateBlur.get();
+    mUltimateBlur->setScale(0,1);
+    mSceneLayers[GUILayer]->attachChild(std::move(ultimateBlur));
+
     std::unique_ptr<TextNode> playedTimeText(new TextNode(mFonts,""));
     mPlayedTimeText = playedTimeText.get();
     mPlayedTimeText->setColor(sf::Color::White);
@@ -337,7 +452,15 @@ void World::buildScene()
     mLevelText->setColor(sf::Color::White);
     mLevelText->setCharacterSize(25);
     mSceneLayers[GUILayer]->attachChild(std::move(levelDisplay));
-    //addBosses();
+
+    std::unique_ptr<TextNode> scoreDisplay(new TextNode(mFonts,""));
+    mScoreText = scoreDisplay.get();
+    mScoreText->setColor(sf::Color::White);
+    mScoreText->setCharacterSize(25);
+    mSceneLayers[GUILayer]->attachChild(std::move(scoreDisplay));
+
+    std::unique_ptr<SoundNode> soundNode(new SoundNode(mSounds));
+    mSceneGraph.attachChild(std::move(soundNode));
 }
 
 sf::FloatRect World::getViewBounds() const
@@ -378,16 +501,19 @@ void World::handleCollisions()
     mSceneGraph.checkSceneCollision(mSceneGraph, collisionPairs);
     for (SceneNode::Pair pair : collisionPairs)
     {
-        if (matchesCategories(pair, Category::MechaBoss, Category::AlliedProjectile))
+        if (matchesCategories(pair, Category::DarkWizzard, Category::AlliedProjectile))
         {
             if (pair.second && pair.first){
                 std::cout << "Boss hit by projectile" << std::endl;
-                auto& enemy = static_cast<MechaBoss&>(*pair.first);
+                auto& enemy = static_cast<DarkWizzard&>(*pair.first);
                 auto& projectile = static_cast<Projectile&>(*pair.second);
                 std::cout << "After 1 cast" << std::endl;
                 if (!projectile.isDestroyed() && !enemy.isDestroyed()){
-                    enemy.setAnimation(MechaBoss::TakedDamage);
+                    //enemy.setAnimation(DarkWizzard::TakedDamage);
                     enemy.damage(projectile.getDamage());
+                    if (enemy.getHitpoints() <= 0){ 
+                        mScore += 100;
+                    }
                     projectile.destroy();
                 }
             }
@@ -399,7 +525,17 @@ void World::handleCollisions()
                 auto& player = static_cast<Witch&>(*pair.first);
                 auto& projectile = static_cast<Projectile&>(*pair.second);
                 std::cout << "After 2 cast" << std::endl;
-                if (!projectile.isDestroyed() && !player.isDestroyed()){
+                if (!projectile.isDestroyed() && !player.isDestroyed() && projectile.getType() != Projectile::ThunderStrike && projectile.getType() != Projectile::ExplosionAttack){
+                    player.setAnimation(Witch::TakedDamage);
+                    player.damage(projectile.getDamage());
+                    projectile.destroy();
+                }
+                else if (!projectile.isDestroyed() && !player.isDestroyed() && projectile.getType() == Projectile::ThunderStrike && projectile.getCurrentAnimation() == 5){
+                    player.setAnimation(Witch::TakedDamage);
+                    player.damage(projectile.getDamage());
+                    projectile.destroy();
+                }
+                else if (!projectile.isDestroyed() && !player.isDestroyed() && projectile.getType() == Projectile::ExplosionAttack && projectile.getCurrentAnimation() >= 8 && projectile.getCurrentAnimation() <= 11){
                     player.setAnimation(Witch::TakedDamage);
                     player.damage(projectile.getDamage());
                     projectile.destroy();
@@ -413,7 +549,7 @@ void World::handleCollisions()
                 auto& player = static_cast<Witch&>(*pair.first);
                 auto& enemy = static_cast<Enemy&>(*pair.second);
                 std::cout << "After 3 cast" << std::endl;
-                if (!player.isDestroyed() && !enemy.isDestroyed() && enemy.getCurrentAnimation()==Enemy::Attack1 && enemy.getNumRow()==6){
+                if (!player.isDestroyed() && !enemy.isDestroyed() && ((enemy.getCurrentAnimation()==Enemy::Attack1 && enemy.getNumRow()==6) || (enemy.getCurrentAnimation()==Enemy::Attack2 && enemy.getNumRow()==6))){
                     player.damage(enemy.getBodyDamage());
                     player.setAnimation(Witch::TakedDamage);
                     mIsInvicibleTime = sf::Time::Zero;
@@ -426,7 +562,6 @@ void World::handleCollisions()
                 std::cout << "Enemy hit by projectile" << std::endl;
                 auto& enemy = static_cast<Enemy&>(*pair.first);
                 auto& projectile = static_cast<Projectile&>(*pair.second);
-                std::cout << "After 4 cast" << std::endl;
                 if (!projectile.isDestroyed() && !enemy.isDestroyed()){
 	                sf::Vector2f initPos = enemy.getWorldPosition();
 	                sf::Vector2f worldPos = projectile.getWorldPosition();
@@ -434,16 +569,17 @@ void World::handleCollisions()
                     sf::Vector2f velocity;
                     velocity.x = std::cos(angle);
                     velocity.y = std::sin(angle);
+                    std::cout << projectile.getDamage() << std::endl;
                     enemy.knockback(velocity, 20);
                     enemy.damage(projectile.getDamage());
                     if (enemy.getHitpoints() <= 0){ 
                         mPlayerCharacter->receiveExp(enemy.getExpPoint());
                         float percent = mPlayerCharacter->getExpRatio();
                         mExpBarFrame->setScale(percent,1);
+                        mScore += enemy.getExpPoint();
                     }
                     if (projectile.getType() == Projectile::AlliedBullet) projectile.destroy();
                 }
-                std::cout << "After 4-4 cast" << std::endl;
             }
         }
     }
@@ -451,16 +587,35 @@ void World::handleCollisions()
 
 void World::addBosses()
 {
-    addBoss(400,0);
-    
-    std::sort(mBossSpawnPoints.begin(), mBossSpawnPoints.end(), [](SpawnPoint lhs, SpawnPoint rhs)
-    {
-        return lhs.x < rhs.x;
-    });
+    std::unique_ptr<DarkWizzard> boss(new DarkWizzard(mTextures, mFonts));
+    mBoss = boss.get();
+    mBoss->setPosition(mPlayerCharacter->getWorldPosition().x+600, mPlayerCharacter->getWorldPosition().y);
+    mSceneLayers[Ground]->attachChild(std::move(boss));
+    hasBossSpawn = true;
+    isBoss = true;
 }
 
-void World::addBoss(float relX, float relY)
+int World::getScore()
 {
-    SpawnPoint spawn(mSpawnPosition.x + relX, mSpawnPosition.y - relY);
-    mBossSpawnPoints.push_back(spawn);
+    return mScore;
+}
+
+sf::Time World::getPlayedTime()
+{
+    return mPlayedTime;
+}
+
+bool World::getInvicible()
+{
+    return invicible;
+}
+
+void World::setInvicible(bool invicible)
+{
+    this->invicible = invicible;
+}
+
+void World::setPlayedTime(sf::Time playedTime)
+{
+    mPlayedTime = playedTime;
 }

@@ -16,13 +16,15 @@ class Projectile : public Entity
             AlliedBullet,
             AlliedSkillE,
             AlliedSkillQ,
+            AlliedUltimate,
             FlyingEyeBullet,
             GoblinBullet,
             MushroomBullet,
             SkeletonBullet,
             Missile,
-            MechaBossRangedAttack,
-            MechaBossSkillAttack,
+            DarkAttack,
+            ExplosionAttack,
+            ThunderStrike,
             typeCount,
         };
     public:
@@ -38,6 +40,8 @@ class Projectile : public Entity
         int getDamage() const;
         void addDamage(int damage);
         sf::Vector2f getTargetDirection() const;
+        int getCurrentAnimation() const;
+        virtual void rebuildTable();
     private:
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -51,6 +55,7 @@ class Projectile : public Entity
         int heightSprite;
         int mDamgeUp;
         sf::Time mAnimationTime;
+        sf::Time mAliveTime;
 };
 
 #endif // PROJECTILE_HPP

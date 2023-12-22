@@ -10,8 +10,10 @@ namespace States
         Menu,
         Credit,
         Setting,
+        Upgrade,
         Loading,
         Game,
+        Cheat,
         GameOver,
         Pause,
     };

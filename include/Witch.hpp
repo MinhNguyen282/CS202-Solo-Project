@@ -8,6 +8,8 @@
 
 #include <map>
 #include <math.h>
+#include <vector>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 
 class Witch : public Entity
@@ -33,12 +35,15 @@ class Witch : public Entity
         void setTextureRect(sf::IntRect rect);
         virtual sf::FloatRect getBoundingRect() const;
         virtual unsigned int getCategory() const;
+        virtual void rebuildTable();
         bool isAllied();
         bool isMarkedForRemoval() const;
         void receiveExp(int expPoint);
+        float getHealthRatio() const;
         float getExpRatio() const;
         float getCoolDownE() const;
         float getCoolDownQ() const;
+        float getCoolDownUltimate() const;
         int getLevel() const;
 
         void getTarget(sf::Vector2f target);
@@ -48,6 +53,7 @@ class Witch : public Entity
         void fire();
         void launchAbility();
         void laundDebuff();
+        void launchUltimate();
 
         void createBullets(SceneNode& node, const TextureHolder& textures) const;
         void createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
@@ -81,16 +87,19 @@ class Witch : public Entity
         Command mFireCommand;
         Command mLaunchAbilityCommand;
         Command mLaunchDebuffCommand;
+        Command mLaunchUltimateCommand;
 
         sf::Time mFireCountdown;
         sf::Time mAbilityCountdown;
         sf::Time mDebuffCountdown;
+        sf::Time mUltimateCountdown;
 
         sf::Vector2f mTargetDirection;
 
         bool mIsFiring;
         bool mIsLaunchingAbility;
         bool mIsLauchingDebuff;
+        bool mIsLauchingUltimate;
 
         bool mIsMarkedForRemoval;
 
@@ -107,6 +116,9 @@ class Witch : public Entity
         //hit points system
         int maxHitPoints;
         int mDamageUp;
+
+        //ability cooldown system
+        float mCoolDownE;
 
         Command mDropPickupCommand;
         std::size_t mDirectionIndex;

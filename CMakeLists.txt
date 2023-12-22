@@ -33,8 +33,12 @@ src/GUI/Label.cpp
 
 src/Data/DataTables.cpp
 
+src/Music/MusicPlayer.cpp
+src/Music/SoundPlayer.cpp
+src/Music/SoundNode.cpp
+
 src/Entity/Enemy.cpp
-src/Entity/MechaRockBoss.cpp
+src/Entity/DarkWizzard.cpp
 src/Entity/Player.cpp
 src/Entity/Projectile.cpp
 src/Entity/TextNode.cpp
@@ -54,9 +58,12 @@ src/State/Application.cpp
 src/State/PauseState.cpp
 src/State/CreditState.cpp
 src/State/LoadingState.cpp
+src/State/UpgradeState.cpp
+src/State/CheatState.cpp
+
 )
 target_include_directories(LittleWitchAdventure PUBLIC ${CMAKE_SOURCE_DIR})
-target_link_libraries(LittleWitchAdventure PRIVATE sfml-graphics)
+target_link_libraries(LittleWitchAdventure PRIVATE sfml-graphics sfml-audio sfml-window sfml-system sfml-network)
 target_compile_features(LittleWitchAdventure PRIVATE cxx_std_17)
 
 if(WIN32)

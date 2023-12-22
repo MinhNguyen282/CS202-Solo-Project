@@ -8,6 +8,8 @@
 #include "ResourcesIdentifier.hpp"
 #include "Player.hpp"
 #include "StateStack.hpp"
+#include "MusicPlayer.hpp"
+#include "SoundPlayer.hpp"
 
 class Application
 {
@@ -27,6 +29,9 @@ class Application
         TextureHolder mTextures;
         FontHolder mFonts;
         Player mPlayer;
+
+        MusicPlayer mMusic;
+        SoundPlayer mSounds;
 
         StateStack mStateStack;
 

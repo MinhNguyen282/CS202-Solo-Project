@@ -1,6 +1,7 @@
 #include "include/Player.hpp"
 #include "include/CommandQueue.hpp"
 #include "include/Witch.hpp"
+#include "include/Utility.hpp"
 
 #include <map>
 #include <string>
@@ -23,15 +24,10 @@ struct WitchMover
 };
 
 Player::Player()
+: mPlayedTime(sf::Time::Zero)
 {
-    mKeyBinding[sf::Keyboard::A] = moveLeft;
-    mKeyBinding[sf::Keyboard::D] = moveRight;
-    mKeyBinding[sf::Keyboard::W] = moveUp;
-    mKeyBinding[sf::Keyboard::S] = moveDown;
-    mMouseBinding[sf::Mouse::Left] = attack;
-    mKeyBinding[sf::Keyboard::Space] = attack;
-    mKeyBinding[sf::Keyboard::Q] = launchAbility;
-    mKeyBinding[sf::Keyboard::E] = launchDebuff;
+    mInvicible = false;
+    initializeActions();
 
     mActionBinding[moveLeft].action = derivedAction<Witch>(WitchMover(-1.f, 0.f));
     mActionBinding[moveRight].action = derivedAction<Witch>(WitchMover(1.f, 0.f));
@@ -46,11 +42,64 @@ Player::Player()
     mActionBinding[launchDebuff].action = derivedAction<Witch>([] (Witch& w, sf::Time) {
         w.laundDebuff();
     });
+    mActionBinding[launchUltimate].action = derivedAction<Witch>([] (Witch& w, sf::Time) {
+        w.launchUltimate();
+    });
 
     for(auto &pair : mActionBinding)
     {
         pair.second.category = Category::Player;
     }
+}
+
+void Player::setInvicible(bool invicible)
+{
+    mInvicible = invicible;
+}
+
+bool Player::isInvicible() const
+{
+    return mInvicible;
+}
+
+void Player::initializeActions()
+{
+    mStringToAction["moveLeft"] = moveLeft;
+    mStringToAction["moveRight"] = moveRight;
+    mStringToAction["moveUp"] = moveUp;
+    mStringToAction["moveDown"] = moveDown;
+    mStringToAction["attack"] = attack;
+    mStringToAction["launchAbility"] = launchAbility;
+    mStringToAction["launchDebuff"] = launchDebuff;
+    mStringToAction["launchUltimate"] = launchUltimate;
+
+    mActionToString[moveLeft] = "moveLeft";
+    mActionToString[moveRight] = "moveRight";
+    mActionToString[moveUp] = "moveUp";
+    mActionToString[moveDown] = "moveDown";
+    mActionToString[attack] = "attack";
+    mActionToString[launchAbility] = "launchAbility";
+    mActionToString[launchDebuff] = "launchDebuff";
+    mActionToString[launchUltimate] = "launchUltimate";
+
+    std::ifstream ifs("Data/Settings.dat");
+    if (ifs.is_open())
+    {
+        std::string key;
+        std::string action;
+        while(ifs >> action >> key)
+        {
+            sf::Keyboard::Key keyBind = toKeyboardKey(key);
+            Action actionBind = mStringToAction[action];
+            assignKey(actionBind, keyBind);
+        }
+    }
+    else
+    {
+        std::cout << "Error: Unable to open file Data/Settings.dat" << std::endl;
+    }
+    ifs.close();
+    mMouseBinding[sf::Mouse::Left] = attack;
 }
 
 void Player::assignKey(Action action, sf::Keyboard::Key key)
@@ -67,6 +116,24 @@ void Player::assignKey(Action action, sf::Keyboard::Key key)
         }
     }
     mKeyBinding[key] = action;
+    writeToFile();
+}
+
+void Player::writeToFile()
+{
+    std::ofstream ofs("Data/Settings.dat");
+    if (ofs.is_open())
+    {
+        for(auto pair : mKeyBinding)
+        {
+            ofs << mActionToString[pair.second] << " " << toString(pair.first) << std::endl;
+        }
+    }
+    else
+    {
+        std::cout << "Error: Unable to open file Data/Settings.dat" << std::endl;
+    }
+    ofs.close();
 }
 
 sf::Keyboard::Key Player::getAssignedKey(Action action) const
@@ -92,14 +159,16 @@ bool Player::isRealtimeAction(Action action)
         case attack:
         case launchAbility:
         case launchDebuff:
+        case launchUltimate:
             return true;
         default:
             return false;
     }
 }
 
-void Player::handleRealtimeInput(CommandQueue& commands)
+void Player::handleRealtimeInput(CommandQueue& commands, sf::Time deltaTime)
 {
+    mPlayedTime += deltaTime;
     for(auto pair : mKeyBinding)
     {
         if (sf::Keyboard::isKeyPressed(pair.first) && isRealtimeAction(pair.second))
@@ -129,4 +198,30 @@ Player::MissionStatus Player::getMissionStatus() const
 void Player::handleEvent(const sf::Event& event, CommandQueue& commands)
 {
 
+}
+
+void Player::setUpgradePoints(int points)
+{
+    mUpgradePoints = points;
+}
+
+int Player::getUpgradePoints() const
+{
+    return mUpgradePoints;
+}
+
+void Player::addPlayedTime(sf::Time playedTime)
+{
+    std::cout << "addPlayedTime\n";
+    mPlayedTime += playedTime;
+}
+
+void Player::subtractPlayedTime(sf::Time playedTime)
+{
+    mPlayedTime -= playedTime;
+}
+
+sf::Time Player::getPlayedTime() const
+{
+    return mPlayedTime;
 }

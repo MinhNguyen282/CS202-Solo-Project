@@ -58,6 +58,7 @@ class Enemy : public Entity
         int getExpPoint() const;
         void damage(int points);
         void debuff(float speedDiff, sf::Time duration);
+        virtual void rebuildTable();
 
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -66,7 +67,6 @@ class Enemy : public Entity
         void readEnemyData(Type type);
         void updateTexts();
     private:
-        int test = 0;
         Type mType;
         sf::Sprite mSprite;
         TextNode* mHealthDisplay;

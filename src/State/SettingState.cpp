@@ -7,28 +7,35 @@
 
 SettingState::SettingState(StateStack& stack, Context context)
 : State(stack, context)
-, mGUIContainer()
+, mActiveButtons(-1)
 {
     mBackgroundSprite.setTexture(context.textures->get(Textures::Title));
+	mBlur.setSize(sf::Vector2f(1200.f, 720.f));
+	mBlur.setFillColor(sf::Color(0, 0, 0, 200));
+	mBlur.setPosition(0.f, 0.f);
+
+	mExit.setSize(sf::Vector2f(100.f, 50.f));
+	mExit.setFillColor(sf::Color::Black);
+	mExit.setOutlineThickness(2.f);
+	mExit.setOutlineColor(sf::Color::White);
+	mExit.setPosition(50.f, 90.f);
+
+	mExitText.setFont(context.fonts->get(Fonts::Main));
+	mExitText.setString("Exit");
+	mExitText.setCharacterSize(20);
+	mExitText.setColor(sf::Color::White);
+	mExitText.setPosition(55.f, 95.f);
 
     addButtonLabel(Player::moveLeft, 150.f, "Move Left", context);
     addButtonLabel(Player::moveRight, 210.f, "Move Right", context);
     addButtonLabel(Player::moveUp, 270.f, "Move Up", context);
     addButtonLabel(Player::moveDown, 330.f, "Move Down", context);
     addButtonLabel(Player::launchAbility, 390.f, "Ability", context);
-    addButtonLabel(Player::attack, 450.f, "Attack", context);
+	addButtonLabel(Player::launchDebuff, 450.f, "Debuff", context);
+	addButtonLabel(Player::launchUltimate, 510.f, "Ultimate", context);
+    addButtonLabel(Player::attack, 570.f, "Attack", context);
 
     updateLabels();
-
-    auto backButton = std::make_shared<GUI::Button>(*context.fonts, *context.textures);
-    backButton->setPosition(250.f, 510.f);
-    backButton->setText("Back");
-    backButton->setTextPosition((backButton->getBoundingRect().width - backButton->getTextBounding().width)/2,(backButton->getBoundingRect().height - backButton->getTextBounding().height)/4);
-    backButton->setTextSize(20);
-    backButton->setTextColor(sf::Color::Black);
-    backButton->setCallback(std::bind(&SettingState::requestStackPop, this));
-
-    mGUIContainer.pack(backButton);
 }
 
 void SettingState::draw()
@@ -36,39 +43,105 @@ void SettingState::draw()
 	sf::RenderWindow& window = *getContext().window;
 
 	window.draw(mBackgroundSprite);
-	window.draw(mGUIContainer);
+	window.draw(mBlur);
+	window.draw(mExit);
+	window.draw(mExitText);
+	for(std::size_t i = 0; i < Player::actionCount; ++i)
+	{
+		window.draw(mBindingButtons[i]);
+		window.draw(mBindingTexts[i]);
+		window.draw(mBindingLabels[i]);
+	}
 }
 
 bool SettingState::update(sf::Time)
 {
+	sf::Vector2i mousePos = sf::Mouse::getPosition(*getContext().window);
+	sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+	
+	for(std::size_t action = 0; action < Player::actionCount; ++action){
+		mBindingButtons[action].setFillColor(sf::Color::Black);
+		mBindingTexts[action].setColor(sf::Color::White);
+		mBindingLabels[action].setColor(sf::Color::White);
+	}
+
+	if (mActiveButtons == -1){
+		for(std::size_t action = 0; action < Player::actionCount; ++action)
+		{
+			if(mBindingButtons[action].getGlobalBounds().contains(mousePosF))
+			{
+				mBindingButtons[action].setFillColor(sf::Color::White);
+				mBindingTexts[action].setColor(sf::Color::Black);
+				mBindingLabels[action].setColor(sf::Color::Red);
+			}
+			else
+			{
+				mBindingButtons[action].setFillColor(sf::Color::Black);
+				mBindingTexts[action].setColor(sf::Color::White);
+				mBindingLabels[action].setColor(sf::Color::White);
+			}
+		}
+	}
+	else{
+		mBindingButtons[mActiveButtons].setFillColor(sf::Color::White);
+		mBindingTexts[mActiveButtons].setColor(sf::Color::Black);
+		mBindingLabels[mActiveButtons].setColor(sf::Color::Red);
+	}
+
+	if (mExit.getGlobalBounds().contains(mousePosF)){
+		mExit.setFillColor(sf::Color::White);
+		mExit.setOutlineColor(sf::Color::Black);
+		mExitText.setColor(sf::Color::Red);
+	}
+	else{
+		mExit.setFillColor(sf::Color::Black);
+		mExit.setOutlineColor(sf::Color::White);
+		mExitText.setColor(sf::Color::White);
+	}
+
 	return true;
 }
 
 bool SettingState::handleEvent(const sf::Event& event)
 {
-	bool isKeyBinding = false;
-	
-	// Iterate through all key binding buttons to see if they are being pressed, waiting for the user to enter a key
-	for (std::size_t action = 0; action < Player::actionCount; ++action)
+	if (event.type == sf::Event::MouseButtonPressed  && event.mouseButton.button == sf::Mouse::Left)
 	{
-		if (mBindingButtons[action]->isActive())
+		sf::Vector2i mousePos = sf::Mouse::getPosition(*getContext().window);
+		sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+		for(std::size_t action = 0; action < Player::actionCount; ++action)
 		{
-			isKeyBinding = true;
-			if (event.type == sf::Event::KeyReleased)
+			if(mBindingButtons[action].getGlobalBounds().contains(mousePosF))
 			{
-				getContext().player->assignKey(static_cast<Player::Action>(action), event.key.code);
-				mBindingButtons[action]->deactivate();
+				mActiveButtons = action;
+				mBindingButtons[action].setFillColor(sf::Color::White);
+				mBindingTexts[action].setColor(sf::Color::Black);
+				mBindingLabels[action].setColor(sf::Color::Red);
 			}
-			break;
+		}
+		if (mExit.getGlobalBounds().contains(mousePosF)){
+			requestStackPop();
 		}
 	}
-
-	// If pressed button changed key bindings, update labels; otherwise consider other buttons in container
-	if (isKeyBinding)
+	else if (event.type == sf::Event::KeyPressed && mActiveButtons != -1)
+	{
+		getContext().player->assignKey(static_cast<Player::Action>(mActiveButtons), event.key.code);
+		mBindingButtons[mActiveButtons].setFillColor(sf::Color::Black);
+		mBindingTexts[mActiveButtons].setColor(sf::Color::White);
+		mBindingLabels[mActiveButtons].setColor(sf::Color::White);
+		mActiveButtons = -1;
 		updateLabels();
-	else
-		mGUIContainer.handleEvent(event);
-
+	}
+	else if (event.type == sf::Event::KeyReleased && mActiveButtons != -1)
+	{
+		mBindingButtons[mActiveButtons].setFillColor(sf::Color::Black);
+		mBindingTexts[mActiveButtons].setColor(sf::Color::White);
+		mBindingLabels[mActiveButtons].setColor(sf::Color::White);
+		mActiveButtons = -1;
+	}
+	else if (event.type == sf::Event::MouseButtonPressed  && event.mouseButton.button == sf::Mouse::Right)
+	{
+		mActiveButtons = -1;
+	}
 	return false;
 }
 
@@ -79,25 +152,27 @@ void SettingState::updateLabels()
 	for (std::size_t i = 0; i < Player::actionCount; ++i)
 	{
 		sf::Keyboard::Key key = player.getAssignedKey(static_cast<Player::Action>(i));
-		mBindingLabels[i]->setText(": " + toString(key));
+		mBindingLabels[i].setString(": " + toString(key));
 	}
 }
 
 void SettingState::addButtonLabel(Player::Action action, float y, const std::string& text, Context context)
 {
-	mBindingButtons[action] = std::make_shared<GUI::Button>(*context.fonts, *context.textures);
-	mBindingButtons[action]->setPosition(250.f, y);
-	mBindingButtons[action]->setText(text);
-    mBindingButtons[action]->setTextColor(sf::Color::Black);
-    mBindingButtons[action]->setTextSize(25);
-    mBindingButtons[action]->setTextPosition((mBindingButtons[action]->getBoundingRect().width - mBindingButtons[action]->getTextBounding().width)/2,(mBindingButtons[action]->getBoundingRect().height - mBindingButtons[action]->getTextBounding().height)/4);
-	mBindingButtons[action]->setToggle(true);
+	mBindingButtons[action].setSize(sf::Vector2f(100.f, 50.f));
+	mBindingButtons[action].setPosition(80.f, y);
+	mBindingButtons[action].setFillColor(sf::Color::Black);
+	mBindingButtons[action].setOutlineColor(sf::Color::White);
+	mBindingButtons[action].setOutlineThickness(2.f);
 
-	mBindingLabels[action] = std::make_shared<GUI::Label>("", *context.fonts);
-    mBindingLabels[action]->setTextColor(sf::Color::Black);
-    mBindingLabels[action]->setTextSize(25);
-	mBindingLabels[action]->setPosition(250 + mBindingButtons[action]->getBoundingRect().width + 25 , y + 10);
+	mBindingTexts[action].setFont(context.fonts->get(Fonts::Main));
+	mBindingTexts[action].setPosition(85.f, y + 5.f);
+	mBindingTexts[action].setString(text);
+	mBindingTexts[action].setCharacterSize(20);
+	mBindingTexts[action].setColor(sf::Color::White);
 
-	mGUIContainer.pack(mBindingButtons[action]);
-	mGUIContainer.pack(mBindingLabels[action]);
+	mBindingLabels[action].setFont(context.fonts->get(Fonts::Main));
+	mBindingLabels[action].setPosition(190.f, y + 5.f);
+	mBindingLabels[action].setString(": " + toString(context.player->getAssignedKey(action)));
+	mBindingLabels[action].setCharacterSize(20);
+	mBindingLabels[action].setColor(sf::Color::White);
 }

@@ -15,13 +15,14 @@
 
 #include "Witch.hpp"
 #include "Enemy.hpp"
-#include "MechaRockBoss.hpp"
+#include "DarkWizzard.hpp"
 #include "SceneNode.hpp"
 #include "SpriteNode.hpp"
 #include "CommandQueue.hpp"
 #include "ResourcesIdentifier.hpp"
 #include "ResourcesHolder.hpp"
 #include "BloomEffect.hpp"
+#include "SoundPlayer.hpp"
 
 namespace sf
 {
@@ -31,7 +32,7 @@ namespace sf
 class World : private sf::NonCopyable
 {
     public:
-        explicit World(sf::RenderTarget& outputTarget, FontHolder& fonts);
+        explicit World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sounds);
         void update(sf::Time deltaTime);
         void draw();
         CommandQueue& getCommandQueue();
@@ -40,6 +41,11 @@ class World : private sf::NonCopyable
         void spawnEnemies();
         void handleCollisions();
         void setMousePosition(sf::Vector2i mousePosition);
+        int getScore();
+        bool getInvicible();
+        sf::Time getPlayedTime();
+        void setPlayedTime(sf::Time playedTime);
+        void setInvicible(bool invicible);
 
     private:
         void loadTextures();
@@ -47,12 +53,13 @@ class World : private sf::NonCopyable
 
         void buildScene();
         void addBosses();
-        void addBoss(float relX, float relY);
         void destroyEntitiesOutsideView();
+        void guideTarget();
         void guideMissiles();
         void adaptPlayerPosition();
         void adaptPlayerVelocity();
         void adaptGUI();
+        void updateSounds();
 
 
         sf::FloatRect getViewBounds() const;
@@ -68,29 +75,6 @@ class World : private sf::NonCopyable
             LayerCount,
         };
 
-        struct SpawnPoint
-        {
-            SpawnPoint(float x, float y)
-            : x(x)
-            , y(y)
-            {
-            }
-            float x;
-            float y;
-        };
-        struct EnemySpawnPoint
-        {
-            EnemySpawnPoint(Enemy::Type type, float x, float y)
-            : type(type)
-            , x(x)
-            , y(y)
-            {
-            }
-            Enemy::Type type;
-            float x;
-            float y;
-        };
-
     private:
         sf::RenderTarget& mTarget;
         sf::RenderTexture mSceneTexture;
@@ -98,6 +82,7 @@ class World : private sf::NonCopyable
         sf::View mWorldView;
         TextureHolder mTextures;
         FontHolder& mFonts;
+        SoundPlayer& mSounds;
 
         SceneNode mSceneGraph;
         std::array<SceneNode*, LayerCount> mSceneLayers;
@@ -115,9 +100,7 @@ class World : private sf::NonCopyable
         std::vector<Enemy*> mActiveEnemies;
 
         //Boss
-        std::vector<SpawnPoint> mBossSpawnPoints;
-        std::vector<MechaBoss*> mActiveBoss;
-        MechaBoss* mBoss;
+        DarkWizzard* mBoss;
 
         bool isBoss = false;
         bool hasBossSpawn = false;
@@ -126,17 +109,23 @@ class World : private sf::NonCopyable
         sf::Time mSpawnTime = sf::Time::Zero;
         sf::Time mPlayedTime = sf::Time::Zero;
         int numEnemy = 0;
+        int mScore;
 
         //GUI
+        SpriteNode* mHealthBar;
+        SpriteNode* mHealthBarFrame;
         SpriteNode* mExpBar;
         SpriteNode* mExpBarFrame;
         SpriteNode* mSkillEIcon;
         SpriteNode* mSkillEBlur;
         SpriteNode* mSkillQIcon;
         SpriteNode* mSkillQBlur;
+        SpriteNode* mUltimateIcon;
+        SpriteNode* mUltimateBlur;
 
         TextNode* mPlayedTimeText;
         TextNode* mLevelText;
+        TextNode* mScoreText;
 };
 
 #endif // WORLD_HPP

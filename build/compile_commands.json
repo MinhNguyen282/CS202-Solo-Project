@@ -91,15 +91,33 @@
 },
 {
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Music\\MusicPlayer.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Music\\MusicPlayer.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Music/MusicPlayer.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Music\\SoundPlayer.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Music\\SoundPlayer.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Music/SoundPlayer.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Music\\SoundNode.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Music\\SoundNode.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Music/SoundNode.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
   "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Entity\\Enemy.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Entity\\Enemy.cpp",
   "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Enemy.cpp",
   "output": "CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj"
 },
 {
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
-  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Entity\\MechaRockBoss.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Entity\\MechaRockBoss.cpp",
-  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/MechaRockBoss.cpp",
-  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj"
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\Entity\\DarkWizzard.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\Entity\\DarkWizzard.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/DarkWizzard.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj"
 },
 {
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
@@ -202,6 +220,18 @@
   "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\State\\LoadingState.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\State\\LoadingState.cpp",
   "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/State/LoadingState.cpp",
   "output": "CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\State\\UpgradeState.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\State\\UpgradeState.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/State/UpgradeState.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\State\\CheatState.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\State\\CheatState.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/State/CheatState.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj"
 },
 {
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-build/src/SFML/System",

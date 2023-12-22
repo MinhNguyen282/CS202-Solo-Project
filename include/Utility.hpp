@@ -17,6 +17,8 @@ std::string toString(const T&  value);
 
 std::string toString(sf::Keyboard::Key key);
 
+sf::Keyboard::Key toKeyboardKey(std::string key);
+
 void centerOrigin(sf::Sprite& sprite);
 void centerOrigin(sf::Text& text);
 

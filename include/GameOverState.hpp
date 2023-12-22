@@ -19,6 +19,8 @@ class GameOverState : public State
 
 	private:
 		sf::Text mGameOverText;
+		sf::Text mScoreText;
+		sf::Text mGuideText;
 		sf::Time mElapsedTime;
 };
 #endif // GAMEOVERSTATE_HPP

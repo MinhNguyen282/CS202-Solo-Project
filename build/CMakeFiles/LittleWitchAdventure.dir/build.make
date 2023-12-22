@@ -293,11 +293,56 @@ CMakeFiles/LittleWitchAdventure.dir/src/Data/DataTables.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Data/DataTables.cpp.s"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Data\DataTables.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Data\DataTables.cpp.s
 
+CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
+CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
+CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Music/MusicPlayer.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Music\MusicPlayer.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Music\MusicPlayer.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Music\MusicPlayer.cpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\Music\MusicPlayer.cpp > CMakeFiles\LittleWitchAdventure.dir\src\Music\MusicPlayer.cpp.i
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Music\MusicPlayer.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Music\MusicPlayer.cpp.s
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Music/SoundPlayer.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundPlayer.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundPlayer.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Music\SoundPlayer.cpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\Music\SoundPlayer.cpp > CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundPlayer.cpp.i
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Music\SoundPlayer.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundPlayer.cpp.s
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Music/SoundNode.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundNode.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundNode.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Music\SoundNode.cpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\Music\SoundNode.cpp > CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundNode.cpp.i
+
+CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Music\SoundNode.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Music\SoundNode.cpp.s
+
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Enemy.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\Enemy.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\Enemy.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\Enemy.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.i: cmake_force
@@ -308,26 +353,26 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.s"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\Enemy.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\Enemy.cpp.s
 
-CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
-CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
-CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/MechaRockBoss.cpp
-CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\MechaRockBoss.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\MechaRockBoss.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\MechaRockBoss.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
+CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
+CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/DarkWizzard.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\DarkWizzard.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\DarkWizzard.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\DarkWizzard.cpp
 
-CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.i"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\MechaRockBoss.cpp > CMakeFiles\LittleWitchAdventure.dir\src\Entity\MechaRockBoss.cpp.i
+CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\DarkWizzard.cpp > CMakeFiles\LittleWitchAdventure.dir\src\Entity\DarkWizzard.cpp.i
 
-CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.s"
-	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\MechaRockBoss.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\MechaRockBoss.cpp.s
+CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\DarkWizzard.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\DarkWizzard.cpp.s
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Player.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\Player.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\Player.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\Player.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.i: cmake_force
@@ -342,7 +387,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj: CMakeFiles/Li
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Projectile.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\Projectile.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\Projectile.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\Projectile.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.i: cmake_force
@@ -357,7 +402,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj: CMakeFiles/Litt
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/TextNode.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\TextNode.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\TextNode.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\TextNode.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.i: cmake_force
@@ -372,7 +417,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj: CMakeFiles/LittleW
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Witch.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\Witch.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\Witch.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\Witch.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.i: cmake_force
@@ -387,7 +432,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj: CMakeFiles/
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/ParticleNode.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\Entity\ParticleNode.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\Entity\ParticleNode.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\Entity\ParticleNode.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/Entity/ParticleNode.cpp.i: cmake_force
@@ -402,7 +447,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj: CMakeFiles/LittleWitchAdv
 CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/World.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\World.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\World.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\World.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/World.cpp.i: cmake_force
@@ -417,7 +462,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj: CMakeFiles/
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/GameOverState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\GameOverState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\GameOverState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\GameOverState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.i: cmake_force
@@ -432,7 +477,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj: CMakeFiles/Lit
 CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/TitleState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\TitleState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\TitleState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\TitleState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.i: cmake_force
@@ -447,7 +492,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj: CMakeFiles/LittleWi
 CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/State.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\State.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\State.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\State.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/State.cpp.i: cmake_force
@@ -462,7 +507,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj: CMakeFiles/Lit
 CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/StateStack.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\StateStack.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\StateStack.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\StateStack.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/StateStack.cpp.i: cmake_force
@@ -477,7 +522,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj: CMakeFiles/L
 CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/SettingState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\SettingState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\SettingState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\SettingState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.i: cmake_force
@@ -492,7 +537,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: CMakeFiles/Litt
 CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/MenuState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\MenuState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\MenuState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\MenuState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.i: cmake_force
@@ -507,7 +552,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj: CMakeFiles/Litt
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/GameState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\GameState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\GameState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\GameState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.i: cmake_force
@@ -522,7 +567,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: CMakeFiles/Li
 CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/Application.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\Application.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\Application.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\Application.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.i: cmake_force
@@ -537,7 +582,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: CMakeFiles/Lit
 CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/PauseState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\PauseState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\PauseState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\PauseState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.i: cmake_force
@@ -552,7 +597,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj: CMakeFiles/Li
 CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/CreditState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\CreditState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\CreditState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\CreditState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.i: cmake_force
@@ -567,7 +612,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj: CMakeFiles/L
 CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
 CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/LoadingState.cpp
 CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\LoadingState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\LoadingState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\LoadingState.cpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.i: cmake_force
@@ -577,6 +622,36 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.i: cmake_force
 CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.s"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\State\LoadingState.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\State\LoadingState.cpp.s
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
+CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
+CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/UpgradeState.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\UpgradeState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\UpgradeState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\UpgradeState.cpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\State\UpgradeState.cpp > CMakeFiles\LittleWitchAdventure.dir\src\State\UpgradeState.cpp.i
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\State\UpgradeState.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\State\UpgradeState.cpp.s
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/flags.make
+CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp
+CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/CheatState.cpp
+CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj: CMakeFiles/LittleWitchAdventure.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj -MF CMakeFiles\LittleWitchAdventure.dir\src\State\CheatState.cpp.obj.d -o CMakeFiles\LittleWitchAdventure.dir\src\State\CheatState.cpp.obj -c E:\CS202\SoloProject\CS202-Solo-Project\src\State\CheatState.cpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CS202\SoloProject\CS202-Solo-Project\src\State\CheatState.cpp > CMakeFiles\LittleWitchAdventure.dir\src\State\CheatState.cpp.i
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CS202\SoloProject\CS202-Solo-Project\src\State\CheatState.cpp -o CMakeFiles\LittleWitchAdventure.dir\src\State\CheatState.cpp.s
 
 # Object files for target LittleWitchAdventure
 LittleWitchAdventure_OBJECTS = \
@@ -595,8 +670,11 @@ LittleWitchAdventure_OBJECTS = \
 "CMakeFiles/LittleWitchAdventure.dir/src/GUI/Container.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/GUI/Label.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/Data/DataTables.cpp.obj" \
+"CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj" \
+"CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj" \
+"CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj" \
-"CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj" \
+"CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj" \
@@ -613,7 +691,9 @@ LittleWitchAdventure_OBJECTS = \
 "CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj" \
 "CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj" \
-"CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj"
+"CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj" \
+"CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj" \
+"CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj"
 
 # External object files for target LittleWitchAdventure
 LittleWitchAdventure_EXTERNAL_OBJECTS =
@@ -633,8 +713,11 @@ bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/GUI/Container.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/GUI/Label.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Data/DataTables.cpp.obj
+bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Music/MusicPlayer.cpp.obj
+bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundPlayer.cpp.obj
+bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Music/SoundNode.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Entity/Enemy.cpp.obj
-bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Entity/MechaRockBoss.cpp.obj
+bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Entity/DarkWizzard.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Entity/Projectile.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/Entity/TextNode.cpp.obj
@@ -652,15 +735,24 @@ bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/State/Appl
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj
+bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj
+bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/build.make
 bin/LittleWitchAdventure.exe: _deps/sfml-build/lib/libsfml-graphics-s-d.a
+bin/LittleWitchAdventure.exe: _deps/sfml-build/lib/libsfml-audio-s-d.a
 bin/LittleWitchAdventure.exe: _deps/sfml-build/lib/libsfml-window-s-d.a
 bin/LittleWitchAdventure.exe: _deps/sfml-build/lib/libsfml-system-s-d.a
 bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
+bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a
+bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a
+bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a
+bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a
+bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libogg.a
+bin/LittleWitchAdventure.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/linkLibs.rsp
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/objects1.rsp
 bin/LittleWitchAdventure.exe: CMakeFiles/LittleWitchAdventure.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX executable bin\LittleWitchAdventure.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CS202\SoloProject\CS202-Solo-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX executable bin\LittleWitchAdventure.exe"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copy OpenAL DLL"
 	C:\mingw64\bin\cmake.exe -E copy E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/extlibs/bin/x64/openal32.dll E:/CS202/SoloProject/CS202-Solo-Project/build/bin
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\LittleWitchAdventure.dir\link.txt --verbose=$(VERBOSE)
