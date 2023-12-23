@@ -23,7 +23,7 @@ SettingState::SettingState(StateStack& stack, Context context)
 	mExitText.setFont(context.fonts->get(Fonts::Main));
 	mExitText.setString("Exit");
 	mExitText.setCharacterSize(20);
-	mExitText.setColor(sf::Color::White);
+	mExitText.setFillColor(sf::Color::White);
 	mExitText.setPosition(55.f, 95.f);
 
     addButtonLabel(Player::moveLeft, 150.f, "Move Left", context);
@@ -61,8 +61,8 @@ bool SettingState::update(sf::Time)
 	
 	for(std::size_t action = 0; action < Player::actionCount; ++action){
 		mBindingButtons[action].setFillColor(sf::Color::Black);
-		mBindingTexts[action].setColor(sf::Color::White);
-		mBindingLabels[action].setColor(sf::Color::White);
+		mBindingTexts[action].setFillColor(sf::Color::White);
+		mBindingLabels[action].setFillColor(sf::Color::White);
 	}
 
 	if (mActiveButtons == -1){
@@ -71,32 +71,32 @@ bool SettingState::update(sf::Time)
 			if(mBindingButtons[action].getGlobalBounds().contains(mousePosF))
 			{
 				mBindingButtons[action].setFillColor(sf::Color::White);
-				mBindingTexts[action].setColor(sf::Color::Black);
-				mBindingLabels[action].setColor(sf::Color::Red);
+				mBindingTexts[action].setFillColor(sf::Color::Black);
+				mBindingLabels[action].setFillColor(sf::Color::Red);
 			}
 			else
 			{
 				mBindingButtons[action].setFillColor(sf::Color::Black);
-				mBindingTexts[action].setColor(sf::Color::White);
-				mBindingLabels[action].setColor(sf::Color::White);
+				mBindingTexts[action].setFillColor(sf::Color::White);
+				mBindingLabels[action].setFillColor(sf::Color::White);
 			}
 		}
 	}
 	else{
 		mBindingButtons[mActiveButtons].setFillColor(sf::Color::White);
-		mBindingTexts[mActiveButtons].setColor(sf::Color::Black);
-		mBindingLabels[mActiveButtons].setColor(sf::Color::Red);
+		mBindingTexts[mActiveButtons].setFillColor(sf::Color::Black);
+		mBindingLabels[mActiveButtons].setFillColor(sf::Color::Red);
 	}
 
 	if (mExit.getGlobalBounds().contains(mousePosF)){
 		mExit.setFillColor(sf::Color::White);
 		mExit.setOutlineColor(sf::Color::Black);
-		mExitText.setColor(sf::Color::Red);
+		mExitText.setFillColor(sf::Color::Red);
 	}
 	else{
 		mExit.setFillColor(sf::Color::Black);
 		mExit.setOutlineColor(sf::Color::White);
-		mExitText.setColor(sf::Color::White);
+		mExitText.setFillColor(sf::Color::White);
 	}
 
 	return true;
@@ -114,8 +114,8 @@ bool SettingState::handleEvent(const sf::Event& event)
 			{
 				mActiveButtons = action;
 				mBindingButtons[action].setFillColor(sf::Color::White);
-				mBindingTexts[action].setColor(sf::Color::Black);
-				mBindingLabels[action].setColor(sf::Color::Red);
+				mBindingTexts[action].setFillColor(sf::Color::Black);
+				mBindingLabels[action].setFillColor(sf::Color::Red);
 			}
 		}
 		if (mExit.getGlobalBounds().contains(mousePosF)){
@@ -126,16 +126,16 @@ bool SettingState::handleEvent(const sf::Event& event)
 	{
 		getContext().player->assignKey(static_cast<Player::Action>(mActiveButtons), event.key.code);
 		mBindingButtons[mActiveButtons].setFillColor(sf::Color::Black);
-		mBindingTexts[mActiveButtons].setColor(sf::Color::White);
-		mBindingLabels[mActiveButtons].setColor(sf::Color::White);
+		mBindingTexts[mActiveButtons].setFillColor(sf::Color::White);
+		mBindingLabels[mActiveButtons].setFillColor(sf::Color::White);
 		mActiveButtons = -1;
 		updateLabels();
 	}
 	else if (event.type == sf::Event::KeyReleased && mActiveButtons != -1)
 	{
 		mBindingButtons[mActiveButtons].setFillColor(sf::Color::Black);
-		mBindingTexts[mActiveButtons].setColor(sf::Color::White);
-		mBindingLabels[mActiveButtons].setColor(sf::Color::White);
+		mBindingTexts[mActiveButtons].setFillColor(sf::Color::White);
+		mBindingLabels[mActiveButtons].setFillColor(sf::Color::White);
 		mActiveButtons = -1;
 	}
 	else if (event.type == sf::Event::MouseButtonPressed  && event.mouseButton.button == sf::Mouse::Right)
@@ -168,11 +168,11 @@ void SettingState::addButtonLabel(Player::Action action, float y, const std::str
 	mBindingTexts[action].setPosition(85.f, y + 5.f);
 	mBindingTexts[action].setString(text);
 	mBindingTexts[action].setCharacterSize(20);
-	mBindingTexts[action].setColor(sf::Color::White);
+	mBindingTexts[action].setFillColor(sf::Color::White);
 
 	mBindingLabels[action].setFont(context.fonts->get(Fonts::Main));
 	mBindingLabels[action].setPosition(190.f, y + 5.f);
 	mBindingLabels[action].setString(": " + toString(context.player->getAssignedKey(action)));
 	mBindingLabels[action].setCharacterSize(20);
-	mBindingLabels[action].setColor(sf::Color::White);
+	mBindingLabels[action].setFillColor(sf::Color::White);
 }

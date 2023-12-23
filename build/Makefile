@@ -1293,6 +1293,30 @@ src/State/CheatState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.s
 .PHONY : src/State/CheatState.cpp.s
 
+src/State/ConfigState.obj: src/State/ConfigState.cpp.obj
+.PHONY : src/State/ConfigState.obj
+
+# target to build an object file
+src/State/ConfigState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.obj
+.PHONY : src/State/ConfigState.cpp.obj
+
+src/State/ConfigState.i: src/State/ConfigState.cpp.i
+.PHONY : src/State/ConfigState.i
+
+# target to preprocess a source file
+src/State/ConfigState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.i
+.PHONY : src/State/ConfigState.cpp.i
+
+src/State/ConfigState.s: src/State/ConfigState.cpp.s
+.PHONY : src/State/ConfigState.s
+
+# target to generate assembly for a file
+src/State/ConfigState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.s
+.PHONY : src/State/ConfigState.cpp.s
+
 src/State/ContinueState.obj: src/State/ContinueState.cpp.obj
 .PHONY : src/State/ContinueState.obj
 
@@ -1760,6 +1784,9 @@ help:
 	@echo ... src/State/CheatState.obj
 	@echo ... src/State/CheatState.i
 	@echo ... src/State/CheatState.s
+	@echo ... src/State/ConfigState.obj
+	@echo ... src/State/ConfigState.i
+	@echo ... src/State/ConfigState.s
 	@echo ... src/State/ContinueState.obj
 	@echo ... src/State/ContinueState.i
 	@echo ... src/State/ContinueState.s

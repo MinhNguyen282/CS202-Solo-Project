@@ -11,6 +11,7 @@ namespace States
         Credit,
         Setting,
         Upgrade,
+        Config,
         Loading,
         Continue,
         Game,

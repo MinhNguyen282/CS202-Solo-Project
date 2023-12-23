@@ -35,6 +35,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/CS202/SoloProject/CS202-Solo-Project/src/Shader/PostEffect.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/Shader/PostEffect.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/Shader/PostEffect.cpp.obj.d"
   "E:/CS202/SoloProject/CS202-Solo-Project/src/State/Application.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj.d"
   "E:/CS202/SoloProject/CS202-Solo-Project/src/State/CheatState.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj.d"
+  "E:/CS202/SoloProject/CS202-Solo-Project/src/State/ConfigState.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.obj.d"
   "E:/CS202/SoloProject/CS202-Solo-Project/src/State/ContinueState.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj.d"
   "E:/CS202/SoloProject/CS202-Solo-Project/src/State/CreditState.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj.d"
   "E:/CS202/SoloProject/CS202-Solo-Project/src/State/GameOverState.cpp" "CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj" "gcc" "CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj.d"

@@ -17,9 +17,13 @@ namespace Textures
 	{
 		BlueWitch,
 		FlyingEye,
+		FlyingEyeIcon,
 		Goblin,
+		GoblinIcon,
 		Mushroom,
+		MushroomIcon,
 		Skeleton,
+		SkeletonIcon,
 		DarkWizzard,
 		Desert,
 		Title,

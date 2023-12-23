@@ -84,5 +84,10 @@ bool MenuState::handleEvent(const sf::Event& event)
 	for(int i=0; i<mButtons.size(); i++){
 		mButtons[i].handleEvent(event, mousePos);
 	}
+	// Press Ctrl + Shift + F to enter config state
+	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F && event.key.control && event.key.shift)
+	{
+		requestStackPush(States::Config);
+	}
     return false;
 }

@@ -53,6 +53,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj.d"
   "CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj"
   "CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj.d"
+  "CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.obj"
+  "CMakeFiles/LittleWitchAdventure.dir/src/State/ConfigState.cpp.obj.d"
   "CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj"
   "CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj.d"
   "CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj"
