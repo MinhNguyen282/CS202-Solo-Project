@@ -42,6 +42,11 @@ int Entity::getHitpoints() const
     return mHitpoints;
 }
 
+void Entity::setHitpoints(int points)
+{
+    mHitpoints = points;
+}
+
 bool Entity::isDestroyed() const
 {
     return mHitpoints <= 0;
@@ -68,16 +73,17 @@ void Entity::rebuildTable()
     //do nothing
 }
 
-void Entity::playLocalSound(CommandQueue& commands, SoundEffect::ID effect)
+void Entity::playLocalSound(CommandQueue& commands, SoundEffect::ID effect, float volume)
 {
     sf::Vector2f worldPosition = getWorldPosition();
 
     Command command;
     command.category = Category::SoundEffect;
     command.action = derivedAction<SoundNode>(
-        [effect, worldPosition] (SoundNode& node, sf::Time)
+        [effect, worldPosition, volume] (SoundNode& node, sf::Time)
         {
             node.playSound(effect, worldPosition);
+            node.setVolume(volume);
         });
     commands.push(command);
 }

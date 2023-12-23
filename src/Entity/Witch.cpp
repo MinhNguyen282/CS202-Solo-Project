@@ -40,6 +40,7 @@ Witch::Witch(Type type, const TextureHolder& textures, const FontHolder& fonts)
 , curExpPoint(0)
 , mLevelUpSpeed(0.f)
 , mDamageUp(0)
+, isLevelUp(false)
 {
 	if (mType == BlueWitch){
 		mSprite.setTextureRect(sf::IntRect(0, 0, 64, 96));
@@ -111,6 +112,27 @@ void Witch::rebuildTable()
 	mCoolDownE = pTable[mType].mCoolDown;
 }
 
+void Witch::setTable(WitchData table)
+{
+	pTable[mType] = table;
+	maxHitPoints = pTable[mType].hitpoints;
+}
+
+void Witch::setLevel(int level)
+{
+	this->level = level;
+}
+
+void Witch::setExp(int exp)
+{
+	curExpPoint = exp;
+}
+
+int Witch::getExp() const
+{
+	return curExpPoint;
+}
+
 void Witch::receiveExp(int expPoint)
 {
 	if (level == 10) return;
@@ -118,11 +140,22 @@ void Witch::receiveExp(int expPoint)
 	if (curExpPoint >= expCap[level]){
 		level++;
 		curExpPoint = 0;
-		maxHitPoints += 10;
-		mDamageUp += 10;
-		heal(10);
-		mLevelUpSpeed += 10.f;
+		isLevelUp = true;
+		std::cout << "Witch level up\n";
 	}
+}
+
+void Witch::addHitpoints(){
+	maxHitPoints += 10;
+	Entity::heal(10);
+}
+
+void Witch::addDamage(){
+	mDamageUp += 10;
+}
+
+void Witch::addMovementSpeed(){
+	mLevelUpSpeed += 10;	
 }
 
 float Witch::getHealthRatio() const
@@ -227,7 +260,7 @@ float Witch::getMaxSpeed() const
 
 void Witch::setAnimation(Animation animation)
 {
-	if (mCurrentAnimation == Die || (mCurrentAnimation==TakedDamage && animation==Walk)) return;
+	if (mCurrentAnimation == Die || (mCurrentAnimation==TakedDamage)) return;
 	if (mCurrentAnimation == animation) return;
 	mCurrentAnimation = animation;
 	curX = 0;
@@ -290,7 +323,10 @@ void Witch::updateCurrent(sf::Time deltaTime, CommandQueue& mCommandQueue)
 		if (numRow == maxNumRow)
 		{
 			numRow = 0;
-			if (mCurrentAnimation == TakedDamage) setAnimation(Idle);
+			if (mCurrentAnimation == TakedDamage) {
+				mCurrentAnimation = Attack;
+				setAnimation(Idle);
+			}
 			if (mCurrentAnimation == Die) mIsMarkedForRemoval = true;
 		}
 		mSprite.setTextureRect(sf::IntRect(curX, height * numRow, width, height));

@@ -25,6 +25,7 @@ namespace Textures
 		Title,
 		Panel,
 		bigPanel,
+		CreditPanel,
 		ButtonNormal,
 		ButtonSelected,
 		ButtonPressed,
@@ -95,6 +96,7 @@ namespace SoundEffect
 		ExplosionCasting,
 		DarkAttackCasting,
 		Chasing,
+		LevelUp,
 	};
 }
 

@@ -19,9 +19,10 @@ class Entity : public SceneNode
         void destroy();
 
         int getHitpoints() const;
+        void setHitpoints(int points);
         virtual bool isDestroyed() const;
         virtual void rebuildTable();
-        void playLocalSound(CommandQueue& commands, SoundEffect::ID effect);
+        void playLocalSound(CommandQueue& commands, SoundEffect::ID effect, float volume = 100.f);
 
     protected:
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);

@@ -60,6 +60,8 @@ src/State/CreditState.cpp
 src/State/LoadingState.cpp
 src/State/UpgradeState.cpp
 src/State/CheatState.cpp
+src/State/ContinueState.cpp
+src/State/LevelUpState.cpp
 
 )
 target_include_directories(LittleWitchAdventure PUBLIC ${CMAKE_SOURCE_DIR})

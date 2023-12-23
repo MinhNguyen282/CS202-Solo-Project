@@ -1,7 +1,6 @@
 #ifndef BUTTON_HPP
 #define BUTTON_HPP
 
-#include "Component.hpp"
 #include "ResourcesHolder.hpp"
 #include "ResourcesIdentifier.hpp"
 
@@ -12,47 +11,20 @@
 #include <functional>
 #include <vector>
 
-namespace GUI
+class Button : public sf::Drawable, public sf::Transformable
 {
-    class Button : public Component
-    {
-        public:
-            typedef std::shared_ptr<Button> Ptr;
-            typedef std::function<void()> Callback;
-
-        public:
-            Button(const FontHolder& fonts, const TextureHolder& textures);
-            Button(const FontHolder& fonts, const TextureHolder& textures, Textures::ID normalTexture, Textures::ID selectedTexture, Textures::ID pressedTexture);
-            void setCallback(Callback callback);
-            void setText(const std::string& text);
-            void setToggle(bool flag);
-            void setTextColor(const sf::Color& color);
-            void setTextSize(int size);
-            void setTextPosition(float x, float y);
-            sf::FloatRect getBoundingRect() const;
-            sf::FloatRect getTextBounding() const;
-
-            virtual bool isSelectable() const;
-            virtual void select();
-            virtual void deselect();
-            
-            virtual void activate();
-            virtual void deactivate();
-
-            virtual void handleEvent(const sf::Event& event);
-
-        private:
-            virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
-        private:
-            Callback mCallback;
-            const sf::Texture& mNormalTexture;
-            const sf::Texture& mSelectedTexture;
-            const sf::Texture& mPressedTexture;
-            sf::Sprite mSprite;
-            sf::Text mText;
-            bool mIsToggle;
-    };
-}
+    public:
+        Button(TextureHolder& textures, FontHolder& fonts, sf::Vector2f position, std::string text, std::function<void()> callback);
+        void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        void update(sf::Time dt, sf::Vector2i mousePos);
+        void handleEvent(const sf::Event& event, sf::Vector2i mousePos);
+        void setCallback(std::function<void()> callback);
+    private:
+        sf::Sprite mSprite;
+        sf::Text mText;
+        std::function<void()> mCallback;
+        TextureHolder* mTextures;
+        FontHolder* mFonts;
+};
 
 #endif // BUTTON_HPP

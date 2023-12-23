@@ -6,10 +6,27 @@ GameState::GameState(StateStack& stack, Context context)
 , mWorld(*context.window, *context.fonts, *context.sounds)
 , mPlayer(*context.player)
 {
-    mPlayer.subtractPlayedTime(mPlayer.getPlayedTime());
-    mPlayer.setInvicible(false);
-    context.music->play(Music::Before5MinsTheme);
-    mMusicIndex = 0;
+    mPlayer.mCommand = "None";
+    if (!mPlayer.isContinue){
+        mPlayer.subtractPlayedTime(mPlayer.getPlayedTime());
+        mPlayer.setInvicible(false);
+        context.music->play(Music::Before5MinsTheme);
+        mMusicIndex = 0;
+    }
+    else {
+        std::cout << "Continue!\n";
+        mWorld.setScore(mPlayer.getScore());
+        mWorld.setPlayedTime(mPlayer.getPlayedTime());
+        mWorld.setTable(mPlayer.getTable());
+        mWorld.setCurrentHitpoints(mPlayer.getCurrentHitpoints());
+        mWorld.setLevel(mPlayer.getLevel());
+        mWorld.setExp(mPlayer.getExp());
+        mWorld.getCommandQueue().pop();
+        mPlayer.setInvicible(false);
+        context.music->play(Music::Before5MinsTheme);
+        mMusicIndex = 0;
+        std::cout << "Passed!\n";
+    }
 }
 
 bool GameState::handleEvent(const sf::Event& event)
@@ -23,8 +40,14 @@ bool GameState::handleEvent(const sf::Event& event)
     mPlayer.handleEvent(event, commands);
 
     // Escape pressed, trigger the pause screen
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape){
+        mPlayer.setTable(mWorld.getTable());
+        mPlayer.setScore(mWorld.getScore());
+        mPlayer.setExp(mWorld.getExp());
+        mPlayer.setLevel(mWorld.getLevel());
+        mPlayer.setCurrentHitpoints(mWorld.getCurrentHitpoints());
         requestStackPush(States::Pause);
+    }
     
     // Cheat mode if press Ctrl + Shift + C
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::C && sf::Keyboard::isKeyPressed(sf::Keyboard::LControl) && sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
@@ -66,6 +89,15 @@ bool GameState::update(sf::Time deltaTime)
     } 
     
     mWorld.update(deltaTime);
+
+    if (mWorld.isLevelUp && mPlayer.mCommand == "None"){
+        requestStackPush(States::LevelUp);
+    }
+    else if (mWorld.isLevelUp && mPlayer.mCommand != "None"){
+        mWorld.processLevelUp(mPlayer.mCommand);
+        mPlayer.mCommand = "None";
+        mWorld.isLevelUp = false;
+    }
 
     if (!mWorld.hasAlivePlayer())
     {

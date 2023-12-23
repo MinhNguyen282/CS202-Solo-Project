@@ -1293,6 +1293,30 @@ src/State/CheatState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.s
 .PHONY : src/State/CheatState.cpp.s
 
+src/State/ContinueState.obj: src/State/ContinueState.cpp.obj
+.PHONY : src/State/ContinueState.obj
+
+# target to build an object file
+src/State/ContinueState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj
+.PHONY : src/State/ContinueState.cpp.obj
+
+src/State/ContinueState.i: src/State/ContinueState.cpp.i
+.PHONY : src/State/ContinueState.i
+
+# target to preprocess a source file
+src/State/ContinueState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.i
+.PHONY : src/State/ContinueState.cpp.i
+
+src/State/ContinueState.s: src/State/ContinueState.cpp.s
+.PHONY : src/State/ContinueState.s
+
+# target to generate assembly for a file
+src/State/ContinueState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.s
+.PHONY : src/State/ContinueState.cpp.s
+
 src/State/CreditState.obj: src/State/CreditState.cpp.obj
 .PHONY : src/State/CreditState.obj
 
@@ -1364,6 +1388,30 @@ src/State/GameState.s: src/State/GameState.cpp.s
 src/State/GameState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.s
 .PHONY : src/State/GameState.cpp.s
+
+src/State/LevelUpState.obj: src/State/LevelUpState.cpp.obj
+.PHONY : src/State/LevelUpState.obj
+
+# target to build an object file
+src/State/LevelUpState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/LevelUpState.cpp.obj
+.PHONY : src/State/LevelUpState.cpp.obj
+
+src/State/LevelUpState.i: src/State/LevelUpState.cpp.i
+.PHONY : src/State/LevelUpState.i
+
+# target to preprocess a source file
+src/State/LevelUpState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/LevelUpState.cpp.i
+.PHONY : src/State/LevelUpState.cpp.i
+
+src/State/LevelUpState.s: src/State/LevelUpState.cpp.s
+.PHONY : src/State/LevelUpState.s
+
+# target to generate assembly for a file
+src/State/LevelUpState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LittleWitchAdventure.dir\build.make CMakeFiles/LittleWitchAdventure.dir/src/State/LevelUpState.cpp.s
+.PHONY : src/State/LevelUpState.cpp.s
 
 src/State/LoadingState.obj: src/State/LoadingState.cpp.obj
 .PHONY : src/State/LoadingState.obj
@@ -1712,6 +1760,9 @@ help:
 	@echo ... src/State/CheatState.obj
 	@echo ... src/State/CheatState.i
 	@echo ... src/State/CheatState.s
+	@echo ... src/State/ContinueState.obj
+	@echo ... src/State/ContinueState.i
+	@echo ... src/State/ContinueState.s
 	@echo ... src/State/CreditState.obj
 	@echo ... src/State/CreditState.i
 	@echo ... src/State/CreditState.s
@@ -1721,6 +1772,9 @@ help:
 	@echo ... src/State/GameState.obj
 	@echo ... src/State/GameState.i
 	@echo ... src/State/GameState.s
+	@echo ... src/State/LevelUpState.obj
+	@echo ... src/State/LevelUpState.i
+	@echo ... src/State/LevelUpState.s
 	@echo ... src/State/LoadingState.obj
 	@echo ... src/State/LoadingState.i
 	@echo ... src/State/LoadingState.s

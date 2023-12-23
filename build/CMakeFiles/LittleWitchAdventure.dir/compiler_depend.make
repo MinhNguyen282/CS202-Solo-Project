@@ -326,6 +326,8 @@ CMakeFiles/LittleWitchAdventure.dir/main.cpp.obj: E:/CS202/SoloProject/CS202-Sol
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/StateStack.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/State.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/StateIdentifiers.hpp \
@@ -2199,6 +2201,8 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/Player.cpp.obj: E:/CS202/SoloProj
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/CommandQueue.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Witch.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp
@@ -3158,73 +3162,130 @@ CMakeFiles/LittleWitchAdventure.dir/src/Entity/Witch.cpp.obj: E:/CS202/SoloProje
 
 CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/GUI/Button.cpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp \
-  _deps/sfml-src/include/SFML/System.hpp \
-  _deps/sfml-src/include/SFML/Config.hpp \
-  _deps/sfml-src/include/SFML/System/Clock.hpp \
-  _deps/sfml-src/include/SFML/System/Export.hpp \
-  _deps/sfml-src/include/SFML/System/Time.hpp \
-  _deps/sfml-src/include/SFML/System/Err.hpp \
-  C:/mingw64/include/c++/13.1.0/ostream \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
+  C:/mingw64/include/c++/13.1.0/map \
   C:/mingw64/include/c++/13.1.0/bits/requires_hosted.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++config.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/cpu_defines.h \
   C:/mingw64/include/c++/13.1.0/pstl/pstl_config.h \
-  C:/mingw64/include/c++/13.1.0/ios \
-  C:/mingw64/include/c++/13.1.0/iosfwd \
-  C:/mingw64/include/c++/13.1.0/bits/stringfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_algobase.h \
+  C:/mingw64/include/c++/13.1.0/bits/functexcept.h \
+  C:/mingw64/include/c++/13.1.0/bits/exception_defines.h \
+  C:/mingw64/include/c++/13.1.0/bits/cpp_type_traits.h \
+  C:/mingw64/include/c++/13.1.0/ext/type_traits.h \
+  C:/mingw64/include/c++/13.1.0/ext/numeric_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_pair.h \
+  C:/mingw64/include/c++/13.1.0/type_traits \
+  C:/mingw64/include/c++/13.1.0/bits/move.h \
+  C:/mingw64/include/c++/13.1.0/bits/utility.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_types.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/include/c++/13.1.0/bits/concept_check.h \
+  C:/mingw64/include/c++/13.1.0/debug/assertions.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator.h \
+  C:/mingw64/include/c++/13.1.0/bits/ptr_traits.h \
+  C:/mingw64/include/c++/13.1.0/debug/debug.h \
+  C:/mingw64/include/c++/13.1.0/bits/predefined_ops.h \
+  C:/mingw64/include/c++/13.1.0/bit \
+  C:/mingw64/include/c++/13.1.0/bits/allocator.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/new_allocator.h \
+  C:/mingw64/include/c++/13.1.0/new \
+  C:/mingw64/include/c++/13.1.0/bits/exception.h \
   C:/mingw64/include/c++/13.1.0/bits/memoryfwd.h \
-  C:/mingw64/include/c++/13.1.0/bits/postypes.h \
-  C:/mingw64/include/c++/13.1.0/cwchar \
-  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_function.h \
+  C:/mingw64/include/c++/13.1.0/backward/binders.h \
+  C:/mingw64/include/c++/13.1.0/ext/alloc_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/alloc_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_construct.h \
+  C:/mingw64/include/c++/13.1.0/ext/aligned_buffer.h \
+  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
+  C:/mingw64/include/c++/13.1.0/initializer_list \
+  C:/mingw64/include/c++/13.1.0/tuple \
+  C:/mingw64/include/c++/13.1.0/bits/uses_allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/invoke.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
+  C:/mingw64/include/c++/13.1.0/bits/range_access.h \
+  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
+  C:/mingw64/include/c++/13.1.0/bits/memory_resource.h \
+  C:/mingw64/include/c++/13.1.0/cstddef \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
   C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
   C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
   C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
   C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/include/c++/13.1.0/bits/uses_allocator_args.h \
+  C:/mingw64/include/c++/13.1.0/string \
+  C:/mingw64/include/c++/13.1.0/bits/stringfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/char_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/postypes.h \
+  C:/mingw64/include/c++/13.1.0/cwchar \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
   C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
   C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
   C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
   C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
   C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
-  C:/mingw64/include/c++/13.1.0/exception \
-  C:/mingw64/include/c++/13.1.0/bits/exception.h \
-  C:/mingw64/include/c++/13.1.0/bits/exception_ptr.h \
-  C:/mingw64/include/c++/13.1.0/bits/exception_defines.h \
-  C:/mingw64/include/c++/13.1.0/bits/cxxabi_init_exception.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
-  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
-  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
-  C:/mingw64/include/c++/13.1.0/typeinfo \
-  C:/mingw64/include/c++/13.1.0/bits/hash_bytes.h \
-  C:/mingw64/include/c++/13.1.0/new \
-  C:/mingw64/include/c++/13.1.0/bits/move.h \
-  C:/mingw64/include/c++/13.1.0/type_traits \
-  C:/mingw64/include/c++/13.1.0/bits/nested_exception.h \
-  C:/mingw64/include/c++/13.1.0/bits/char_traits.h \
   C:/mingw64/include/c++/13.1.0/bits/localefwd.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++locale.h \
   C:/mingw64/include/c++/13.1.0/clocale \
   C:/mingw64/x86_64-w64-mingw32/include/locale.h \
   C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/include/c++/13.1.0/iosfwd \
   C:/mingw64/include/c++/13.1.0/cctype \
   C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
-  C:/mingw64/include/c++/13.1.0/bits/ios_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/ostream_insert.h \
+  C:/mingw64/include/c++/13.1.0/bits/cxxabi_forced.h \
+  C:/mingw64/include/c++/13.1.0/bits/refwrap.h \
+  C:/mingw64/include/c++/13.1.0/bits/basic_string.h \
+  C:/mingw64/include/c++/13.1.0/string_view \
+  C:/mingw64/include/c++/13.1.0/bits/functional_hash.h \
+  C:/mingw64/include/c++/13.1.0/bits/hash_bytes.h \
+  C:/mingw64/include/c++/13.1.0/bits/string_view.tcc \
+  C:/mingw64/include/c++/13.1.0/ext/string_conversions.h \
+  C:/mingw64/include/c++/13.1.0/cstdlib \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/include/c++/13.1.0/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/include/c++/13.1.0/bits/std_abs.h \
+  C:/mingw64/include/c++/13.1.0/cstdio \
+  C:/mingw64/include/c++/13.1.0/cerrno \
+  C:/mingw64/include/c++/13.1.0/bits/charconv.h \
+  C:/mingw64/include/c++/13.1.0/bits/basic_string.tcc \
+  C:/mingw64/include/c++/13.1.0/memory \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tempbuf.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_uninitialized.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_raw_storage_iter.h \
+  C:/mingw64/include/c++/13.1.0/bits/align.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  C:/mingw64/include/c++/13.1.0/bits/unique_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_base.h \
+  C:/mingw64/include/c++/13.1.0/typeinfo \
+  C:/mingw64/include/c++/13.1.0/bits/allocated_ptr.h \
   C:/mingw64/include/c++/13.1.0/ext/atomicity.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/mingw64/x86_64-w64-mingw32/include/pthread.h \
-  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
   C:/mingw64/x86_64-w64-mingw32/include/sys/types.h \
   C:/mingw64/x86_64-w64-mingw32/include/process.h \
   C:/mingw64/x86_64-w64-mingw32/include/corecrt_startup.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
-  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
   C:/mingw64/x86_64-w64-mingw32/include/signal.h \
   C:/mingw64/x86_64-w64-mingw32/include/pthread_signal.h \
   C:/mingw64/x86_64-w64-mingw32/include/time.h \
@@ -3235,63 +3296,37 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   C:/mingw64/x86_64-w64-mingw32/include/pthread_compat.h \
   C:/mingw64/x86_64-w64-mingw32/include/pthread_unistd.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/include/c++/13.1.0/ext/concurrence.h \
+  C:/mingw64/include/c++/13.1.0/exception \
+  C:/mingw64/include/c++/13.1.0/bits/exception_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/cxxabi_init_exception.h \
+  C:/mingw64/include/c++/13.1.0/bits/nested_exception.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_atomic.h \
+  C:/mingw64/include/c++/13.1.0/bits/atomic_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
+  C:/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
+  C:/mingw64/include/c++/13.1.0/pstl/glue_memory_defs.h \
+  C:/mingw64/include/c++/13.1.0/pstl/execution_defs.h \
+  C:/mingw64/include/c++/13.1.0/stdexcept \
+  C:/mingw64/include/c++/13.1.0/cassert \
+  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
+  _deps/sfml-src/include/SFML/Graphics.hpp \
+  _deps/sfml-src/include/SFML/Window.hpp \
+  _deps/sfml-src/include/SFML/System.hpp \
+  _deps/sfml-src/include/SFML/Config.hpp \
+  _deps/sfml-src/include/SFML/System/Clock.hpp \
+  _deps/sfml-src/include/SFML/System/Export.hpp \
+  _deps/sfml-src/include/SFML/System/Time.hpp \
+  _deps/sfml-src/include/SFML/System/Err.hpp \
+  C:/mingw64/include/c++/13.1.0/ostream \
+  C:/mingw64/include/c++/13.1.0/ios \
+  C:/mingw64/include/c++/13.1.0/bits/ios_base.h \
   C:/mingw64/include/c++/13.1.0/bits/locale_classes.h \
-  C:/mingw64/include/c++/13.1.0/string \
-  C:/mingw64/include/c++/13.1.0/bits/allocator.h \
-  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++allocator.h \
-  C:/mingw64/include/c++/13.1.0/bits/new_allocator.h \
-  C:/mingw64/include/c++/13.1.0/bits/functexcept.h \
-  C:/mingw64/include/c++/13.1.0/bits/cpp_type_traits.h \
-  C:/mingw64/include/c++/13.1.0/bits/ostream_insert.h \
-  C:/mingw64/include/c++/13.1.0/bits/cxxabi_forced.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_funcs.h \
-  C:/mingw64/include/c++/13.1.0/bits/concept_check.h \
-  C:/mingw64/include/c++/13.1.0/debug/assertions.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_types.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_iterator.h \
-  C:/mingw64/include/c++/13.1.0/ext/type_traits.h \
-  C:/mingw64/include/c++/13.1.0/bits/ptr_traits.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_function.h \
-  C:/mingw64/include/c++/13.1.0/backward/binders.h \
-  C:/mingw64/include/c++/13.1.0/ext/numeric_traits.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_algobase.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_pair.h \
-  C:/mingw64/include/c++/13.1.0/bits/utility.h \
-  C:/mingw64/include/c++/13.1.0/debug/debug.h \
-  C:/mingw64/include/c++/13.1.0/bits/predefined_ops.h \
-  C:/mingw64/include/c++/13.1.0/bit \
-  C:/mingw64/include/c++/13.1.0/bits/refwrap.h \
-  C:/mingw64/include/c++/13.1.0/bits/invoke.h \
-  C:/mingw64/include/c++/13.1.0/bits/range_access.h \
-  C:/mingw64/include/c++/13.1.0/initializer_list \
-  C:/mingw64/include/c++/13.1.0/bits/basic_string.h \
-  C:/mingw64/include/c++/13.1.0/ext/alloc_traits.h \
-  C:/mingw64/include/c++/13.1.0/bits/alloc_traits.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_construct.h \
-  C:/mingw64/include/c++/13.1.0/string_view \
-  C:/mingw64/include/c++/13.1.0/bits/functional_hash.h \
-  C:/mingw64/include/c++/13.1.0/bits/string_view.tcc \
-  C:/mingw64/include/c++/13.1.0/ext/string_conversions.h \
-  C:/mingw64/include/c++/13.1.0/cstdlib \
-  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
-  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
-  C:/mingw64/include/c++/13.1.0/stdlib.h \
-  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
-  C:/mingw64/include/c++/13.1.0/bits/std_abs.h \
-  C:/mingw64/include/c++/13.1.0/cstdio \
-  C:/mingw64/include/c++/13.1.0/cerrno \
-  C:/mingw64/include/c++/13.1.0/bits/charconv.h \
-  C:/mingw64/include/c++/13.1.0/bits/basic_string.tcc \
-  C:/mingw64/include/c++/13.1.0/bits/memory_resource.h \
-  C:/mingw64/include/c++/13.1.0/cstddef \
-  C:/mingw64/include/c++/13.1.0/bits/uses_allocator.h \
-  C:/mingw64/include/c++/13.1.0/bits/uses_allocator_args.h \
-  C:/mingw64/include/c++/13.1.0/tuple \
   C:/mingw64/include/c++/13.1.0/bits/locale_classes.tcc \
   C:/mingw64/include/c++/13.1.0/system_error \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/error_constants.h \
-  C:/mingw64/include/c++/13.1.0/stdexcept \
   C:/mingw64/include/c++/13.1.0/streambuf \
   C:/mingw64/include/c++/13.1.0/bits/streambuf.tcc \
   C:/mingw64/include/c++/13.1.0/bits/basic_ios.h \
@@ -3318,9 +3353,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   C:/mingw64/include/c++/13.1.0/bits/algorithmfwd.h \
   C:/mingw64/include/c++/13.1.0/bits/stl_heap.h \
   C:/mingw64/include/c++/13.1.0/bits/uniform_int_dist.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_tempbuf.h \
   C:/mingw64/include/c++/13.1.0/pstl/glue_algorithm_defs.h \
-  C:/mingw64/include/c++/13.1.0/pstl/execution_defs.h \
   C:/mingw64/include/c++/13.1.0/locale \
   C:/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.h \
   C:/mingw64/include/c++/13.1.0/ctime \
@@ -3342,8 +3375,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   _deps/sfml-src/include/SFML/System/Vector2.inl \
   _deps/sfml-src/include/SFML/System/Vector3.hpp \
   _deps/sfml-src/include/SFML/System/Vector3.inl \
-  _deps/sfml-src/include/SFML/Graphics.hpp \
-  _deps/sfml-src/include/SFML/Window.hpp \
   _deps/sfml-src/include/SFML/Window/Clipboard.hpp \
   _deps/sfml-src/include/SFML/Window/Export.hpp \
   _deps/sfml-src/include/SFML/Window/Context.hpp \
@@ -3358,7 +3389,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   _deps/sfml-src/include/SFML/Window/Touch.hpp \
   _deps/sfml-src/include/SFML/Window/VideoMode.hpp \
   C:/mingw64/include/c++/13.1.0/vector \
-  C:/mingw64/include/c++/13.1.0/bits/stl_uninitialized.h \
   C:/mingw64/include/c++/13.1.0/bits/stl_vector.h \
   C:/mingw64/include/c++/13.1.0/bits/stl_bvector.h \
   C:/mingw64/include/c++/13.1.0/bits/vector.tcc \
@@ -3366,8 +3396,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   _deps/sfml-src/include/SFML/Window/WindowBase.hpp \
   _deps/sfml-src/include/SFML/Window/Vulkan.hpp \
   _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
-  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
   _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
   _deps/sfml-src/include/SFML/Graphics/Export.hpp \
@@ -3388,13 +3416,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   _deps/sfml-src/include/SFML/Graphics/Glyph.hpp \
   _deps/sfml-src/include/SFML/Graphics/Texture.hpp \
   _deps/sfml-src/include/SFML/Graphics/Image.hpp \
-  C:/mingw64/include/c++/13.1.0/map \
-  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
-  C:/mingw64/include/c++/13.1.0/ext/aligned_buffer.h \
-  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
-  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
   _deps/sfml-src/include/SFML/Graphics/RectangleShape.hpp \
   _deps/sfml-src/include/SFML/Graphics/RenderTarget.hpp \
   _deps/sfml-src/include/SFML/Graphics/View.hpp \
@@ -3406,24 +3427,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/GUI/Button.cpp.obj: E:/CS202/SoloProject
   _deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
   _deps/sfml-src/include/SFML/Graphics/Text.hpp \
   _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
-  C:/mingw64/include/c++/13.1.0/memory \
-  C:/mingw64/include/c++/13.1.0/bits/stl_raw_storage_iter.h \
-  C:/mingw64/include/c++/13.1.0/bits/align.h \
-  C:/mingw64/include/c++/13.1.0/bits/unique_ptr.h \
-  C:/mingw64/include/c++/13.1.0/bits/shared_ptr.h \
-  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_base.h \
-  C:/mingw64/include/c++/13.1.0/bits/allocated_ptr.h \
-  C:/mingw64/include/c++/13.1.0/ext/concurrence.h \
-  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_atomic.h \
-  C:/mingw64/include/c++/13.1.0/bits/atomic_base.h \
-  C:/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
-  C:/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
-  C:/mingw64/include/c++/13.1.0/pstl/glue_memory_defs.h \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
-  C:/mingw64/include/c++/13.1.0/cassert \
-  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
   C:/mingw64/include/c++/13.1.0/functional \
   C:/mingw64/include/c++/13.1.0/bits/std_function.h \
   C:/mingw64/include/c++/13.1.0/unordered_map \
@@ -7441,6 +7444,8 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: E:/CS202/Solo
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/StateStack.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/State.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/StateIdentifiers.hpp \
@@ -7472,8 +7477,7 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: E:/CS202/Solo
   E:/CS202/SoloProject/CS202-Solo-Project/include/StateIdentifiers.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/TitleState.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/MenuState.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/PauseState.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/GameState.hpp \
   C:/mingw64/include/c++/13.1.0/thread \
@@ -7484,8 +7488,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: E:/CS202/Solo
   C:/mingw64/include/c++/13.1.0/cstdint \
   C:/mingw64/include/c++/13.1.0/bits/parse_numbers.h \
   E:/CS202/SoloProject/CS202-Solo-Project/include/World.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/SpriteNode.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/BloomEffect.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/PostEffect.hpp \
@@ -7494,12 +7496,15 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/Application.cpp.obj: E:/CS202/Solo
   E:/CS202/SoloProject/CS202-Solo-Project/include/LoadingState.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/ParallelTask.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/SettingState.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Label.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/CreditState.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/UpgradeState.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/GameOverState.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/CheatState.hpp
+  E:/CS202/SoloProject/CS202-Solo-Project/include/CheatState.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ContinueState.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/LevelUpState.hpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/CheatState.cpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/CheatState.hpp \
@@ -7831,7 +7836,342 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj: E:/CS202/SoloP
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/ContinueState.cpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ContinueState.hpp \
+  _deps/sfml-src/include/SFML/Graphics.hpp \
+  _deps/sfml-src/include/SFML/Window.hpp \
+  _deps/sfml-src/include/SFML/System.hpp \
+  _deps/sfml-src/include/SFML/Config.hpp \
+  _deps/sfml-src/include/SFML/System/Clock.hpp \
+  _deps/sfml-src/include/SFML/System/Export.hpp \
+  _deps/sfml-src/include/SFML/System/Time.hpp \
+  _deps/sfml-src/include/SFML/System/Err.hpp \
+  C:/mingw64/include/c++/13.1.0/ostream \
+  C:/mingw64/include/c++/13.1.0/bits/requires_hosted.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/include/c++/13.1.0/pstl/pstl_config.h \
+  C:/mingw64/include/c++/13.1.0/ios \
+  C:/mingw64/include/c++/13.1.0/iosfwd \
+  C:/mingw64/include/c++/13.1.0/bits/stringfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/memoryfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/postypes.h \
+  C:/mingw64/include/c++/13.1.0/cwchar \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/include/c++/13.1.0/exception \
+  C:/mingw64/include/c++/13.1.0/bits/exception.h \
+  C:/mingw64/include/c++/13.1.0/bits/exception_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/exception_defines.h \
+  C:/mingw64/include/c++/13.1.0/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/include/c++/13.1.0/typeinfo \
+  C:/mingw64/include/c++/13.1.0/bits/hash_bytes.h \
+  C:/mingw64/include/c++/13.1.0/new \
+  C:/mingw64/include/c++/13.1.0/bits/move.h \
+  C:/mingw64/include/c++/13.1.0/type_traits \
+  C:/mingw64/include/c++/13.1.0/bits/nested_exception.h \
+  C:/mingw64/include/c++/13.1.0/bits/char_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/localefwd.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/include/c++/13.1.0/clocale \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/include/c++/13.1.0/cctype \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/include/c++/13.1.0/bits/ios_base.h \
+  C:/mingw64/include/c++/13.1.0/ext/atomicity.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/types.h \
+  C:/mingw64/x86_64-w64-mingw32/include/process.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_startup.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/signal.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_signal.h \
+  C:/mingw64/x86_64-w64-mingw32/include/time.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_timeval.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_compat.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_unistd.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_classes.h \
+  C:/mingw64/include/c++/13.1.0/string \
+  C:/mingw64/include/c++/13.1.0/bits/allocator.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/new_allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/functexcept.h \
+  C:/mingw64/include/c++/13.1.0/bits/cpp_type_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/ostream_insert.h \
+  C:/mingw64/include/c++/13.1.0/bits/cxxabi_forced.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/include/c++/13.1.0/bits/concept_check.h \
+  C:/mingw64/include/c++/13.1.0/debug/assertions.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_types.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator.h \
+  C:/mingw64/include/c++/13.1.0/ext/type_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/ptr_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_function.h \
+  C:/mingw64/include/c++/13.1.0/backward/binders.h \
+  C:/mingw64/include/c++/13.1.0/ext/numeric_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_algobase.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_pair.h \
+  C:/mingw64/include/c++/13.1.0/bits/utility.h \
+  C:/mingw64/include/c++/13.1.0/debug/debug.h \
+  C:/mingw64/include/c++/13.1.0/bits/predefined_ops.h \
+  C:/mingw64/include/c++/13.1.0/bit \
+  C:/mingw64/include/c++/13.1.0/bits/refwrap.h \
+  C:/mingw64/include/c++/13.1.0/bits/invoke.h \
+  C:/mingw64/include/c++/13.1.0/bits/range_access.h \
+  C:/mingw64/include/c++/13.1.0/initializer_list \
+  C:/mingw64/include/c++/13.1.0/bits/basic_string.h \
+  C:/mingw64/include/c++/13.1.0/ext/alloc_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/alloc_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_construct.h \
+  C:/mingw64/include/c++/13.1.0/string_view \
+  C:/mingw64/include/c++/13.1.0/bits/functional_hash.h \
+  C:/mingw64/include/c++/13.1.0/bits/string_view.tcc \
+  C:/mingw64/include/c++/13.1.0/ext/string_conversions.h \
+  C:/mingw64/include/c++/13.1.0/cstdlib \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/include/c++/13.1.0/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+  C:/mingw64/include/c++/13.1.0/bits/std_abs.h \
+  C:/mingw64/include/c++/13.1.0/cstdio \
+  C:/mingw64/include/c++/13.1.0/cerrno \
+  C:/mingw64/include/c++/13.1.0/bits/charconv.h \
+  C:/mingw64/include/c++/13.1.0/bits/basic_string.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/memory_resource.h \
+  C:/mingw64/include/c++/13.1.0/cstddef \
+  C:/mingw64/include/c++/13.1.0/bits/uses_allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/uses_allocator_args.h \
+  C:/mingw64/include/c++/13.1.0/tuple \
+  C:/mingw64/include/c++/13.1.0/bits/locale_classes.tcc \
+  C:/mingw64/include/c++/13.1.0/system_error \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/include/c++/13.1.0/stdexcept \
+  C:/mingw64/include/c++/13.1.0/streambuf \
+  C:/mingw64/include/c++/13.1.0/bits/streambuf.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/basic_ios.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets.h \
+  C:/mingw64/include/c++/13.1.0/cwctype \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/streambuf_iterator.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/basic_ios.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/ostream.tcc \
+  _deps/sfml-src/include/SFML/System/FileInputStream.hpp \
+  _deps/sfml-src/include/SFML/System/InputStream.hpp \
+  _deps/sfml-src/include/SFML/System/NonCopyable.hpp \
+  _deps/sfml-src/include/SFML/System/Lock.hpp \
+  _deps/sfml-src/include/SFML/System/MemoryInputStream.hpp \
+  _deps/sfml-src/include/SFML/System/Mutex.hpp \
+  _deps/sfml-src/include/SFML/System/Sleep.hpp \
+  _deps/sfml-src/include/SFML/System/String.hpp \
+  _deps/sfml-src/include/SFML/System/Utf.hpp \
+  C:/mingw64/include/c++/13.1.0/algorithm \
+  C:/mingw64/include/c++/13.1.0/bits/stl_algo.h \
+  C:/mingw64/include/c++/13.1.0/bits/algorithmfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_heap.h \
+  C:/mingw64/include/c++/13.1.0/bits/uniform_int_dist.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tempbuf.h \
+  C:/mingw64/include/c++/13.1.0/pstl/glue_algorithm_defs.h \
+  C:/mingw64/include/c++/13.1.0/pstl/execution_defs.h \
+  C:/mingw64/include/c++/13.1.0/locale \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.h \
+  C:/mingw64/include/c++/13.1.0/ctime \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/mingw64/include/c++/13.1.0/bits/codecvt.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/locale_conv.h \
+  _deps/sfml-src/include/SFML/System/Utf.inl \
+  C:/mingw64/include/c++/13.1.0/iterator \
+  C:/mingw64/include/c++/13.1.0/bits/stream_iterator.h \
+  _deps/sfml-src/include/SFML/System/String.inl \
+  _deps/sfml-src/include/SFML/System/Thread.hpp \
+  _deps/sfml-src/include/SFML/System/Thread.inl \
+  _deps/sfml-src/include/SFML/System/ThreadLocal.hpp \
+  _deps/sfml-src/include/SFML/System/ThreadLocalPtr.hpp \
+  _deps/sfml-src/include/SFML/System/ThreadLocalPtr.inl \
+  _deps/sfml-src/include/SFML/System/Vector2.hpp \
+  _deps/sfml-src/include/SFML/System/Vector2.inl \
+  _deps/sfml-src/include/SFML/System/Vector3.hpp \
+  _deps/sfml-src/include/SFML/System/Vector3.inl \
+  _deps/sfml-src/include/SFML/Window/Clipboard.hpp \
+  _deps/sfml-src/include/SFML/Window/Export.hpp \
+  _deps/sfml-src/include/SFML/Window/Context.hpp \
+  _deps/sfml-src/include/SFML/Window/GlResource.hpp \
+  _deps/sfml-src/include/SFML/Window/ContextSettings.hpp \
+  _deps/sfml-src/include/SFML/Window/Cursor.hpp \
+  _deps/sfml-src/include/SFML/Window/Event.hpp \
+  _deps/sfml-src/include/SFML/Window/Joystick.hpp \
+  _deps/sfml-src/include/SFML/Window/Keyboard.hpp \
+  _deps/sfml-src/include/SFML/Window/Mouse.hpp \
+  _deps/sfml-src/include/SFML/Window/Sensor.hpp \
+  _deps/sfml-src/include/SFML/Window/Touch.hpp \
+  _deps/sfml-src/include/SFML/Window/VideoMode.hpp \
+  C:/mingw64/include/c++/13.1.0/vector \
+  C:/mingw64/include/c++/13.1.0/bits/stl_uninitialized.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_vector.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_bvector.h \
+  C:/mingw64/include/c++/13.1.0/bits/vector.tcc \
+  _deps/sfml-src/include/SFML/Window/Window.hpp \
+  _deps/sfml-src/include/SFML/Window/WindowBase.hpp \
+  _deps/sfml-src/include/SFML/Window/Vulkan.hpp \
+  _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
+  _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Export.hpp \
+  _deps/sfml-src/include/SFML/Graphics/CircleShape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Shape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Drawable.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderStates.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Transform.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Rect.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Rect.inl \
+  _deps/sfml-src/include/SFML/Graphics/Transformable.hpp \
+  _deps/sfml-src/include/SFML/Graphics/VertexArray.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Vertex.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Color.hpp \
+  _deps/sfml-src/include/SFML/Graphics/PrimitiveType.hpp \
+  _deps/sfml-src/include/SFML/Graphics/ConvexShape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Font.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Glyph.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Texture.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Image.hpp \
+  C:/mingw64/include/c++/13.1.0/map \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
+  C:/mingw64/include/c++/13.1.0/ext/aligned_buffer.h \
+  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
+  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
+  _deps/sfml-src/include/SFML/Graphics/RectangleShape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderTarget.hpp \
+  _deps/sfml-src/include/SFML/Graphics/View.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderTexture.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderWindow.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Shader.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Glsl.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Glsl.inl \
+  _deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Text.hpp \
+  _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/State.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/StateIdentifiers.hpp \
+  C:/mingw64/include/c++/13.1.0/memory \
+  C:/mingw64/include/c++/13.1.0/bits/stl_raw_storage_iter.h \
+  C:/mingw64/include/c++/13.1.0/bits/align.h \
+  C:/mingw64/include/c++/13.1.0/bits/unique_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/allocated_ptr.h \
+  C:/mingw64/include/c++/13.1.0/ext/concurrence.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_atomic.h \
+  C:/mingw64/include/c++/13.1.0/bits/atomic_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
+  C:/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
+  C:/mingw64/include/c++/13.1.0/pstl/glue_memory_defs.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
+  C:/mingw64/include/c++/13.1.0/cassert \
+  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
+  C:/mingw64/include/c++/13.1.0/functional \
+  C:/mingw64/include/c++/13.1.0/bits/std_function.h \
+  C:/mingw64/include/c++/13.1.0/unordered_map \
+  C:/mingw64/include/c++/13.1.0/bits/unordered_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable_policy.h \
+  C:/mingw64/include/c++/13.1.0/bits/enable_special_members.h \
+  C:/mingw64/include/c++/13.1.0/array \
+  C:/mingw64/include/c++/13.1.0/compare \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Player.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Command.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Category.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/CommandQueue.hpp \
+  C:/mingw64/include/c++/13.1.0/queue \
+  C:/mingw64/include/c++/13.1.0/deque \
+  C:/mingw64/include/c++/13.1.0/bits/stl_deque.h \
+  C:/mingw64/include/c++/13.1.0/bits/deque.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/stl_queue.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Witch.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Entity.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SceneNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp \
+  C:/mingw64/include/c++/13.1.0/sstream \
+  C:/mingw64/include/c++/13.1.0/istream \
+  C:/mingw64/include/c++/13.1.0/bits/istream.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/sstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.inl \
+  C:/mingw64/include/c++/13.1.0/set \
+  C:/mingw64/include/c++/13.1.0/bits/stl_set.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multiset.h \
+  C:/mingw64/include/c++/13.1.0/iostream \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SoundNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SceneNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/TextNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DataTables.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Projectile.hpp \
+  C:/mingw64/include/c++/13.1.0/math.h \
+  C:/mingw64/include/c++/13.1.0/cmath \
+  C:/mingw64/x86_64-w64-mingw32/include/math.h \
+  C:/mingw64/include/c++/13.1.0/bits/specfun.h \
+  C:/mingw64/include/c++/13.1.0/limits \
+  C:/mingw64/include/c++/13.1.0/tr1/gamma.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/special_function_util.h \
+  C:/mingw64/include/c++/13.1.0/tr1/bessel_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/beta_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/ell_integral.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/exp_integral.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/hypergeometric.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/legendre_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/modified_bessel_func.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/poly_hermite.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/poly_laguerre.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/riemann_zeta.tcc \
+  C:/mingw64/include/c++/13.1.0/fstream \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
+  C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/CreditState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/CreditState.cpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/CreditState.hpp \
@@ -8454,6 +8794,8 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/GameOverState.cpp.obj: E:/CS202/So
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/GameState.cpp \
@@ -8821,6 +9163,338 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/GameState.cpp.obj: E:/CS202/SoloPr
   C:/mingw64/include/c++/13.1.0/stack \
   C:/mingw64/include/c++/13.1.0/bits/stl_stack.h \
   E:/CS202/SoloProject/CS202-Solo-Project/include/MusicPlayer.hpp
+
+CMakeFiles/LittleWitchAdventure.dir/src/State/LevelUpState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/LevelUpState.cpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/LevelUpState.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/State.hpp \
+  _deps/sfml-src/include/SFML/System.hpp \
+  _deps/sfml-src/include/SFML/Config.hpp \
+  _deps/sfml-src/include/SFML/System/Clock.hpp \
+  _deps/sfml-src/include/SFML/System/Export.hpp \
+  _deps/sfml-src/include/SFML/System/Time.hpp \
+  _deps/sfml-src/include/SFML/System/Err.hpp \
+  C:/mingw64/include/c++/13.1.0/ostream \
+  C:/mingw64/include/c++/13.1.0/bits/requires_hosted.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/include/c++/13.1.0/pstl/pstl_config.h \
+  C:/mingw64/include/c++/13.1.0/ios \
+  C:/mingw64/include/c++/13.1.0/iosfwd \
+  C:/mingw64/include/c++/13.1.0/bits/stringfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/memoryfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/postypes.h \
+  C:/mingw64/include/c++/13.1.0/cwchar \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/include/c++/13.1.0/exception \
+  C:/mingw64/include/c++/13.1.0/bits/exception.h \
+  C:/mingw64/include/c++/13.1.0/bits/exception_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/exception_defines.h \
+  C:/mingw64/include/c++/13.1.0/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/include/c++/13.1.0/typeinfo \
+  C:/mingw64/include/c++/13.1.0/bits/hash_bytes.h \
+  C:/mingw64/include/c++/13.1.0/new \
+  C:/mingw64/include/c++/13.1.0/bits/move.h \
+  C:/mingw64/include/c++/13.1.0/type_traits \
+  C:/mingw64/include/c++/13.1.0/bits/nested_exception.h \
+  C:/mingw64/include/c++/13.1.0/bits/char_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/localefwd.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/include/c++/13.1.0/clocale \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/include/c++/13.1.0/cctype \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/include/c++/13.1.0/bits/ios_base.h \
+  C:/mingw64/include/c++/13.1.0/ext/atomicity.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/types.h \
+  C:/mingw64/x86_64-w64-mingw32/include/process.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_startup.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/signal.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_signal.h \
+  C:/mingw64/x86_64-w64-mingw32/include/time.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_timeval.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_compat.h \
+  C:/mingw64/x86_64-w64-mingw32/include/pthread_unistd.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_classes.h \
+  C:/mingw64/include/c++/13.1.0/string \
+  C:/mingw64/include/c++/13.1.0/bits/allocator.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/new_allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/functexcept.h \
+  C:/mingw64/include/c++/13.1.0/bits/cpp_type_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/ostream_insert.h \
+  C:/mingw64/include/c++/13.1.0/bits/cxxabi_forced.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/include/c++/13.1.0/bits/concept_check.h \
+  C:/mingw64/include/c++/13.1.0/debug/assertions.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator_base_types.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_iterator.h \
+  C:/mingw64/include/c++/13.1.0/ext/type_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/ptr_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_function.h \
+  C:/mingw64/include/c++/13.1.0/backward/binders.h \
+  C:/mingw64/include/c++/13.1.0/ext/numeric_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_algobase.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_pair.h \
+  C:/mingw64/include/c++/13.1.0/bits/utility.h \
+  C:/mingw64/include/c++/13.1.0/debug/debug.h \
+  C:/mingw64/include/c++/13.1.0/bits/predefined_ops.h \
+  C:/mingw64/include/c++/13.1.0/bit \
+  C:/mingw64/include/c++/13.1.0/bits/refwrap.h \
+  C:/mingw64/include/c++/13.1.0/bits/invoke.h \
+  C:/mingw64/include/c++/13.1.0/bits/range_access.h \
+  C:/mingw64/include/c++/13.1.0/initializer_list \
+  C:/mingw64/include/c++/13.1.0/bits/basic_string.h \
+  C:/mingw64/include/c++/13.1.0/ext/alloc_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/alloc_traits.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_construct.h \
+  C:/mingw64/include/c++/13.1.0/string_view \
+  C:/mingw64/include/c++/13.1.0/bits/functional_hash.h \
+  C:/mingw64/include/c++/13.1.0/bits/string_view.tcc \
+  C:/mingw64/include/c++/13.1.0/ext/string_conversions.h \
+  C:/mingw64/include/c++/13.1.0/cstdlib \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/include/c++/13.1.0/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+  C:/mingw64/include/c++/13.1.0/bits/std_abs.h \
+  C:/mingw64/include/c++/13.1.0/cstdio \
+  C:/mingw64/include/c++/13.1.0/cerrno \
+  C:/mingw64/include/c++/13.1.0/bits/charconv.h \
+  C:/mingw64/include/c++/13.1.0/bits/basic_string.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/memory_resource.h \
+  C:/mingw64/include/c++/13.1.0/cstddef \
+  C:/mingw64/include/c++/13.1.0/bits/uses_allocator.h \
+  C:/mingw64/include/c++/13.1.0/bits/uses_allocator_args.h \
+  C:/mingw64/include/c++/13.1.0/tuple \
+  C:/mingw64/include/c++/13.1.0/bits/locale_classes.tcc \
+  C:/mingw64/include/c++/13.1.0/system_error \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/include/c++/13.1.0/stdexcept \
+  C:/mingw64/include/c++/13.1.0/streambuf \
+  C:/mingw64/include/c++/13.1.0/bits/streambuf.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/basic_ios.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets.h \
+  C:/mingw64/include/c++/13.1.0/cwctype \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/streambuf_iterator.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/basic_ios.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/ostream.tcc \
+  _deps/sfml-src/include/SFML/System/FileInputStream.hpp \
+  _deps/sfml-src/include/SFML/System/InputStream.hpp \
+  _deps/sfml-src/include/SFML/System/NonCopyable.hpp \
+  _deps/sfml-src/include/SFML/System/Lock.hpp \
+  _deps/sfml-src/include/SFML/System/MemoryInputStream.hpp \
+  _deps/sfml-src/include/SFML/System/Mutex.hpp \
+  _deps/sfml-src/include/SFML/System/Sleep.hpp \
+  _deps/sfml-src/include/SFML/System/String.hpp \
+  _deps/sfml-src/include/SFML/System/Utf.hpp \
+  C:/mingw64/include/c++/13.1.0/algorithm \
+  C:/mingw64/include/c++/13.1.0/bits/stl_algo.h \
+  C:/mingw64/include/c++/13.1.0/bits/algorithmfwd.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_heap.h \
+  C:/mingw64/include/c++/13.1.0/bits/uniform_int_dist.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tempbuf.h \
+  C:/mingw64/include/c++/13.1.0/pstl/glue_algorithm_defs.h \
+  C:/mingw64/include/c++/13.1.0/pstl/execution_defs.h \
+  C:/mingw64/include/c++/13.1.0/locale \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.h \
+  C:/mingw64/include/c++/13.1.0/ctime \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/mingw64/include/c++/13.1.0/bits/codecvt.h \
+  C:/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/locale_conv.h \
+  _deps/sfml-src/include/SFML/System/Utf.inl \
+  C:/mingw64/include/c++/13.1.0/iterator \
+  C:/mingw64/include/c++/13.1.0/bits/stream_iterator.h \
+  _deps/sfml-src/include/SFML/System/String.inl \
+  _deps/sfml-src/include/SFML/System/Thread.hpp \
+  _deps/sfml-src/include/SFML/System/Thread.inl \
+  _deps/sfml-src/include/SFML/System/ThreadLocal.hpp \
+  _deps/sfml-src/include/SFML/System/ThreadLocalPtr.hpp \
+  _deps/sfml-src/include/SFML/System/ThreadLocalPtr.inl \
+  _deps/sfml-src/include/SFML/System/Vector2.hpp \
+  _deps/sfml-src/include/SFML/System/Vector2.inl \
+  _deps/sfml-src/include/SFML/System/Vector3.hpp \
+  _deps/sfml-src/include/SFML/System/Vector3.inl \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/StateIdentifiers.hpp \
+  _deps/sfml-src/include/SFML/Window.hpp \
+  _deps/sfml-src/include/SFML/Window/Clipboard.hpp \
+  _deps/sfml-src/include/SFML/Window/Export.hpp \
+  _deps/sfml-src/include/SFML/Window/Context.hpp \
+  _deps/sfml-src/include/SFML/Window/GlResource.hpp \
+  _deps/sfml-src/include/SFML/Window/ContextSettings.hpp \
+  _deps/sfml-src/include/SFML/Window/Cursor.hpp \
+  _deps/sfml-src/include/SFML/Window/Event.hpp \
+  _deps/sfml-src/include/SFML/Window/Joystick.hpp \
+  _deps/sfml-src/include/SFML/Window/Keyboard.hpp \
+  _deps/sfml-src/include/SFML/Window/Mouse.hpp \
+  _deps/sfml-src/include/SFML/Window/Sensor.hpp \
+  _deps/sfml-src/include/SFML/Window/Touch.hpp \
+  _deps/sfml-src/include/SFML/Window/VideoMode.hpp \
+  C:/mingw64/include/c++/13.1.0/vector \
+  C:/mingw64/include/c++/13.1.0/bits/stl_uninitialized.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_vector.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_bvector.h \
+  C:/mingw64/include/c++/13.1.0/bits/vector.tcc \
+  _deps/sfml-src/include/SFML/Window/Window.hpp \
+  _deps/sfml-src/include/SFML/Window/WindowBase.hpp \
+  _deps/sfml-src/include/SFML/Window/Vulkan.hpp \
+  _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
+  C:/mingw64/include/c++/13.1.0/memory \
+  C:/mingw64/include/c++/13.1.0/bits/stl_raw_storage_iter.h \
+  C:/mingw64/include/c++/13.1.0/bits/align.h \
+  C:/mingw64/include/c++/13.1.0/bits/unique_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/allocated_ptr.h \
+  C:/mingw64/include/c++/13.1.0/ext/aligned_buffer.h \
+  C:/mingw64/include/c++/13.1.0/ext/concurrence.h \
+  C:/mingw64/include/c++/13.1.0/bits/shared_ptr_atomic.h \
+  C:/mingw64/include/c++/13.1.0/bits/atomic_base.h \
+  C:/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
+  C:/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
+  C:/mingw64/include/c++/13.1.0/pstl/glue_memory_defs.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
+  C:/mingw64/include/c++/13.1.0/map \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
+  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
+  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
+  C:/mingw64/include/c++/13.1.0/cassert \
+  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
+  _deps/sfml-src/include/SFML/Graphics.hpp \
+  _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Export.hpp \
+  _deps/sfml-src/include/SFML/Graphics/CircleShape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Shape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Drawable.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderStates.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Transform.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Rect.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Rect.inl \
+  _deps/sfml-src/include/SFML/Graphics/Transformable.hpp \
+  _deps/sfml-src/include/SFML/Graphics/VertexArray.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Vertex.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Color.hpp \
+  _deps/sfml-src/include/SFML/Graphics/PrimitiveType.hpp \
+  _deps/sfml-src/include/SFML/Graphics/ConvexShape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Font.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Glyph.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Texture.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Image.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RectangleShape.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderTarget.hpp \
+  _deps/sfml-src/include/SFML/Graphics/View.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderTexture.hpp \
+  _deps/sfml-src/include/SFML/Graphics/RenderWindow.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Shader.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Glsl.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Glsl.inl \
+  _deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
+  _deps/sfml-src/include/SFML/Graphics/Text.hpp \
+  _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
+  C:/mingw64/include/c++/13.1.0/functional \
+  C:/mingw64/include/c++/13.1.0/bits/std_function.h \
+  C:/mingw64/include/c++/13.1.0/unordered_map \
+  C:/mingw64/include/c++/13.1.0/bits/unordered_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable_policy.h \
+  C:/mingw64/include/c++/13.1.0/bits/enable_special_members.h \
+  C:/mingw64/include/c++/13.1.0/array \
+  C:/mingw64/include/c++/13.1.0/compare \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Player.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Command.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Category.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/CommandQueue.hpp \
+  C:/mingw64/include/c++/13.1.0/queue \
+  C:/mingw64/include/c++/13.1.0/deque \
+  C:/mingw64/include/c++/13.1.0/bits/stl_deque.h \
+  C:/mingw64/include/c++/13.1.0/bits/deque.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/stl_queue.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Witch.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Entity.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SceneNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp \
+  C:/mingw64/include/c++/13.1.0/sstream \
+  C:/mingw64/include/c++/13.1.0/istream \
+  C:/mingw64/include/c++/13.1.0/bits/istream.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/sstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.inl \
+  C:/mingw64/include/c++/13.1.0/set \
+  C:/mingw64/include/c++/13.1.0/bits/stl_set.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multiset.h \
+  C:/mingw64/include/c++/13.1.0/iostream \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SoundNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SceneNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/TextNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DataTables.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Projectile.hpp \
+  C:/mingw64/include/c++/13.1.0/math.h \
+  C:/mingw64/include/c++/13.1.0/cmath \
+  C:/mingw64/x86_64-w64-mingw32/include/math.h \
+  C:/mingw64/include/c++/13.1.0/bits/specfun.h \
+  C:/mingw64/include/c++/13.1.0/limits \
+  C:/mingw64/include/c++/13.1.0/tr1/gamma.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/special_function_util.h \
+  C:/mingw64/include/c++/13.1.0/tr1/bessel_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/beta_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/ell_integral.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/exp_integral.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/hypergeometric.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/legendre_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/modified_bessel_func.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/poly_hermite.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/poly_laguerre.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/riemann_zeta.tcc \
+  C:/mingw64/include/c++/13.1.0/fstream \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
+  C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/LoadingState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/LoadingState.cpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/LoadingState.hpp \
@@ -9327,8 +10001,17 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: E:/CS202/SoloPr
   C:/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
   C:/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
   C:/mingw64/include/c++/13.1.0/pstl/glue_memory_defs.h \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
+  C:/mingw64/include/c++/13.1.0/map \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
+  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
+  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
+  C:/mingw64/include/c++/13.1.0/cassert \
+  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
   _deps/sfml-src/include/SFML/Graphics.hpp \
   _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
   _deps/sfml-src/include/SFML/Graphics/Export.hpp \
@@ -9349,12 +10032,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: E:/CS202/SoloPr
   _deps/sfml-src/include/SFML/Graphics/Glyph.hpp \
   _deps/sfml-src/include/SFML/Graphics/Texture.hpp \
   _deps/sfml-src/include/SFML/Graphics/Image.hpp \
-  C:/mingw64/include/c++/13.1.0/map \
-  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
-  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
-  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
   _deps/sfml-src/include/SFML/Graphics/RectangleShape.hpp \
   _deps/sfml-src/include/SFML/Graphics/RenderTarget.hpp \
   _deps/sfml-src/include/SFML/Graphics/View.hpp \
@@ -9366,17 +10043,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: E:/CS202/SoloPr
   _deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
   _deps/sfml-src/include/SFML/Graphics/Text.hpp \
   _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp \
-  C:/mingw64/include/c++/13.1.0/sstream \
-  C:/mingw64/include/c++/13.1.0/istream \
-  C:/mingw64/include/c++/13.1.0/bits/istream.tcc \
-  C:/mingw64/include/c++/13.1.0/bits/sstream.tcc \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.inl \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
-  C:/mingw64/include/c++/13.1.0/cassert \
-  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
   C:/mingw64/include/c++/13.1.0/functional \
   C:/mingw64/include/c++/13.1.0/bits/std_function.h \
   C:/mingw64/include/c++/13.1.0/unordered_map \
@@ -9386,6 +10052,13 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/MenuState.cpp.obj: E:/CS202/SoloPr
   C:/mingw64/include/c++/13.1.0/bits/enable_special_members.h \
   C:/mingw64/include/c++/13.1.0/array \
   C:/mingw64/include/c++/13.1.0/compare \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp \
+  C:/mingw64/include/c++/13.1.0/sstream \
+  C:/mingw64/include/c++/13.1.0/istream \
+  C:/mingw64/include/c++/13.1.0/bits/istream.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/sstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.inl \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/MusicPlayer.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
@@ -9638,6 +10311,17 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: E:/CS202/SoloP
   C:/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
   C:/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
   C:/mingw64/include/c++/13.1.0/pstl/glue_memory_defs.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
+  C:/mingw64/include/c++/13.1.0/map \
+  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
+  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
+  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
+  C:/mingw64/include/c++/13.1.0/cassert \
+  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
   _deps/sfml-src/include/SFML/Graphics.hpp \
   _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
   _deps/sfml-src/include/SFML/Graphics/Export.hpp \
@@ -9658,12 +10342,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: E:/CS202/SoloP
   _deps/sfml-src/include/SFML/Graphics/Glyph.hpp \
   _deps/sfml-src/include/SFML/Graphics/Texture.hpp \
   _deps/sfml-src/include/SFML/Graphics/Image.hpp \
-  C:/mingw64/include/c++/13.1.0/map \
-  C:/mingw64/include/c++/13.1.0/bits/stl_tree.h \
-  C:/mingw64/include/c++/13.1.0/bits/node_handle.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_map.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
-  C:/mingw64/include/c++/13.1.0/bits/erase_if.h \
   _deps/sfml-src/include/SFML/Graphics/RectangleShape.hpp \
   _deps/sfml-src/include/SFML/Graphics/RenderTarget.hpp \
   _deps/sfml-src/include/SFML/Graphics/View.hpp \
@@ -9675,18 +10353,69 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: E:/CS202/SoloP
   _deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
   _deps/sfml-src/include/SFML/Graphics/Text.hpp \
   _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
+  C:/mingw64/include/c++/13.1.0/functional \
+  C:/mingw64/include/c++/13.1.0/bits/std_function.h \
+  C:/mingw64/include/c++/13.1.0/unordered_map \
+  C:/mingw64/include/c++/13.1.0/bits/unordered_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable_policy.h \
+  C:/mingw64/include/c++/13.1.0/bits/enable_special_members.h \
+  C:/mingw64/include/c++/13.1.0/array \
+  C:/mingw64/include/c++/13.1.0/compare \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Player.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Command.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Category.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/CommandQueue.hpp \
+  C:/mingw64/include/c++/13.1.0/queue \
+  C:/mingw64/include/c++/13.1.0/deque \
+  C:/mingw64/include/c++/13.1.0/bits/stl_deque.h \
+  C:/mingw64/include/c++/13.1.0/bits/deque.tcc \
+  C:/mingw64/include/c++/13.1.0/bits/stl_queue.h \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Witch.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Entity.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SceneNode.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp \
   C:/mingw64/include/c++/13.1.0/sstream \
   C:/mingw64/include/c++/13.1.0/istream \
   C:/mingw64/include/c++/13.1.0/bits/istream.tcc \
   C:/mingw64/include/c++/13.1.0/bits/sstream.tcc \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.inl \
+  C:/mingw64/include/c++/13.1.0/set \
+  C:/mingw64/include/c++/13.1.0/bits/stl_set.h \
+  C:/mingw64/include/c++/13.1.0/bits/stl_multiset.h \
+  C:/mingw64/include/c++/13.1.0/iostream \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SoundNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/SceneNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/TextNode.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DataTables.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Projectile.hpp \
+  C:/mingw64/include/c++/13.1.0/math.h \
+  C:/mingw64/include/c++/13.1.0/cmath \
+  C:/mingw64/x86_64-w64-mingw32/include/math.h \
+  C:/mingw64/include/c++/13.1.0/bits/specfun.h \
+  C:/mingw64/include/c++/13.1.0/limits \
+  C:/mingw64/include/c++/13.1.0/tr1/gamma.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/special_function_util.h \
+  C:/mingw64/include/c++/13.1.0/tr1/bessel_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/beta_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/ell_integral.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/exp_integral.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/hypergeometric.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/legendre_function.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/modified_bessel_func.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/poly_hermite.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/poly_laguerre.tcc \
+  C:/mingw64/include/c++/13.1.0/tr1/riemann_zeta.tcc \
+  C:/mingw64/include/c++/13.1.0/fstream \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
+  C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Utility.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/MusicPlayer.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
-  C:/mingw64/include/c++/13.1.0/cassert \
-  C:/mingw64/x86_64-w64-mingw32/include/assert.h \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesIdentifier.hpp \
   _deps/sfml-src/include/SFML/Audio.hpp \
   _deps/sfml-src/include/SFML/Audio/InputSoundFile.hpp \
   _deps/sfml-src/include/SFML/Audio/Export.hpp \
@@ -9698,9 +10427,6 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/PauseState.cpp.obj: E:/CS202/SoloP
   _deps/sfml-src/include/SFML/Audio/OutputSoundFile.hpp \
   _deps/sfml-src/include/SFML/Audio/Sound.hpp \
   _deps/sfml-src/include/SFML/Audio/SoundBuffer.hpp \
-  C:/mingw64/include/c++/13.1.0/set \
-  C:/mingw64/include/c++/13.1.0/bits/stl_set.h \
-  C:/mingw64/include/c++/13.1.0/bits/stl_multiset.h \
   _deps/sfml-src/include/SFML/Audio/SoundBufferRecorder.hpp \
   _deps/sfml-src/include/SFML/Audio/SoundRecorder.hpp \
   _deps/sfml-src/include/SFML/Audio/SoundFileFactory.hpp \
@@ -10035,6 +10761,8 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/SettingState.cpp.obj: E:/CS202/Sol
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/mingw64/include/c++/13.1.0/bits/fstream.tcc \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
@@ -10875,8 +11603,17 @@ CMakeFiles/LittleWitchAdventure.dir/src/State/TitleState.cpp.obj: E:/CS202/SoloP
   C:/mingw64/x86_64-w64-mingw32/include/assert.h \
   E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.inl \
   E:/CS202/SoloProject/CS202-Solo-Project/include/MenuState.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp \
-  E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp
+  E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp \
+  E:/CS202/SoloProject/CS202-Solo-Project/include/ResourcesHolder.hpp \
+  C:/mingw64/include/c++/13.1.0/functional \
+  C:/mingw64/include/c++/13.1.0/bits/std_function.h \
+  C:/mingw64/include/c++/13.1.0/unordered_map \
+  C:/mingw64/include/c++/13.1.0/bits/unordered_map.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable.h \
+  C:/mingw64/include/c++/13.1.0/bits/hashtable_policy.h \
+  C:/mingw64/include/c++/13.1.0/bits/enable_special_members.h \
+  C:/mingw64/include/c++/13.1.0/array \
+  C:/mingw64/include/c++/13.1.0/compare
 
 CMakeFiles/LittleWitchAdventure.dir/src/State/UpgradeState.cpp.obj: E:/CS202/SoloProject/CS202-Solo-Project/src/State/UpgradeState.cpp \
   E:/CS202/SoloProject/CS202-Solo-Project/include/UpgradeState.hpp \
@@ -11529,7 +12266,13 @@ E:/CS202/SoloProject/CS202-Solo-Project/src/State/SettingState.cpp:
 
 E:/CS202/SoloProject/CS202-Solo-Project/src/State/LoadingState.cpp:
 
+E:/CS202/SoloProject/CS202-Solo-Project/src/State/LevelUpState.cpp:
+
 E:/CS202/SoloProject/CS202-Solo-Project/src/State/CreditState.cpp:
+
+E:/CS202/SoloProject/CS202-Solo-Project/src/State/ContinueState.cpp:
+
+E:/CS202/SoloProject/CS202-Solo-Project/include/LevelUpState.hpp:
 
 E:/CS202/SoloProject/CS202-Solo-Project/include/CheatState.hpp:
 
@@ -11589,9 +12332,9 @@ E:/CS202/SoloProject/CS202-Solo-Project/src/GUI/Label.cpp:
 
 E:/CS202/SoloProject/CS202-Solo-Project/include/Container.hpp:
 
-E:/CS202/SoloProject/CS202-Solo-Project/src/GUI/Component.cpp:
-
 E:/CS202/SoloProject/CS202-Solo-Project/include/Component.hpp:
+
+E:/CS202/SoloProject/CS202-Solo-Project/src/GUI/Component.cpp:
 
 E:/CS202/SoloProject/CS202-Solo-Project/include/Button.hpp:
 
@@ -11609,13 +12352,9 @@ E:/CS202/SoloProject/CS202-Solo-Project/include/ParticleNode.hpp:
 
 E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/Enemy.cpp:
 
-E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp:
-
 E:/CS202/SoloProject/CS202-Solo-Project/src/Entity/DarkWizzard.cpp:
 
 E:/CS202/SoloProject/CS202-Solo-Project/include/Particle.hpp:
-
-E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp:
 
 C:/mingw64/x86_64-w64-mingw32/include/winsvc.h:
 
@@ -11690,6 +12429,10 @@ _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp:
 C:/mingw64/include/c++/13.1.0/ext/atomicity.h:
 
 _deps/sfml-src/include/SFML/Graphics/Glsl.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/rpcasync.h:
+
+_deps/sfml-src/include/SFML/Graphics/Shader.hpp:
 
 _deps/sfml-src/include/SFML/Graphics/VertexArray.hpp:
 
@@ -11901,6 +12644,8 @@ C:/mingw64/include/c++/13.1.0/bits/streambuf.tcc:
 
 C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/error_constants.h:
 
+E:/CS202/SoloProject/CS202-Solo-Project/include/ContinueState.hpp:
+
 C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/threadpoolapiset.h:
@@ -11922,6 +12667,8 @@ E:/CS202/SoloProject/CS202-Solo-Project/include/State.hpp:
 C:/mingw64/x86_64-w64-mingw32/include/locale.h:
 
 C:/mingw64/include/c++/13.1.0/bits/stl_iterator.h:
+
+E:/CS202/SoloProject/CS202-Solo-Project/include/Enemy.hpp:
 
 C:/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/c++locale.h:
 
@@ -12016,6 +12763,12 @@ C:/mingw64/include/c++/13.1.0/typeinfo:
 C:/mingw64/include/c++/13.1.0/string:
 
 C:/mingw64/include/c++/13.1.0/bits/ostream_insert.h:
+
+C:/mingw64/x86_64-w64-mingw32/include/rpcnterr.h:
+
+_deps/sfml-src/include/SFML/System/Mutex.hpp:
+
+C:/mingw64/include/c++/13.1.0/bit:
 
 C:/mingw64/x86_64-w64-mingw32/include/ktmtypes.h:
 
@@ -12491,6 +13244,8 @@ C:/mingw64/x86_64-w64-mingw32/include/handleapi.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmiintrin.h:
 
+E:/CS202/SoloProject/CS202-Solo-Project/include/DarkWizzard.hpp:
+
 C:/mingw64/include/c++/13.1.0/random:
 
 C:/mingw64/x86_64-w64-mingw32/include/cderr.h:
@@ -12844,13 +13599,3 @@ _deps/sfml-src/include/SFML/Graphics/CircleShape.hpp:
 _deps/sfml-src/include/SFML/Graphics/Glsl.inl:
 
 C:/mingw64/x86_64-w64-mingw32/include/joystickapi.h:
-
-_deps/sfml-src/include/SFML/System/Mutex.hpp:
-
-C:/mingw64/include/c++/13.1.0/bit:
-
-C:/mingw64/x86_64-w64-mingw32/include/rpcnterr.h:
-
-_deps/sfml-src/include/SFML/Graphics/Shader.hpp:
-
-C:/mingw64/x86_64-w64-mingw32/include/rpcasync.h:

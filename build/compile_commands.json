@@ -234,6 +234,18 @@
   "output": "CMakeFiles/LittleWitchAdventure.dir/src/State/CheatState.cpp.obj"
 },
 {
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\State\\ContinueState.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\State\\ContinueState.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/State/ContinueState.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/State/ContinueState.cpp.obj"
+},
+{
+  "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/LittleWitchAdventure.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LittleWitchAdventure.dir\\src\\State\\LevelUpState.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\src\\State\\LevelUpState.cpp",
+  "file": "E:/CS202/SoloProject/CS202-Solo-Project/src/State/LevelUpState.cpp",
+  "output": "CMakeFiles/LittleWitchAdventure.dir/src/State/LevelUpState.cpp.obj"
+},
+{
   "directory": "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-build/src/SFML/System",
   "command": "C:\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Clock.cpp.obj -c E:\\CS202\\SoloProject\\CS202-Solo-Project\\build\\_deps\\sfml-src\\src\\SFML\\System\\Clock.cpp",
   "file": "E:/CS202/SoloProject/CS202-Solo-Project/build/_deps/sfml-src/src/SFML/System/Clock.cpp",

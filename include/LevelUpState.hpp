@@ -1,27 +1,24 @@
-#ifndef PAUSESTATE_HPP
-#define PAUSESTATE_HPP
+#ifndef LEVELUPSTATE_HPP
+#define LEVELUPSTATE_HPP
 
 #include "State.hpp"
 #include "Button.hpp"
-#include "Player.hpp"
 #include <SFML/Graphics.hpp>
-#include <vector>
 
-class PauseState : public State
+class LevelUpState : public State
 {
     public:
-        PauseState(StateStack& stack, Context context);
-        ~PauseState();
+        LevelUpState(StateStack& stack, Context context);
 
         virtual void draw();
         virtual bool update(sf::Time dt);
         virtual bool handleEvent(const sf::Event& event);
 
     private:
-        sf::Sprite mBackgroundSprite;
-        sf::Sprite mPanel;
+        sf::RectangleShape mBackground;
         std::vector<Button> mButtons;
+        std::vector<sf::Text> mTexts;
         Player& mPlayer;
 };
 
-#endif // PAUSESTATE_HPP
+#endif // LEVELUPSTATE_HPP

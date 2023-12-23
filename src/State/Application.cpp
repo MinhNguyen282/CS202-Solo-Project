@@ -12,6 +12,8 @@
 #include "include/UpgradeState.hpp"
 #include "include/GameOverState.hpp"
 #include "include/CheatState.hpp"
+#include "include/ContinueState.hpp"
+#include "include/LevelUpState.hpp"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -40,6 +42,7 @@ Application::Application()
     mTextures.load(Textures::smallButtonPressed, "Media/Textures/smallButtonPressed.png");
     mTextures.load(Textures::Panel, "Media/Textures/Panel.png");
     mTextures.load(Textures::bigPanel, "Media/Textures/bigPanel.png");
+    mTextures.load(Textures::CreditPanel, "Media/Textures/CreditPanel.png");
 
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
     mStatisticsText.setPosition(5.f, 5.f);
@@ -128,4 +131,6 @@ void Application::registerStates()
     mStateStack.registerState<GameOverState>(States::GameOver);
     mStateStack.registerState<LoadingState>(States::Loading);
     mStateStack.registerState<PauseState>(States::Pause);
+    mStateStack.registerState<ContinueState>(States::Continue);
+    mStateStack.registerState<LevelUpState>(States::LevelUp);
 }

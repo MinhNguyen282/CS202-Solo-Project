@@ -12,8 +12,10 @@ namespace States
         Setting,
         Upgrade,
         Loading,
+        Continue,
         Game,
         Cheat,
+        LevelUp,
         GameOver,
         Pause,
     };

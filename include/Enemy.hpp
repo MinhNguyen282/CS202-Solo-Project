@@ -59,6 +59,7 @@ class Enemy : public Entity
         void damage(int points);
         void debuff(float speedDiff, sf::Time duration);
         virtual void rebuildTable();
+        Type getType() const;
 
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;

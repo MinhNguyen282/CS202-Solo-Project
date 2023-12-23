@@ -45,6 +45,7 @@ class Witch : public Entity
         float getCoolDownQ() const;
         float getCoolDownUltimate() const;
         int getLevel() const;
+        int getExp() const;
 
         void getTarget(sf::Vector2f target);
 
@@ -63,6 +64,14 @@ class Witch : public Entity
         bool isAttack();
         bool isRun();
         bool isCharge();
+        void setTable(WitchData table);
+        void setLevel(int level);
+        void setExp(int exp);
+        bool isLevelUp;
+
+        void addHitpoints();
+        void addDamage();
+        void addMovementSpeed();
 
     private:
         virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;

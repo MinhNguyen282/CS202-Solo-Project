@@ -16,8 +16,8 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sou
 , mSceneTexture()
 , mSceneGraph()
 , mSceneLayers()
-, mWorldBounds(0.f, 0.f, 2800.f, 2800.f)
-, mSpawnPosition(100, mWorldBounds.height / 4 - 200)
+, mWorldBounds(0.f, 0.f, 4000.f, 4000.f)
+, mSpawnPosition(mWorldBounds.width / 2.f, mWorldBounds.height / 2.f)
 , mScrollSpeed(-100.f)
 , mPlayerCharacter(nullptr)
 , numEnemy(5)
@@ -25,6 +25,7 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sou
 , hasBossSpawn(false)
 , mScore(0)
 , invicible(false)
+, isLevelUp(false)
 {
     srand(time(NULL));
     mSceneTexture.create(mTarget.getSize().x, mTarget.getSize().y);
@@ -66,6 +67,12 @@ void World::update(sf::Time deltaTime)
     mIsInvicibleTime += deltaTime;
     mSpawnTime += deltaTime;
     mPlayedTime += deltaTime;
+
+    if (mPlayerCharacter->isLevelUp){
+        isLevelUp = true;
+        mPlayerCharacter->isLevelUp = false;
+        std::cout << "Pass level up to world" << std::endl;
+    }
 
     if (mBoss && mBoss->getHitpoints() <= 0){
         isBoss = false;
@@ -273,7 +280,7 @@ void World::spawnEnemies()
         if (!enemy.isDestroyed()) mActiveEnemies.push_back(&enemy);
     });
     mSceneGraph.onCommand(enemyCollector, sf::Time::Zero);
-    if (mActiveEnemies.size() < numEnemy && mSpawnTime >= sf::seconds(0.5)){
+    if (mActiveEnemies.size() < numEnemy && mSpawnTime >= sf::seconds(0.5) && mEnemyPositions.size()==0){
         mSpawnTime = sf::Time::Zero;
         int randX = (rand() % 2 == 0 ? -1 : 1);
         int randY = (rand() % 2 == 0 ? -1 : 1);
@@ -283,6 +290,13 @@ void World::spawnEnemies()
         std::unique_ptr<Enemy> enemy(new Enemy((Enemy::Type)(randomEnemy), mTextures, mFonts));
         enemy->setPosition(randomX, randomY);
         mSceneLayers[Ground]->attachChild(std::move(enemy));
+    }
+    else if (mEnemyPositions.size() > 0){
+        std::tuple<float,float,int> enemy = mEnemyPositions.back();
+        mEnemyPositions.pop_back();
+        std::unique_ptr<Enemy> newEnemy(new Enemy((Enemy::Type)(std::get<2>(enemy)), mTextures, mFonts));
+        newEnemy->setPosition(std::get<0>(enemy), std::get<1>(enemy));
+        mSceneLayers[Ground]->attachChild(std::move(newEnemy));
     }
     mActiveEnemies.clear();
 }
@@ -305,6 +319,7 @@ void World::destroyEntitiesOutsideView()
 
 void World::guideMissiles()
 {
+    mActiveEnemies.clear();
     Command enemyCollector;
     enemyCollector.category = Category::Enemy;
     enemyCollector.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
@@ -341,29 +356,78 @@ void World::guideMissiles()
     });
     mCommandQueue.push(enemyCollector);
     mCommandQueue.push(ultimateGuide);
-    mActiveEnemies.clear();
 }
 
 void World::guideTarget()
 {
-    Command enemyCollector;
-    enemyCollector.category = Category::Enemy;
-    enemyCollector.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
-    {
-        if (!enemy.isDestroyed()) mActiveEnemies.push_back(&enemy);
-    });
-
     Command guideTarget;
     guideTarget.category = Category::Enemy;
     guideTarget.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
     {
         if (!enemy.isDestroyed()) enemy.setTargetDirection(mPlayerCharacter->getWorldPosition());
     });
-    mCommandQueue.push(enemyCollector);
     mCommandQueue.push(guideTarget);
     mActiveEnemies.clear();
 
     if (mBoss) mBoss->setTargetDirection(mPlayerCharacter->getWorldPosition());
+}
+
+void World::setScore(int score)
+{
+    mScore = score;
+}
+
+std::vector<WitchData> World::getTable()
+{
+    return initializeWitchData();
+}
+
+void World::setTable(WitchData table)
+{
+    mPlayerCharacter->setTable(table);
+}
+
+int World::getCurrentHitpoints()
+{
+    return mPlayerCharacter->getHitpoints();
+}
+
+void World::setCurrentHitpoints(int hitpoints)
+{
+    mPlayerCharacter->setHitpoints(hitpoints);
+}
+
+int World::getLevel()
+{
+    return mPlayerCharacter->getLevel();
+}
+
+void World::setLevel(int level)
+{
+    mPlayerCharacter->setLevel(level);
+}
+
+int World::getExp()
+{
+    return mPlayerCharacter->getExp();
+}
+
+void World::setExp(int exp)
+{
+    mPlayerCharacter->setExp(exp);
+    adaptGUI();
+}
+
+void World::processLevelUp(std::string message){
+    if (message == "AddHitpoints"){
+        mPlayerCharacter->addHitpoints();
+    }
+    else if (message == "AddDamage"){
+        mPlayerCharacter->addDamage();
+    }
+    else if (message == "AddMovementSpeed"){
+        mPlayerCharacter->addMovementSpeed();
+    }
 }
 
 void World::buildScene()
@@ -549,7 +613,7 @@ void World::handleCollisions()
                 auto& player = static_cast<Witch&>(*pair.first);
                 auto& enemy = static_cast<Enemy&>(*pair.second);
                 std::cout << "After 3 cast" << std::endl;
-                if (!player.isDestroyed() && !enemy.isDestroyed() && ((enemy.getCurrentAnimation()==Enemy::Attack1 && enemy.getNumRow()==6) || (enemy.getCurrentAnimation()==Enemy::Attack2 && enemy.getNumRow()==6))){
+                if (!player.isDestroyed() && !enemy.isDestroyed()){
                     player.damage(enemy.getBodyDamage());
                     player.setAnimation(Witch::TakedDamage);
                     mIsInvicibleTime = sf::Time::Zero;

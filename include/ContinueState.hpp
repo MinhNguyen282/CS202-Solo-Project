@@ -1,23 +1,24 @@
-#ifndef CREDITSTATE_HPP
-#define CREDITSTATE_HPP
+#ifndef CONTINUESTATE_HPP
+#define CONTINUESTATE_HPP
 
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
 #include "Container.hpp"
 #include "Button.hpp"
+#include "Player.hpp"
 
-class CreditState : public State
+class ContinueState : public State
 {
     public:
-        CreditState(StateStack& stack, Context context);
+        ContinueState(StateStack& stack, Context context);
         virtual bool handleEvent(const sf::Event& event);
         virtual bool update(sf::Time deltaTime);
         virtual void draw();
     private:
-        sf::Sprite mBackgroundSprite, mPanel;
-        sf::Text mCreditText;
-        sf::Text mAuthorText;
+        sf::RectangleShape mBackgroundSprite;
+        sf::Text mText;
         std::vector<Button> mButtons;
+        Player& mPlayer;
 };
 
-#endif // CREDITSTATE_HPP
+#endif // CONTINUESTATE_HPP

@@ -4,6 +4,7 @@ SceneNode::SceneNode(Category::Type category)
 : mChildren()
 , mParent(nullptr)
 , mDefaultCategory(category)
+, isDrawBoundingRect(false)
 {
 }
 
@@ -77,6 +78,11 @@ void SceneNode::updateChildren(sf::Time deltaTime, CommandQueue& commands)
         child->update(deltaTime, commands);
 }
 
+void SceneNode::setDrawBoundingRect(bool drawBoundingRect)
+{
+    isDrawBoundingRect = drawBoundingRect;
+}
+
 //Vẽ nút hiện tại và các nút con
 void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
@@ -85,7 +91,8 @@ void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) const
     drawChildren(target, states);
 
     //draw Bounding of object
-    drawBoundingRect(target, states);
+
+    if (isDrawBoundingRect) drawBoundingRect(target, states);
 }
 
 int SceneNode::getSize() const

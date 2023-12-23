@@ -225,3 +225,111 @@ sf::Time Player::getPlayedTime() const
 {
     return mPlayedTime;
 }
+
+void Player::setScore(int score)
+{
+    mScore = score;
+}
+
+int Player::getScore() const
+{
+    return mScore;
+}
+
+void Player::setTable(std::vector<WitchData> table)
+{
+    Table = table[Witch::BlueWitch];
+}
+
+WitchData Player::getTable() const
+{
+    return Table;
+}
+
+void Player::setCurrentHitpoints(int hitpoints)
+{
+    mCurrentHitpoints = hitpoints;
+}
+
+int Player::getCurrentHitpoints() const
+{
+    return mCurrentHitpoints;
+}
+
+void Player::setLevel(int level)
+{
+    mLevel = level;
+}
+
+int Player::getLevel() const
+{
+    return mLevel;
+}
+
+void Player::setExp(int exp)
+{
+    mExp = exp;
+}
+
+int Player::getExp() const
+{
+    return mExp;
+}
+
+void Player::saveInfomation()
+{
+    std::ofstream ofs("Data/Save/sav.dat");
+    ofs << mPlayedTime.asSeconds() << std::endl;
+    ofs << mScore << std::endl;
+    ofs << mCurrentHitpoints << std::endl;
+    ofs << mLevel << std::endl;
+    ofs << mExp << std::endl;
+    ofs.close();
+    ofs.open("Data/Save/savTable.dat");
+    ofs << Table.hitpoints << std::endl;
+    ofs << Table.speed << std::endl;
+    ofs << Table.fireInterval.asSeconds() << std::endl;
+    ofs << Table.abilityInterval.asSeconds() << std::endl;
+    ofs << Table.debuffInterval.asSeconds() << std::endl;
+    ofs << Table.ultimateInterval.asSeconds() << std::endl;
+    ofs << Table.mCoolDown << std::endl;
+    ofs.close();
+}
+
+void Player::readInfomation(){
+    std::ifstream ifs("Data/Save/sav.dat");
+    if (ifs.is_open()){
+        float playedTime;
+        ifs >> playedTime;
+        mPlayedTime = sf::seconds(playedTime);
+        ifs >> mScore;
+        ifs >> mCurrentHitpoints;
+        ifs >> mLevel;
+        ifs >> mExp;
+        ifs.close();
+    }
+    else{
+        std::cout << "Error: Unable to open file Data/Save/sav.dat" << std::endl;
+    }
+    std::ifstream ifs2("Data/Save/savTable.dat");
+    WitchData witchData;
+    if (ifs2.is_open()){
+        ifs2 >> witchData.hitpoints;
+        ifs2 >> witchData.speed;
+        float x;
+        ifs2 >> x;
+        witchData.fireInterval = sf::seconds(x);
+        ifs2 >> x;
+        witchData.abilityInterval = sf::seconds(x);
+        ifs2 >> x;
+        witchData.debuffInterval = sf::seconds(x);
+        ifs2 >> x;
+        witchData.ultimateInterval = sf::seconds(x);
+        ifs2 >> witchData.mCoolDown;
+        ifs2.close();
+    }
+    else{
+        std::cout << "Error: Unable to open file Data/Save/savTable.dat" << std::endl;
+    }
+    Table = witchData;
+}

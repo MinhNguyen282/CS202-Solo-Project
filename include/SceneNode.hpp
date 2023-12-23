@@ -40,6 +40,7 @@ class SceneNode : public sf::Transformable, public sf::Drawable, private sf::Non
         void checkSceneCollision(SceneNode& sceneGraph, std::set<Pair>& collisionPairs);
 
         virtual sf::FloatRect getBoundingRect() const;
+        void setDrawBoundingRect(bool drawBoundingRect);
     
     private:
         virtual void updateCurrent(sf::Time deltaTime, CommandQueue& commands);
@@ -54,6 +55,7 @@ class SceneNode : public sf::Transformable, public sf::Drawable, private sf::Non
         std::vector<Ptr> mChildren;
         SceneNode* mParent;
         Category::Type mDefaultCategory;
+        bool isDrawBoundingRect;
 };
 
 bool collision(const SceneNode& lhs, const SceneNode& rhs);

@@ -40,6 +40,8 @@ SoundPlayer::SoundPlayer()
     mSoundBuffers.load(SoundEffect::MushroomFiring, "Media/Sound/Mushroom/MushroomFiring.ogg");
     mSoundBuffers.load(SoundEffect::SkeletonFiring, "Media/Sound/Skeleton/SkeletonFiring.ogg");
 
+	mSoundBuffers.load(SoundEffect::LevelUp, "Media/Sound/Event/LevelUp.wav");
+
 	// Listener points towards the screen (default in SFML)
 	sf::Listener::setDirection(0.f, 0.f, -1.f);
 }
@@ -47,6 +49,14 @@ SoundPlayer::SoundPlayer()
 void SoundPlayer::play(SoundEffect::ID effect)
 {
 	play(effect, getListenerPosition());
+}
+
+void SoundPlayer::setVolume(float volume)
+{
+    for(auto& sound : mSounds)
+    {
+        sound.setVolume(volume);
+    }
 }
 
 void SoundPlayer::play(SoundEffect::ID effect, sf::Vector2f position)

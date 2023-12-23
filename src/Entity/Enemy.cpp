@@ -140,6 +140,11 @@ void Enemy::readEnemyData(Type type)
     mProjectileAnimationMap[toProjectileType(type)] = Table[type].projectileAnimation;
 }
 
+Enemy::Type Enemy::getType() const
+{
+    return mType;
+}
+
 void Enemy::rebuildTable()
 {
     Table = initializeEnemyData();

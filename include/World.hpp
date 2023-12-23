@@ -23,6 +23,7 @@
 #include "ResourcesHolder.hpp"
 #include "BloomEffect.hpp"
 #include "SoundPlayer.hpp"
+#include "DataTables.hpp"
 
 namespace sf
 {
@@ -41,11 +42,28 @@ class World : private sf::NonCopyable
         void spawnEnemies();
         void handleCollisions();
         void setMousePosition(sf::Vector2i mousePosition);
-        int getScore();
         bool getInvicible();
         sf::Time getPlayedTime();
         void setPlayedTime(sf::Time playedTime);
         void setInvicible(bool invicible);
+        
+        int getScore();
+        void setScore(int score);
+
+        std::vector<WitchData> getTable();
+        void setTable(WitchData table);
+
+        int getCurrentHitpoints();
+        void setCurrentHitpoints(int hitpoints);
+
+        int getLevel();
+        void setLevel(int level);
+
+        int getExp();
+        void setExp(int exp);
+
+        bool isLevelUp;
+        void processLevelUp(std::string message);
 
     private:
         void loadTextures();
@@ -98,6 +116,7 @@ class World : private sf::NonCopyable
 
         //Enemy
         std::vector<Enemy*> mActiveEnemies;
+        std::vector<std::tuple<float,float,int>> mEnemyPositions;
 
         //Boss
         DarkWizzard* mBoss;

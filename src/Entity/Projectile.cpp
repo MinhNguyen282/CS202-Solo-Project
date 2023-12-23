@@ -89,7 +89,7 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
                 debuffCommand.category = Category::Enemy;
                 debuffCommand.action = derivedAction<Enemy>([this](Enemy& enemy, sf::Time)
                 {
-                    enemy.debuff(getDamage(), sf::seconds(2.f));
+                    enemy.debuff(getDamage()*2, sf::seconds(2.f));
                     enemy.setAnimation(Enemy::TakedDamage);
                     enemy.damage(getDamage());
                 });
@@ -194,11 +194,11 @@ sf::FloatRect Projectile::getBoundingRect() const
     }
     if (mType == DarkAttack)
     {
-        float height = 75.0;
+        float height = 50.0;
         float diffHei = rect.height - height;
         rect.height -= diffHei;
         rect.top += diffHei / 2;
-        float width = 75.0;
+        float width = 50.0;
         float diffWid = rect.width - width;
         rect.width -= diffWid;
         rect.left += diffWid / 2;

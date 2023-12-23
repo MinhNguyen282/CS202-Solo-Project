@@ -6,24 +6,30 @@
 #include <SFML/Graphics.hpp>
 
 PauseState::PauseState(StateStack& stack, Context context)
-: State(stack, context)
+: State(stack, context) 
 , mBackgroundSprite()
-, mPausedText()
-, mInstructionText()
+, mPlayer(*context.player)
 {
     sf::Font& font = context.fonts->get(Fonts::Main);
     sf::Vector2f viewSize = context.window->getView().getSize();
 
-    mPausedText.setFont(font);
-    mPausedText.setString("Game Paused");	
-	mPausedText.setCharacterSize(70);
-	centerOrigin(mPausedText);
-	mPausedText.setPosition(0.5f * viewSize.x, 0.4f * viewSize.y);
+	mPanel.setTexture(context.textures->get(Textures::bigPanel));
+	mPanel.setPosition((1200-366)/2,100);
 
-	mInstructionText.setFont(font);
-	mInstructionText.setString("(Press Backspace to return to the main menu)");	
-	centerOrigin(mInstructionText);
-	mInstructionText.setPosition(0.5f * viewSize.x, 0.6f * viewSize.y);
+	Button resumeButton(*context.textures, *context.fonts, sf::Vector2f(500.f, 100.f + 92.5), "Resume", [this](){
+		requestStackPop();
+	});
+	Button saveButton(*context.textures, *context.fonts, sf::Vector2f(500.f, 100.f + 2 * 92.5 + 50), "Save", [this](){
+		mPlayer.saveInfomation();
+	});
+	Button exitButton(*context.textures, *context.fonts, sf::Vector2f(500.f, 100.f + 3 * 92.5 + 2 * 50), "Exit", [this](){
+		requestStateClear();
+		requestStackPush(States::Menu);
+	});	
+
+	mButtons.push_back(std::move(resumeButton));
+	mButtons.push_back(std::move(saveButton));
+	mButtons.push_back(std::move(exitButton));
 
 	context.music->setPaused(true);
 }
@@ -43,32 +49,25 @@ void PauseState::draw()
 	backgroundShape.setSize(window.getView().getSize());
 
 	window.draw(backgroundShape);
-	window.draw(mPausedText);
-	window.draw(mInstructionText);
+	window.draw(mPanel);
+	for(auto& button : mButtons)
+		window.draw(button);
 }
 
-bool PauseState::update(sf::Time)
+bool PauseState::update(sf::Time deltaTime)
 {
+	sf::Vector2i mousePos = sf::Mouse::getPosition(*getContext().window);
+	for(int i=0; i<mButtons.size(); i++){
+		mButtons[i].update(deltaTime, mousePos);
+	}
     return false;
 }
 
 bool PauseState::handleEvent(const sf::Event& event)
 {
-	if (event.type != sf::Event::KeyPressed)
-		return false;
-
-	if (event.key.code == sf::Keyboard::Escape)
-	{
-		// Escape pressed, remove itself to return to the game
-		requestStackPop();
+	sf::Vector2i mousePos = sf::Mouse::getPosition(*getContext().window);
+	for(int i=0; i<mButtons.size(); i++){
+		mButtons[i].handleEvent(event, mousePos);
 	}
-
-	if (event.key.code == sf::Keyboard::BackSpace)
-	{
-		// Escape pressed, remove itself to return to the game
-		requestStateClear();
-		requestStackPush(States::Menu);
-	}
-
 	return false;
 }

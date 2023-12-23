@@ -63,14 +63,16 @@ std::vector<EnemyData> initializeEnemyData()
     data[Enemy::FlyingEye].animations.push_back(std::make_tuple(x,y,z));
 
     ifs >> data[Enemy::FlyingEye].expPoint;
-
-    data[Enemy::FlyingEye].hitpoints = 100;
-    data[Enemy::FlyingEye].speed = 150.f;
     data[Enemy::FlyingEye].texture = Textures::FlyingEye;
-    data[Enemy::FlyingEye].fireInterval = sf::seconds(1);
-    data[Enemy::FlyingEye].bodyDamage = 10;
-    data[Enemy::FlyingEye].fireDamage = 10;
+    ifs.close();
 
+    ifs.open("Data/Enemies/FlyingEye.dat");
+    ifs >> data[Enemy::FlyingEye].hitpoints;
+    ifs >> data[Enemy::FlyingEye].speed;
+    ifs >> x;
+    data[Enemy::FlyingEye].fireInterval = sf::seconds(x);
+    ifs >> data[Enemy::FlyingEye].bodyDamage;
+    ifs >> data[Enemy::FlyingEye].fireDamage;
     ifs.close();
 
     
@@ -99,13 +101,17 @@ std::vector<EnemyData> initializeEnemyData()
     data[Enemy::Goblin].animations.push_back(std::make_tuple(x,y,z));
 
     ifs >> data[Enemy::Goblin].expPoint;
-
-    data[Enemy::Goblin].hitpoints = 200;
-    data[Enemy::Goblin].speed = 150.f;
+    ifs.close();
     data[Enemy::Goblin].texture = Textures::Goblin;
-    data[Enemy::Goblin].fireInterval = sf::seconds(1);
-    data[Enemy::Goblin].bodyDamage = 20;
-    data[Enemy::Goblin].fireDamage = 20;
+
+    ifs.open("Data/Enemies/Goblin.dat");
+
+    ifs >> data[Enemy::Goblin].hitpoints;
+    ifs >> data[Enemy::Goblin].speed;
+    ifs >> x;
+    data[Enemy::Goblin].fireInterval = sf::seconds(x);
+    ifs >> data[Enemy::Goblin].bodyDamage;
+    ifs >> data[Enemy::Goblin].fireDamage;
 
     ifs.close();
 
@@ -130,13 +136,17 @@ std::vector<EnemyData> initializeEnemyData()
     data[Enemy::Mushroom].animations.push_back(std::make_tuple(x,y,z));
 
     ifs >> data[Enemy::Mushroom].expPoint;
-
-    data[Enemy::Mushroom].hitpoints = 300;
-    data[Enemy::Mushroom].speed = 250.f;
     data[Enemy::Mushroom].texture = Textures::Mushroom;
-    data[Enemy::Mushroom].fireInterval = sf::seconds(1);
-    data[Enemy::Mushroom].bodyDamage = 40;
-    data[Enemy::Mushroom].fireDamage = 40;
+    ifs.close();
+
+    ifs.open("Data/Enemies/Mushroom.dat");
+
+    ifs >> data[Enemy::Mushroom].hitpoints;
+    ifs >> data[Enemy::Mushroom].speed;
+    ifs >> x;
+    data[Enemy::Mushroom].fireInterval = sf::seconds(x);
+    ifs >> data[Enemy::Mushroom].bodyDamage;
+    ifs >> data[Enemy::Mushroom].fireDamage;
 
     ifs.close();
 
@@ -161,13 +171,17 @@ std::vector<EnemyData> initializeEnemyData()
     data[Enemy::Skeleton].animations.push_back(std::make_tuple(x,y,z));
 
     ifs >> data[Enemy::Skeleton].expPoint;
-
-    data[Enemy::Skeleton].hitpoints = 400;
-    data[Enemy::Skeleton].speed = 200.f;
     data[Enemy::Skeleton].texture = Textures::Skeleton;
-    data[Enemy::Skeleton].fireInterval = sf::seconds(1);
-    data[Enemy::Skeleton].bodyDamage = 50;
-    data[Enemy::Skeleton].fireDamage = 50;
+    ifs.close();
+
+    ifs.open("Data/Enemies/Skeleton.dat");
+
+    ifs >> data[Enemy::Skeleton].hitpoints;
+    ifs >> data[Enemy::Skeleton].speed;
+    ifs >> x;
+    data[Enemy::Skeleton].fireInterval = sf::seconds(x);
+    ifs >> data[Enemy::Skeleton].bodyDamage;
+    ifs >> data[Enemy::Skeleton].fireDamage;
 
     ifs.close();
 
@@ -218,33 +232,47 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::AlliedUltimate].damage += x;
     ifs.close();
 
-    data[Projectile::FlyingEyeBullet].damage = 10;
-    data[Projectile::FlyingEyeBullet].speed = 200.f;
+    ifs.open("Data/Projectiles/FlyingEye.dat");
+    ifs >> data[Projectile::FlyingEyeBullet].damage;
+    ifs >> data[Projectile::FlyingEyeBullet].speed;
     data[Projectile::FlyingEyeBullet].texture = Textures::FlyingEyeBullet;
+    ifs.close();
 
-    data[Projectile::GoblinBullet].damage = 20;
-    data[Projectile::GoblinBullet].speed = 300.f;
+    ifs.open("Data/Projectiles/Goblin.dat");
+    ifs >> data[Projectile::GoblinBullet].damage;
+    ifs >> data[Projectile::GoblinBullet].speed;
     data[Projectile::GoblinBullet].texture = Textures::GoblinBullet;
+    ifs.close();
 
-    data[Projectile::MushroomBullet].damage = 40;
-    data[Projectile::MushroomBullet].speed = 400.f;
+    ifs.open("Data/Projectiles/Mushroom.dat");
+    ifs >> data[Projectile::MushroomBullet].damage;
+    ifs >> data[Projectile::MushroomBullet].speed;
     data[Projectile::MushroomBullet].texture = Textures::MushroomBullet;
+    ifs.close();
 
-    data[Projectile::SkeletonBullet].damage = 50;
-    data[Projectile::SkeletonBullet].speed = 400.f;
+    ifs.open("Data/Projectiles/Skeleton.dat");
+    ifs >> data[Projectile::SkeletonBullet].damage;
+    ifs >> data[Projectile::SkeletonBullet].speed;
     data[Projectile::SkeletonBullet].texture = Textures::SkeletonBullet;
+    ifs.close();
 
-    data[Projectile::DarkAttack].damage = 100;
-    data[Projectile::DarkAttack].speed = 300.f;
+    ifs.open("Data/Projectiles/DarkAttack.dat");
+    ifs >> data[Projectile::DarkAttack].damage;
+    ifs >> data[Projectile::DarkAttack].speed;
     data[Projectile::DarkAttack].texture = Textures::DarkAttack;
+    ifs.close();
 
-    data[Projectile::ExplosionAttack].damage = 50;
-    data[Projectile::ExplosionAttack].speed = 300.f;
+    ifs.open("Data/Projectiles/ExplosionAttack.dat");
+    ifs >> data[Projectile::ExplosionAttack].damage;
+    ifs >> data[Projectile::ExplosionAttack].speed;
     data[Projectile::ExplosionAttack].texture = Textures::ExplosionAttack;
+    ifs.close();
 
-    data[Projectile::ThunderStrike].damage = 50;
-    data[Projectile::ThunderStrike].speed = 300.f;
+    ifs.open("Data/Projectiles/ThunderStrike.dat");
+    ifs >> data[Projectile::ThunderStrike].damage;
+    ifs >> data[Projectile::ThunderStrike].speed;
     data[Projectile::ThunderStrike].texture = Textures::ThunderStrike;
+    ifs.close();
 
     return data;
 }
@@ -254,11 +282,15 @@ DarkWizzardData initializeDarkWizzardData()
     std::cout << "Dark Wizzard Data Called" << std::endl;
 
     DarkWizzardData data;
-
-    data.hitpoints = 10000;
-    data.speed = 300.f;
     data.texture = Textures::DarkWizzard;
-    data.fireInterval = sf::seconds(1);
+
+    std::ifstream ifs("Data/Enemies/DarkWizzard.dat");
+    ifs >> data.hitpoints;
+    ifs >> data.speed;
+    int x;
+    ifs >> x;
+    data.fireInterval = sf::seconds(x);
+    ifs.close();
 
     return data;
 }
