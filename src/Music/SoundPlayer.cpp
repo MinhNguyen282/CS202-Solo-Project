@@ -17,6 +17,7 @@ namespace
 SoundPlayer::SoundPlayer()
 : mSoundBuffers()
 , mSounds()
+, mVolume(50.f)
 {
     // Fill the buffers with sounds
     mSoundBuffers.load(SoundEffect::ExplosionAttack, "Media/Sound/DarkWizzard/ExplosionAttack/Explosion.ogg");
@@ -44,6 +45,16 @@ SoundPlayer::SoundPlayer()
 
 	// Listener points towards the screen (default in SFML)
 	sf::Listener::setDirection(0.f, 0.f, -1.f);
+
+	std::ifstream ifs("Data/SoundSetting.dat");
+	if (ifs.is_open())
+	{
+		float temp; ifs >> temp;
+		ifs >> mVolume;
+		ifs.close();
+	}
+	else
+		throw std::runtime_error("SoundSetting.dat could not be loaded.");
 }
 
 void SoundPlayer::play(SoundEffect::ID effect)
@@ -53,10 +64,16 @@ void SoundPlayer::play(SoundEffect::ID effect)
 
 void SoundPlayer::setVolume(float volume)
 {
+	mVolume = volume;
     for(auto& sound : mSounds)
     {
         sound.setVolume(volume);
     }
+}
+
+float SoundPlayer::getVolume() const
+{
+	return mVolume;
 }
 
 void SoundPlayer::play(SoundEffect::ID effect, sf::Vector2f position)
@@ -67,8 +84,8 @@ void SoundPlayer::play(SoundEffect::ID effect, sf::Vector2f position)
 	sound.setBuffer(mSoundBuffers.get(effect));
 	sound.setPosition(position.x, -position.y, 0.f);
 	sound.setAttenuation(Attenuation);
-	sound.setMinDistance(MinDistance3D);
-    sound.setVolume(25.f);
+	sound.setMinDistance(MinDistance3D); 
+    sound.setVolume(mVolume);
 
 	sound.play();
 }

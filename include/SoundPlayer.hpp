@@ -8,6 +8,7 @@
 #include <SFML/Audio.hpp>
 
 #include <list>
+#include <fstream>
 
 class SoundPlayer : private sf::NonCopyable
 {
@@ -21,11 +22,13 @@ class SoundPlayer : private sf::NonCopyable
 		void						setListenerPosition(sf::Vector2f position);
 		sf::Vector2f				getListenerPosition() const;
         void                        setVolume(float volume); 
+		float                       getVolume() const;
 
 
 	private:
 		SoundBufferHolder			mSoundBuffers;
 		std::list<sf::Sound>		mSounds;
+		float 					 	mVolume;
 };
 
 

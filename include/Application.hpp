@@ -38,6 +38,7 @@ class Application
         sf::Text mStatisticsText;
         sf::Time mStatisticsUpdateTime;
         std::size_t mStatisticsNumFrames;
+        bool mIsPaused;
 };
 
 #endif // APPLICATION_HPP

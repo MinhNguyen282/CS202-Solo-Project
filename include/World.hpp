@@ -129,6 +129,7 @@ class World : private sf::NonCopyable
         sf::Time mPlayedTime = sf::Time::Zero;
         int numEnemy = 0;
         int mScore;
+        int leftEnemy, rightEnemy;
 
         //GUI
         SpriteNode* mHealthBar;

@@ -18,16 +18,32 @@ class SettingState : public State
         virtual void draw();
         virtual bool update(sf::Time deltaTime);
         virtual bool handleEvent(const sf::Event& event);
+        void saveSettings();
     private:
         void updateLabels();
         void addButtonLabel(Player::Action action, float y, const std::string& text, Context context);
     private:
         sf::Sprite mBackgroundSprite;
         sf::RectangleShape mBlur;
+        sf::Text mTitle;
         std::size_t mActiveButtons;
-        sf::RectangleShape mExit;
-        sf::Text mExitText;
-        std::array<sf::RectangleShape, Player::actionCount> mBindingButtons;
+        std::vector<Button> mButtons;
+
+        sf::Sprite mMusicScrollBar;
+        sf::Sprite mMusicScrollThumb;
+        sf::Sprite mMusicIcon;
+        sf::Text mMusicLabel;
+        sf::Text mMusicText;
+        bool mIsScrolling;
+
+        sf::Sprite mSoundScrollBar;
+        sf::Sprite mSoundScrollThumb;
+        sf::Sprite mSoundIcon;
+        sf::Text mSoundLabel;
+        sf::Text mSoundText;
+        bool mIsScrollingSound;
+
+        std::array<sf::Sprite, Player::actionCount> mBindingButtons;
         std::array<sf::Text, Player::actionCount> mBindingTexts;
         std::array<sf::Text, Player::actionCount> mBindingLabels;
 };

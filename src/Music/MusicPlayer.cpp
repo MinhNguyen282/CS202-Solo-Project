@@ -10,6 +10,17 @@ MusicPlayer::MusicPlayer()
     mFilenames[Music::After5MinsTheme] = "Media/Music/After5MinsTheme.ogg";
     mFilenames[Music::After10MinsTheme] = "Media/Music/After10MinsTheme.ogg";
     mFilenames[Music::BossTheme] = "Media/Music/BossTheme.ogg";
+
+	std::ifstream ifs("Data/SoundSetting.dat");
+	if (ifs.is_open())
+	{
+		ifs >> mVolume;
+		ifs.close();
+	}
+	else
+		throw std::runtime_error("SoundSetting.dat could not be loaded.");
+
+	std::cout << "Music volume: " << mVolume << std::endl;
 }
 
 void MusicPlayer::play(Music::ID theme)
@@ -21,7 +32,7 @@ void MusicPlayer::play(Music::ID theme)
 
 	mMusic.setVolume(mVolume);
 	mMusic.setLoop(true);
-	mMusic.play();
+	mMusic.play(); 
 }
 
 void MusicPlayer::stop()
@@ -32,6 +43,7 @@ void MusicPlayer::stop()
 void MusicPlayer::setVolume(float volume)
 {
 	mVolume = volume;
+	mMusic.setVolume(mVolume);
 }
 
 void MusicPlayer::setPaused(bool paused)
@@ -40,4 +52,9 @@ void MusicPlayer::setPaused(bool paused)
 		mMusic.pause();
 	else
 		mMusic.play();
+}
+
+int MusicPlayer::getVolume() const
+{
+	return mVolume;
 }

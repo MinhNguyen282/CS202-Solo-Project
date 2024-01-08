@@ -8,6 +8,8 @@
 
 #include <map>
 #include <string>
+#include <fstream>
+#include <iostream>
 
 class MusicPlayer : private sf::NonCopyable
 {
@@ -19,6 +21,8 @@ class MusicPlayer : private sf::NonCopyable
 
         void setPaused(bool paused);
         void setVolume(float volume);
+
+        int getVolume() const;
     private:
         sf::Music mMusic;
         std::map<Music::ID, std::string> mFilenames;

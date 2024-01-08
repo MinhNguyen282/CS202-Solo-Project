@@ -26,6 +26,8 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sou
 , mScore(0)
 , invicible(false)
 , isLevelUp(false)
+, leftEnemy(0)
+, rightEnemy(0)
 {
     srand(time(NULL));
     mSceneTexture.create(mTarget.getSize().x, mTarget.getSize().y);
@@ -79,17 +81,25 @@ void World::update(sf::Time deltaTime)
     }
 
     if (mPlayedTime >= sf::seconds(60.0 * 15)){
-        numEnemy = 0;
+        numEnemy = 3;
+        leftEnemy = 2;
+        rightEnemy = 2;
         if (!hasBossSpawn) addBosses();
     }
     else if (mPlayedTime >= sf::seconds(60.0 * 10)){
         numEnemy = 20;
+        leftEnemy = 2;
+        rightEnemy = 3;
     }
     else if (mPlayedTime >= sf::seconds(60.0 * 5)){
         numEnemy = 15;
+        leftEnemy = 1;
+        rightEnemy = 2;
     }
     else if (mPlayedTime >= sf::seconds(60.0 * 1)){
         numEnemy = 10;
+        leftEnemy = 0;
+        rightEnemy = 1;
     }
 
     destroyEntitiesOutsideView();
@@ -286,7 +296,7 @@ void World::spawnEnemies()
         int randY = (rand() % 2 == 0 ? -1 : 1);
         int randomX = mPlayerCharacter->getWorldPosition().x + randX * (rand() %300 + 600);
         int randomY = mPlayerCharacter->getWorldPosition().y + randY * (rand() %100 + 400);
-        int randomEnemy = rand() % 4;
+        int randomEnemy = rand() %(rightEnemy - leftEnemy + 1) + leftEnemy;
         std::unique_ptr<Enemy> enemy(new Enemy((Enemy::Type)(randomEnemy), mTextures, mFonts));
         enemy->setPosition(randomX, randomY);
         mSceneLayers[Ground]->attachChild(std::move(enemy));

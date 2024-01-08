@@ -29,6 +29,7 @@ Application::Application()
 , mStatisticsText()
 , mStatisticsUpdateTime()
 , mStatisticsNumFrames(0)
+, mIsPaused(false)
 {
     mWindow.setKeyRepeatEnabled(false);
 
@@ -44,6 +45,12 @@ Application::Application()
     mTextures.load(Textures::Panel, "Media/Textures/Panel.png");
     mTextures.load(Textures::bigPanel, "Media/Textures/bigPanel.png");
     mTextures.load(Textures::CreditPanel, "Media/Textures/CreditPanel.png");
+    mTextures.load(Textures::scrollBar, "Media/Textures/scrollbars.png");
+    mTextures.load(Textures::scrollBarButtonNormal, "Media/Textures/scrollbars_button_unclicked.png");
+    mTextures.load(Textures::scrollBarButtonSelected, "Media/Textures/scrollbars_button_clicked.png");
+    mTextures.load(Textures::musicIcon, "Media/Textures/musicIcon.png");
+    mTextures.load(Textures::musicIconMuted, "Media/Textures/musicIconMuted.png");
+    mTextures.load(Textures::soundIcon, "Media/Textures/soundIcon.png");
 
     mTextures.load(Textures::FlyingEyeIcon, "Media/Textures/FlyingEye/icon.png");
     mTextures.load(Textures::GoblinIcon, "Media/Textures/Goblin/icon.png");
@@ -53,8 +60,6 @@ Application::Application()
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
     mStatisticsText.setPosition(5.f, 5.f);
     mStatisticsText.setCharacterSize(10u);
-
-    mMusic.setVolume(25.f);
 
     registerStates();
     mStateStack.pushState(States::Title);
@@ -74,7 +79,7 @@ void Application::run()
             timeSinceLastUpdate -= TimePerFrame;
 
             processInput();
-            update(TimePerFrame);
+            if (!mIsPaused) update(TimePerFrame);
 
             if (mStateStack.isEmpty())
                 mWindow.close();
@@ -90,6 +95,10 @@ void Application::processInput()
     while (mWindow.pollEvent(event))
     {
         mStateStack.handleEvent(event);
+        if (event.type == sf::Event::GainedFocus)
+            mIsPaused = false;
+        else if (event.type == sf::Event::LostFocus)
+            mIsPaused = true;
         if (event.type == sf::Event::Closed)
             mWindow.close();
     }

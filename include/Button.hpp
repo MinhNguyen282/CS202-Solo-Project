@@ -19,9 +19,11 @@ class Button : public sf::Drawable, public sf::Transformable
         void update(sf::Time dt, sf::Vector2i mousePos);
         void handleEvent(const sf::Event& event, sf::Vector2i mousePos);
         void setCallback(std::function<void()> callback);
+        void setSprite(Textures::ID normal, Textures::ID pressed);
     private:
         sf::Sprite mSprite;
         sf::Text mText;
+        Textures::ID mNormal, mPressed;
         std::function<void()> mCallback;
         TextureHolder* mTextures;
         FontHolder* mFonts;
